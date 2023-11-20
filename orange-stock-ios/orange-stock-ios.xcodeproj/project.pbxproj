@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443002B09F75500CC1CCB /* AppDelegate.swift */; };
 		021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443022B09F75500CC1CCB /* SceneDelegate.swift */; };
-		021443052B09F75500CC1CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443042B09F75500CC1CCB /* ViewController.swift */; };
 		0214430A2B09F75600CC1CCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021443092B09F75600CC1CCB /* Assets.xcassets */; };
 		0214430D2B09F75600CC1CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0214430B2B09F75600CC1CCB /* LaunchScreen.storyboard */; };
 		021443182B09F75600CC1CCB /* orange_stock_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */; };
 		021443222B09F75600CC1CCB /* orange_stock_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */; };
 		021443242B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */; };
+		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
+		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		021442FD2B09F75500CC1CCB /* orange-stock-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "orange-stock-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		021443002B09F75500CC1CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		021443022B09F75500CC1CCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		021443042B09F75500CC1CCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		021443092B09F75600CC1CCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0214430C2B09F75600CC1CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0214430E2B09F75600CC1CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +47,7 @@
 		0214431D2B09F75600CC1CCB /* orange-stock-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "orange-stock-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITests.swift; sourceTree = "<group>"; };
 		021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FA12672B0B742D006A546F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +99,12 @@
 		021442FF2B09F75500CC1CCB /* orange-stock-ios */ = {
 			isa = PBXGroup;
 			children = (
-				021443002B09F75500CC1CCB /* AppDelegate.swift */,
-				021443022B09F75500CC1CCB /* SceneDelegate.swift */,
-				021443042B09F75500CC1CCB /* ViewController.swift */,
 				021443092B09F75600CC1CCB /* Assets.xcassets */,
 				0214430B2B09F75600CC1CCB /* LaunchScreen.storyboard */,
 				0214430E2B09F75600CC1CCB /* Info.plist */,
+				021443002B09F75500CC1CCB /* AppDelegate.swift */,
+				021443022B09F75500CC1CCB /* SceneDelegate.swift */,
+				02FA12642B0B73E5006A546F /* View */,
 			);
 			path = "orange-stock-ios";
 			sourceTree = "<group>";
@@ -124,6 +126,14 @@
 			path = "orange-stock-iosUITests";
 			sourceTree = "<group>";
 		};
+		02FA12642B0B73E5006A546F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +150,9 @@
 			dependencies = (
 			);
 			name = "orange-stock-ios";
+			packageProductDependencies = (
+				02FA12662B0B742D006A546F /* SnapKit */,
+			);
 			productName = "orange-stock-ios";
 			productReference = 021442FD2B09F75500CC1CCB /* orange-stock-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +225,9 @@
 				Base,
 			);
 			mainGroup = 021442F42B09F75500CC1CCB;
+			packageReferences = (
+				02FA12652B0B742D006A546F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 021442FE2B09F75500CC1CCB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				021443052B09F75500CC1CCB /* ViewController.swift in Sources */,
+				02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
 				021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */,
 			);
@@ -590,6 +606,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		02FA12652B0B742D006A546F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02FA12662B0B742D006A546F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FA12652B0B742D006A546F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 021442F52B09F75500CC1CCB /* Project object */;
 }

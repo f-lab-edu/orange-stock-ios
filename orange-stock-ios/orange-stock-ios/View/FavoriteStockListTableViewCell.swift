@@ -69,6 +69,7 @@ private extension FavoriteStockListTableViewCell {
         
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(10.0)
+            $0.height.equalTo(30.0)
         }
         
         prevDayDiffRateLabel.snp.makeConstraints {

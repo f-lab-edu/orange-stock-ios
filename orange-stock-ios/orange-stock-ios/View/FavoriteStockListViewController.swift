@@ -27,19 +27,28 @@ class FavoriteStockListViewController: UIViewController {
     // MARK: IBAction
     
     @objc func touchSearchBarButton() {
-        
+//        let pushViewController = SearchStockListViewController()
+//        self.navigationController?.pushViewController(pushViewController, animated: true)
     }
 }
 
 extension FavoriteStockListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return 31
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteStockListTableViewCell", for: indexPath) as? FavoriteStockListTableViewCell else { return UITableViewCell() }
-        
-        return cell
+        // 마지막 인덱스는 관심종목 추가하기 cell
+        if indexPath.row == 30 {
+            guard let addFavStockCell = tableView.dequeueReusableCell(withIdentifier: "AddFavoriteStockTableViewCell", for: indexPath) as? AddFavoriteStockTableViewCell else {
+                return UITableViewCell()
+            }
+            return addFavStockCell
+        }
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteStockListTableViewCell", for: indexPath) as? FavoriteStockListTableViewCell else { return UITableViewCell() }
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -51,10 +60,6 @@ extension FavoriteStockListViewController: UITableViewDataSource, UITableViewDel
 private extension FavoriteStockListViewController {
     
     func setSubViews() {
-        // 네비바 상단 투명하게
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        
         // 돋보기 버튼
         let searchBarButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
                                               style: .plain,
@@ -68,10 +73,11 @@ private extension FavoriteStockListViewController {
         title = "관심 주식 목록"
         
         // 관심 주식 목록
-        favListTabelView.rowHeight = 50.0
+        favListTabelView.rowHeight = UITableView.automaticDimension
         favListTabelView.separatorStyle = .none
         favListTabelView.register(FavoriteStockListHeaderView.self, forHeaderFooterViewReuseIdentifier: "FavoriteStockListHeaderView")
         favListTabelView.register(FavoriteStockListTableViewCell.self, forCellReuseIdentifier: "FavoriteStockListTableViewCell")
+        favListTabelView.register(AddFavoriteStockTableViewCell.self, forCellReuseIdentifier: "AddFavoriteStockTableViewCell")
         favListTabelView.dataSource = self
         favListTabelView.delegate = self
     }

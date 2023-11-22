@@ -8,8 +8,6 @@
 import UIKit
 import SnapKit
 
-// View: 나의 관심 주식 목록
-
 class FavoriteStockListViewController: UIViewController {
     
     private let favListTabelView = UITableView(frame: .zero, style: .plain)
@@ -33,8 +31,6 @@ class FavoriteStockListViewController: UIViewController {
 //        self.navigationController?.pushViewController(pushViewController, animated: true)
     }
 }
-
-// MARK: UITableViewDataSource, UITableViewDelegate
 
 extension FavoriteStockListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,8 +56,6 @@ extension FavoriteStockListViewController: UITableViewDataSource, UITableViewDel
         return headerView
     }
 }
-
-// MARK: Layout
 
 private extension FavoriteStockListViewController {
     

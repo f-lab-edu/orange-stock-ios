@@ -8,8 +8,6 @@
 import UIKit
 import SnapKit
 
-// View: 관심 주식 목록의 종목 Cell
-
 class FavoriteStockListTableViewCell: UITableViewCell {
     private let stackView = UIStackView()
     private let stockNameLabel = UILabel() // 종목명
@@ -28,8 +26,6 @@ class FavoriteStockListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-// MARK: Layout
 
 private extension FavoriteStockListTableViewCell {
     func setSubViews() {

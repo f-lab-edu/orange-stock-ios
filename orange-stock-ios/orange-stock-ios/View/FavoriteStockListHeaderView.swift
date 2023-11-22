@@ -8,20 +8,14 @@
 import UIKit
 import SnapKit
 
-// View: 관심 주식 목록의 제목 행 (종목명, 현재가, 등락, 등락률)
+/// View: 관심 주식 목록의 제목 행 (종목명, 현재가, 등락, 등락률)
 
-class FavoriteStockListHeaderView: UITableViewHeaderFooterView {
+final class FavoriteStockListHeaderView: UITableViewHeaderFooterView {
     
-    private let stackView = UIStackView()
-    private let stockNameLabel = UILabel() // 종목명
-    private let currentPriceSortButton = UIButton() // 현재가
-    private let prevDayDiffSortButton = UIButton() // 등락
-    private let prevDayDiffRateSortButton = UIButton() // 등락률
+    // MARK: Init
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        
-        setSubViews()
         layout()
     }
     
@@ -34,38 +28,34 @@ class FavoriteStockListHeaderView: UITableViewHeaderFooterView {
 
 private extension FavoriteStockListHeaderView {
     
-    func setSubViews() {
-        stackView.axis = .horizontal
-        stackView.spacing = 4.0
-        
-        stockNameLabel.text = "종목명"
-        stockNameLabel.font = .systemFont(ofSize: 14.0)
-        
-        currentPriceSortButton.setTitle("현재가", for: .normal)
-        currentPriceSortButton.setTitleColor(.black, for: .normal)
-        currentPriceSortButton.titleLabel?.font = .systemFont(ofSize: 14.0)
-        currentPriceSortButton.setImage(UIImage(systemName:"chevron.up.chevron.down"), for: .normal)
-        currentPriceSortButton.semanticContentAttribute = .forceRightToLeft
-        currentPriceSortButton.tintColor = .black
-        
-        prevDayDiffSortButton.setTitle("등락", for: .normal)
-        prevDayDiffSortButton.setTitleColor(.black, for: .normal)
-        prevDayDiffSortButton.titleLabel?.font = .systemFont(ofSize: 14.0)
-        prevDayDiffSortButton.setImage(UIImage(systemName:"chevron.up.chevron.down"), for: .normal)
-        prevDayDiffSortButton.semanticContentAttribute = .forceRightToLeft
-        prevDayDiffSortButton.tintColor = .black
-        
-        prevDayDiffRateSortButton.setTitle("등락률", for: .normal)
-        prevDayDiffRateSortButton.setTitleColor(.black, for: .normal)
-        prevDayDiffRateSortButton.titleLabel?.font = .systemFont(ofSize: 14.0)
-        prevDayDiffRateSortButton.setImage(UIImage(systemName:"chevron.up.chevron.down"), for: .normal)
-        prevDayDiffRateSortButton.semanticContentAttribute = .forceRightToLeft
-        prevDayDiffRateSortButton.tintColor = .black
-        prevDayDiffRateSortButton.contentHorizontalAlignment = .right
+    private enum Metric {
+        static let stackViewSpacing = 4.0
+        static let stackViewInset = 10.0
+        static let stackViewHeight = 30.0
+        static let currentPriceSortButtonWidth = 100.0
+        static let prevDayDiffSortButtonWidth = 64.0
+        static let prevDayDiffRateSortButtonWidth = 60.0
+    }
+    
+    private enum Title {
+        static let stockNameLabelText = "종목명"
+        static let currentPriceSortButtonTitle = "현재가"
+        static let prevDayDiffSortButtonTitle = "등락"
+        static let prevDayDiffRateSortButtonTitle = "등락률"
+    }
+    
+    private enum SystemImage {
+        static let sortButtonImage = "chevron.up.chevron.down"
     }
     
     func layout() {
+        let stackView = makeStackView()
         contentView.addSubview(stackView)
+        
+        let stockNameLabel = makeStockNameLabel()
+        let currentPriceSortButton = makeSortButton(title: Title.currentPriceSortButtonTitle)
+        let prevDayDiffSortButton = makeSortButton(title: Title.prevDayDiffSortButtonTitle)
+        let prevDayDiffRateSortButton = makeSortButton(title: Title.prevDayDiffRateSortButtonTitle)
         [
             stockNameLabel,
             currentPriceSortButton,
@@ -75,19 +65,49 @@ private extension FavoriteStockListHeaderView {
             stackView.addArrangedSubview($0)
         }
         
-        stackView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(10.0)
-        }
+        addStackViewContraints(stackView)
+        addSortButton(currentPriceSortButton, contraint: Metric.currentPriceSortButtonWidth)
+        addSortButton(prevDayDiffSortButton, contraint: Metric.prevDayDiffSortButtonWidth)
+        addSortButton(prevDayDiffRateSortButton, contraint: Metric.prevDayDiffRateSortButtonWidth)
+    }
+    
+    func makeStackView() -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 4.0
+        return stackView
+    }
+    
+    func makeStockNameLabel() -> UILabel {
+        let label = UILabel()
+        label.text = Title.stockNameLabelText
+        label.textColor = Color.basic
+        label.font = Font.titleLabel
+        return label
+    }
+    
+    func makeSortButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(Color.basic, for: .normal)
+        button.titleLabel?.font = Font.titleLabel
+        button.semanticContentAttribute = .forceRightToLeft
         
-        prevDayDiffRateSortButton.snp.makeConstraints {
-            $0.width.equalTo(60.0)
+        button.setImage(UIImage(systemName:SystemImage.sortButtonImage), for: .normal)
+        button.tintColor = Color.basic
+        return button
+    }
+    
+    func addStackViewContraints(_ stackView: UIStackView) {
+        stackView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(Metric.stackViewInset)
+            $0.height.equalTo(Metric.stackViewHeight)
         }
-        prevDayDiffSortButton.snp.makeConstraints {
-            $0.width.equalTo(60.0)
-        }
-        currentPriceSortButton.snp.makeConstraints {
-            $0.width.equalTo(100.0)
+    }
+    
+    func addSortButton(_ button: UIButton, contraint width: CGFloat) {
+        button.snp.makeConstraints {
+            $0.width.equalTo(width)
         }
     }
 }
-

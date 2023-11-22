@@ -14,7 +14,11 @@
 		021443182B09F75600CC1CCB /* orange_stock_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */; };
 		021443222B09F75600CC1CCB /* orange_stock_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */; };
 		021443242B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */; };
-		02C6BEFA2B0CC99B00832BC7 /* AddFavoriteStockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* AddFavoriteStockTableViewCell.swift */; };
+		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
+		02C813052B0F654E00CCA68B /* FontUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813042B0F654E00CCA68B /* FontUtils.swift */; };
+		02C813072B0F65ED00CCA68B /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813062B0F65ED00CCA68B /* ColorUtils.swift */; };
+		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
+		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
 		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
 		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
 		02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */; };
@@ -50,7 +54,11 @@
 		0214431D2B09F75600CC1CCB /* orange-stock-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "orange-stock-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITests.swift; sourceTree = "<group>"; };
 		021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		02C6BEF92B0CC99B00832BC7 /* AddFavoriteStockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteStockTableViewCell.swift; sourceTree = "<group>"; };
+		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
+		02C813042B0F654E00CCA68B /* FontUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtils.swift; sourceTree = "<group>"; };
+		02C813062B0F65ED00CCA68B /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
 		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
 		02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListTableViewCell.swift; sourceTree = "<group>"; };
 		02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListHeaderView.swift; sourceTree = "<group>"; };
@@ -110,7 +118,10 @@
 				0214430E2B09F75600CC1CCB /* Info.plist */,
 				021443002B09F75500CC1CCB /* AppDelegate.swift */,
 				021443022B09F75500CC1CCB /* SceneDelegate.swift */,
+				02F0A8DD2B13196600D37083 /* Entities */,
 				02FA12642B0B73E5006A546F /* View */,
+				02C92BC72B1606540076C37C /* Extension */,
+				02C813032B0F653500CCA68B /* Utils */,
 			);
 			path = "orange-stock-ios";
 			sourceTree = "<group>";
@@ -132,13 +143,38 @@
 			path = "orange-stock-iosUITests";
 			sourceTree = "<group>";
 		};
+		02C813032B0F653500CCA68B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				02C813042B0F654E00CCA68B /* FontUtils.swift */,
+				02C813062B0F65ED00CCA68B /* ColorUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		02C92BC72B1606540076C37C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		02F0A8DD2B13196600D37083 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				02C813862B0F7AB400CCA68B /* Stock.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		02FA12642B0B73E5006A546F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */,
 				02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */,
 				02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */,
-				02C6BEF92B0CC99B00832BC7 /* AddFavoriteStockTableViewCell.swift */,
+				02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,11 +316,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FA126B2B0B870E006A546F /* FavoriteStockListHeaderView.swift in Sources */,
-				02C6BEFA2B0CC99B00832BC7 /* AddFavoriteStockTableViewCell.swift in Sources */,
+				02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */,
+				02C813052B0F654E00CCA68B /* FontUtils.swift in Sources */,
+				02C813072B0F65ED00CCA68B /* ColorUtils.swift in Sources */,
 				02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
+				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
 				02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */,
 				021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */,
+				02C813872B0F7AB400CCA68B /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

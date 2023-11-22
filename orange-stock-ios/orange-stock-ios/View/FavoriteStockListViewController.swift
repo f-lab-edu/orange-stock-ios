@@ -8,56 +8,66 @@
 import UIKit
 import SnapKit
 
-// View: 나의 관심 주식 목록
+/// View: 나의 관심 주식 목록
 
-class FavoriteStockListViewController: UIViewController {
+final class FavoriteStockListViewController: UITableViewController {
     
-    private let favListTabelView = UITableView(frame: .zero, style: .plain)
+    private enum CellIdentifier {
+        static let stockListTableViewCell = "FavoriteStockListTableViewCell"
+        static let additionTableViewCell = "FavoriteStockAdditionTableViewCell"
+        static let stockListHeaderView = "FavoriteStockListHeaderView"
+    }
+    
+    // MARK: Properties
+    
+    private var favoriteStockList: [Stock] = []
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSubViews()
-        layout()
+        setNavtaionBar()
+        attributes()
+        register()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    // MARK: IBAction
+    // MARK: Actions
     
     @objc func touchSearchBarButton() {
-//        let pushViewController = SearchStockListViewController()
-//        self.navigationController?.pushViewController(pushViewController, animated: true)
+        
     }
 }
 
-// MARK: UITableViewDataSource, UITableViewDelegate
+// MARK: - UITableViewDataSource
 
-extension FavoriteStockListViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 31
+extension FavoriteStockListViewController {
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favoriteStockList.count + 1
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = indexPath.row == favoriteStockList.count
+         ? additionTableViewCellForRowAt(indexPath)
+         : stockListTableViewCellForRowAt(indexPath)
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 마지막 인덱스는 관심종목 추가하기 cell
-        if indexPath.row == 30 {
-            guard let addFavStockCell = tableView.dequeueReusableCell(withIdentifier: "AddFavoriteStockTableViewCell", for: indexPath) as? AddFavoriteStockTableViewCell else {
-                return UITableViewCell()
-            }
-            return addFavStockCell
-        }
-        else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteStockListTableViewCell", for: indexPath) as? FavoriteStockListTableViewCell else { return UITableViewCell() }
-            return cell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FavoriteStockListHeaderView") as? FavoriteStockListHeaderView else { return UIView() }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CellIdentifier.stockListHeaderView)
+         as? FavoriteStockListHeaderView ?? UIView()
         return headerView
+    }
+    
+    private func stockListTableViewCellForRowAt(_ indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.stockListTableViewCell, for: indexPath) as? FavoriteStockListTableViewCell
+        else { return UITableViewCell() }
+        cell.stock(self.favoriteStockList[indexPath.row])
+        return cell
+    }
+    
+    private func additionTableViewCellForRowAt(_ indexPath: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.additionTableViewCell, for: indexPath) as? FavoriteStockAdditionTableViewCell ?? UITableViewCell()
     }
 }
 
@@ -65,34 +75,34 @@ extension FavoriteStockListViewController: UITableViewDataSource, UITableViewDel
 
 private extension FavoriteStockListViewController {
     
-    func setSubViews() {
-        // 돋보기 버튼
-        let searchBarButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
+    private enum Title {
+        static let navigationTitle = "관심 주식 목록"
+    }
+    
+    private enum SystemImage {
+        static let searchBarButtonImage = "magnifyingglass"
+    }
+    
+    func setNavtaionBar() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        title = Title.navigationTitle
+        
+        let searchBarButton = UIBarButtonItem(image: UIImage(systemName: SystemImage.searchBarButtonImage),
                                               style: .plain,
                                               target: self,
                                               action: #selector(touchSearchBarButton))
-        searchBarButton.tintColor = .black
+        searchBarButton.tintColor = Color.basic
         self.navigationItem.rightBarButtonItem = searchBarButton
-        
-        // 네비 타이틀
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        title = "관심 주식 목록"
-        
-        // 관심 주식 목록
-        favListTabelView.rowHeight = UITableView.automaticDimension
-        favListTabelView.separatorStyle = .none
-        favListTabelView.register(FavoriteStockListHeaderView.self, forHeaderFooterViewReuseIdentifier: "FavoriteStockListHeaderView")
-        favListTabelView.register(FavoriteStockListTableViewCell.self, forCellReuseIdentifier: "FavoriteStockListTableViewCell")
-        favListTabelView.register(AddFavoriteStockTableViewCell.self, forCellReuseIdentifier: "AddFavoriteStockTableViewCell")
-        favListTabelView.dataSource = self
-        favListTabelView.delegate = self
     }
     
-    func layout() {
-        self.view.addSubview(favListTabelView)
-        
-        favListTabelView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    func attributes() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
+    }
+    
+    func register() {
+        tableView.register(FavoriteStockListHeaderView.self, forHeaderFooterViewReuseIdentifier: CellIdentifier.stockListHeaderView)
+        tableView.register(FavoriteStockListTableViewCell.self, forCellReuseIdentifier: CellIdentifier.stockListTableViewCell)
+        tableView.register(FavoriteStockAdditionTableViewCell.self, forCellReuseIdentifier: CellIdentifier.additionTableViewCell)
     }
 }

@@ -8,7 +8,10 @@
 import UIKit
 import SnapKit
 
+// View: 관심 주식 목록 하단의 관심 주식 추가하기 Cell
+ 
 class AddFavoriteStockTableViewCell: UITableViewCell {
+    
     private let button = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -22,7 +25,10 @@ class AddFavoriteStockTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: Layout
+
 private extension AddFavoriteStockTableViewCell {
+    
     func setSubViews() {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.setTitle("추가하기", for: .normal)

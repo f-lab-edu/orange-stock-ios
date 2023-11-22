@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+// View: 관심 주식 목록의 제목 행 (종목명, 현재가, 등락, 등락률)
+
 class FavoriteStockListHeaderView: UITableViewHeaderFooterView {
     private let stackView = UIStackView()
     private let stockNameLabel = UILabel() // 종목명

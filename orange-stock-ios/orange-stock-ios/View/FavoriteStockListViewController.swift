@@ -12,12 +12,6 @@ import SnapKit
 
 final class FavoriteStockListViewController: UITableViewController {
     
-    private enum CellIdentifier {
-        static let stockListTableViewCell = "FavoriteStockListTableViewCell"
-        static let additionTableViewCell = "FavoriteStockAdditionTableViewCell"
-        static let stockListHeaderView = "FavoriteStockListHeaderView"
-    }
-    
     // MARK: Properties
     
     private var favoriteStockList: [Stock] = []
@@ -26,7 +20,7 @@ final class FavoriteStockListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavtaionBar()
+        setNavigation()
         attributes()
         register()
     }
@@ -54,40 +48,35 @@ extension FavoriteStockListViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CellIdentifier.stockListHeaderView)
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: .stockListHeaderView)
          as? FavoriteStockListHeaderView ?? UIView()
         return headerView
     }
     
     private func stockListTableViewCellForRowAt(_ indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.stockListTableViewCell, for: indexPath) as? FavoriteStockListTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: .stockListTableViewCell,
+                                                       for: indexPath) as? FavoriteStockListTableViewCell
         else { return UITableViewCell() }
         cell.stock(self.favoriteStockList[indexPath.row])
         return cell
     }
     
     private func additionTableViewCellForRowAt(_ indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.additionTableViewCell, for: indexPath) as? FavoriteStockAdditionTableViewCell ?? UITableViewCell()
+        return tableView.dequeueReusableCell(withIdentifier: .additionTableViewCell,
+                                             for: indexPath) as? FavoriteStockAdditionTableViewCell
+         ?? UITableViewCell()
     }
 }
 
 // MARK: Layout
 
 private extension FavoriteStockListViewController {
-    
-    private enum Title {
-        static let navigationTitle = "관심 주식 목록"
-    }
-    
-    private enum SystemImage {
-        static let searchBarButtonImage = "magnifyingglass"
-    }
-    
-    func setNavtaionBar() {
+
+    func setNavigation() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        title = Title.navigationTitle
+        title = .navigationTitle
         
-        let searchBarButton = UIBarButtonItem(image: UIImage(systemName: SystemImage.searchBarButtonImage),
+        let searchBarButton = UIBarButtonItem(image: UIImage(systemName: .searchBarButtonImage),
                                               style: .plain,
                                               target: self,
                                               action: #selector(touchSearchBarButton))
@@ -101,8 +90,19 @@ private extension FavoriteStockListViewController {
     }
     
     func register() {
-        tableView.register(FavoriteStockListHeaderView.self, forHeaderFooterViewReuseIdentifier: CellIdentifier.stockListHeaderView)
-        tableView.register(FavoriteStockListTableViewCell.self, forCellReuseIdentifier: CellIdentifier.stockListTableViewCell)
-        tableView.register(FavoriteStockAdditionTableViewCell.self, forCellReuseIdentifier: CellIdentifier.additionTableViewCell)
+        tableView.register(FavoriteStockListHeaderView.self, forHeaderFooterViewReuseIdentifier: .stockListHeaderView)
+        tableView.register(FavoriteStockListTableViewCell.self, forCellReuseIdentifier: .stockListTableViewCell)
+        tableView.register(FavoriteStockAdditionTableViewCell.self, forCellReuseIdentifier: .additionTableViewCell)
     }
+}
+
+private extension String {
+    // navigation
+    static let navigationTitle = "관심 주식 목록"
+    static let searchBarButtonImage = "magnifyingglass"
+    
+    // Cell Identifier
+    static let stockListTableViewCell = "FavoriteStockListTableViewCell"
+    static let additionTableViewCell = "FavoriteStockAdditionTableViewCell"
+    static let stockListHeaderView = "FavoriteStockListHeaderView"
 }

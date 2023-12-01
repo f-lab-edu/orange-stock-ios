@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// 국내 주식 종목
 struct Stock {
     let stockCode: String // 종목코드
     let stockName: String // 종목명
@@ -15,6 +16,7 @@ struct Stock {
     let prevDayDiffPrice: String // 전일 대비
     let prevDayDiffRate: String // 전일 대비율
     
+    /// 전일 대비 타입
     enum DiffSign: Int {
         case upperLimit = 1 // 상한
         case increase       // 상승

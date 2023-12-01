@@ -12,6 +12,8 @@ import SnapKit
 
 final class FavoriteStockAdditionTableViewCell: UITableViewCell {
     
+    // MARK: Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layout()
@@ -33,33 +35,20 @@ private extension FavoriteStockAdditionTableViewCell {
         static let additionButtonBorderWidth = 1.0
     }
     
-    private enum Title {
-        static let additionButtonTitle = "추가하기"
-    }
-    
-    private enum SystemImage {
-        static let additionButtonImage = "plus"
-    }
-    
     func layout() {
         let additionButton = makeAdditionButton()
         contentView.addSubview(additionButton)
-        addAdditionButtonContraint(additionButton)
+        addAdditionButtonContraints(additionButton)
     }
     
-    func addAdditionButtonContraint(_ button: UIButton) {
-        button.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(Metric.additionButtonInset)
-            $0.height.equalTo(Metric.additionButtonHeight)
-        }
-    }
+    // MARK: UIComponets
     
     func makeAdditionButton() -> UIButton {
         let button = UIButton()
-        button.setImage(UIImage(systemName: SystemImage.additionButtonImage), for: .normal)
+        button.setImage(UIImage(systemName: .additionButtonImage), for: .normal)
         button.tintColor = .basic
         
-        button.setTitle(Title.additionButtonTitle, for: .normal)
+        button.setTitle(.additionButtonTitle, for: .normal)
         button.titleLabel?.font = .titleLabel
         button.setTitleColor(.basic, for: .normal)
         button.contentHorizontalAlignment = .center
@@ -69,4 +58,20 @@ private extension FavoriteStockAdditionTableViewCell {
         button.layer.borderColor = UIColor.basic.cgColor
         return button
     }
+    
+    // MARK: Constraints
+    
+    func addAdditionButtonContraints(_ button: UIButton) {
+        button.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(Metric.additionButtonInset)
+            $0.height.equalTo(Metric.additionButtonHeight)
+        }
+    }
+}
+
+private extension String {
+    // button title
+    static let additionButtonTitle = "추가하기"
+    // button systemImage
+    static let additionButtonImage = "plus"
 }

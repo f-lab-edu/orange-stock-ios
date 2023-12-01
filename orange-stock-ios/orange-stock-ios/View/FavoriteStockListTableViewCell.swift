@@ -64,6 +64,8 @@ private extension FavoriteStockListTableViewCell {
         addStockLabelsConstraint(self.stockLabels)
     }
     
+    // MARK: UIComponets
+    
     func makeStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -79,6 +81,8 @@ private extension FavoriteStockListTableViewCell {
         let prevDayDiffRateLabel = StockLabel(type: .prevDayDiffRate)
         return [stockNameLabel, currentPriceLabel, prevDayDiffSignLabel, prevDayDiffPriceLabel, prevDayDiffRateLabel]
     }
+    
+    // MARK: Contraints
     
     func addStackViewContraints(_ stackView: UIStackView) {
         stackView.snp.makeConstraints {
@@ -101,9 +105,11 @@ private extension FavoriteStockListTableViewCell {
     }
 }
 
+/// Label: 주식 정보 표기
 class StockLabel: UILabel {
     
-    enum StockType {
+    /// 표기할 정보 타입
+    enum StockInfoType {
         case stockName
         case currentPrice
         case prevDayDiffSign
@@ -115,7 +121,11 @@ class StockLabel: UILabel {
         }
     }
     
-    private var type: StockType
+    // MARK: Properties
+    
+    private var type: StockInfoType
+    
+    // MARK: Init
     
     override init(frame: CGRect) {
         self.type = .stockName
@@ -126,7 +136,7 @@ class StockLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(type: StockType) {
+    convenience init(type: StockInfoType) {
         self.init(frame: .zero)
         
         self.type = type
@@ -136,10 +146,14 @@ class StockLabel: UILabel {
         self.font = .titleLabel
     }
     
+    // MARK: Public Methods
+    
     func stock(_ stock: Stock) {
         self.text = text(stock)
         self.textColor = textColor(stock.prevDayDiffSign)
     }
+    
+    // MARK: Private Methods
     
     private func textColor(_ diffSign: Stock.DiffSign) -> UIColor {
         return type == .stockName ? .basic : diffSign.color()

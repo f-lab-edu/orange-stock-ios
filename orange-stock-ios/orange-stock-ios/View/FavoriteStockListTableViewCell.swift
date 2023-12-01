@@ -46,8 +46,7 @@ private extension FavoriteStockListTableViewCell {
         static let stackViewInset = 10.0
         static let stackViewHeight = 30.0
         static let currentPriceLabelWidth = 100.0
-        static let spacingViewWidth = 14.0
-        static let prevDayDiffSignLabelWidth = 14.0
+        static let prevDayDiffSignLabelWidth = 28.0
         static let prevDayDiffPriceLabelWidth = 48.0
         static let prevDayDiffRateLabelWidth = 64.0
     }
@@ -56,13 +55,13 @@ private extension FavoriteStockListTableViewCell {
         let stackView = makeStackView()
         contentView.addSubview(stackView)
         
-        let stockLabels = makeStockLabels()
-        stockLabels.forEach {
+        self.stockLabels = makeStockLabels()
+        self.stockLabels.forEach {
             stackView.addArrangedSubview($0)
         }
         
         addStackViewContraints(stackView)
-        addStockLabelsConstraint(stockLabels)
+        addStockLabelsConstraint(self.stockLabels)
     }
     
     func makeStackView() -> UIStackView {
@@ -75,14 +74,10 @@ private extension FavoriteStockListTableViewCell {
     func makeStockLabels() -> [StockLabel] {
         let stockNameLabel = StockLabel(type: .stockName)
         let currentPriceLabel = StockLabel(type: .currentPrice)
-        let spacingView = StockLabel()
         let prevDayDiffSignLabel = StockLabel(type: .prevDayDiffSign)
         let prevDayDiffPriceLabel = StockLabel(type: .prevDayDiffPrice)
         let prevDayDiffRateLabel = StockLabel(type: .prevDayDiffRate)
-        
-        self.stockLabels = [stockNameLabel, currentPriceLabel, prevDayDiffSignLabel, prevDayDiffSignLabel, prevDayDiffPriceLabel, prevDayDiffRateLabel]
-        
-        return [stockNameLabel, currentPriceLabel, spacingView, prevDayDiffSignLabel, prevDayDiffPriceLabel, prevDayDiffRateLabel]
+        return [stockNameLabel, currentPriceLabel, prevDayDiffSignLabel, prevDayDiffPriceLabel, prevDayDiffRateLabel]
     }
     
     func addStackViewContraints(_ stackView: UIStackView) {
@@ -93,14 +88,13 @@ private extension FavoriteStockListTableViewCell {
     }
     
     func addStockLabelsConstraint(_ views: [StockLabel]) {
-        addStockLabel(views[5], constraint: Metric.prevDayDiffRateLabelWidth)
-        addStockLabel(views[4], constraint: Metric.prevDayDiffPriceLabelWidth)
-        addStockLabel(views[3], constraint: Metric.prevDayDiffSignLabelWidth)
-        addStockLabel(views[2], constraint: Metric.spacingViewWidth)
+        addStockLabel(views[4], constraint: Metric.prevDayDiffRateLabelWidth)
+        addStockLabel(views[3], constraint: Metric.prevDayDiffPriceLabelWidth)
+        addStockLabel(views[2], constraint: Metric.prevDayDiffSignLabelWidth)
         addStockLabel(views[1], constraint: Metric.currentPriceLabelWidth)
     }
     
-    func addStockLabel(_ view: UIView, constraint width: CGFloat) {
+    func addStockLabel(_ view: StockLabel, constraint width: CGFloat) {
         view.snp.makeConstraints {
             $0.width.equalTo(width)
         }
@@ -116,18 +110,15 @@ class StockLabel: UILabel {
         case prevDayDiffPrice
         case prevDayDiffRate
         
-        func changeTextColor() -> Bool {
-            return self != .stockName
-        }
-        
         func textAlignment() -> NSTextAlignment {
             return self == .stockName ? .left : .right
         }
     }
     
-    private var type: StockType?
+    private var type: StockType
     
     override init(frame: CGRect) {
+        self.type = .stockName
         super.init(frame: frame)
     }
     
@@ -141,8 +132,8 @@ class StockLabel: UILabel {
         self.type = type
         
         self.textAlignment = type.textAlignment()
-        self.textColor = Color.basic
-        self.font = Font.titleLabel
+        self.textColor = .basic
+        self.font = .titleLabel
     }
     
     func stock(_ stock: Stock) {
@@ -151,8 +142,7 @@ class StockLabel: UILabel {
     }
     
     private func textColor(_ diffSign: Stock.DiffSign) -> UIColor {
-        guard let type = self.type else { return Color.basic }
-        return type.changeTextColor() ? diffSign.color() : Color.basic
+        return type == .stockName ? .basic : diffSign.color()
     }
     
     private func text(_ stock: Stock) -> String {
@@ -167,8 +157,6 @@ class StockLabel: UILabel {
             return stock.prevDayDiffPrice.makeDecimal()
         case .prevDayDiffRate:
             return "\(stock.prevDayDiffRate)%"
-        case .none:
-            return ""
         }
     }
 }

@@ -74,27 +74,27 @@ private extension FavoriteStockListHeaderView {
     func makeStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 4.0
+        stackView.spacing = Metric.stackViewSpacing
         return stackView
     }
     
     func makeStockNameLabel() -> UILabel {
         let label = UILabel()
         label.text = Title.stockNameLabelText
-        label.textColor = Color.basic
-        label.font = Font.titleLabel
+        label.textColor = .basic
+        label.font = .titleLabel
         return label
     }
     
     func makeSortButton(title: String) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
-        button.setTitleColor(Color.basic, for: .normal)
-        button.titleLabel?.font = Font.titleLabel
+        button.setTitleColor(.basic, for: .normal)
+        button.titleLabel?.font = .titleLabel
         button.semanticContentAttribute = .forceRightToLeft
         
         button.setImage(UIImage(systemName:SystemImage.sortButtonImage), for: .normal)
-        button.tintColor = Color.basic
+        button.tintColor = .basic
         return button
     }
     

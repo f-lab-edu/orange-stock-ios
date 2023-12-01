@@ -25,11 +25,11 @@ struct Stock {
         func color() -> UIColor {
             switch self {
             case .upperLimit, .increase:
-                return Color.stockUp
+                return .stockUp
             case .stability:
-                return Color.basic
+                return .basic
             case .lowerLimit, .decrease:
-                return Color.stockDown
+                return .stockDown
             }
         }
         

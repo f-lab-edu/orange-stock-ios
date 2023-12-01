@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 숫자 세자리 단위 콤마  문자열로 변환
 extension String {
     func makeDecimal() -> String {
         guard let intValue = Int64(self) else { return "" }

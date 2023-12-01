@@ -57,16 +57,16 @@ private extension FavoriteStockAdditionTableViewCell {
     func makeAdditionButton() -> UIButton {
         let button = UIButton()
         button.setImage(UIImage(systemName: SystemImage.additionButtonImage), for: .normal)
-        button.tintColor = Color.basic
+        button.tintColor = .basic
         
         button.setTitle(Title.additionButtonTitle, for: .normal)
-        button.titleLabel?.font = Font.titleLabel
-        button.setTitleColor(Color.basic, for: .normal)
+        button.titleLabel?.font = .titleLabel
+        button.setTitleColor(.basic, for: .normal)
         button.contentHorizontalAlignment = .center
         
         button.layer.cornerRadius = Metric.additionButtonCornerRadius
         button.layer.borderWidth = Metric.additionButtonBorderWidth
-        button.layer.borderColor = Color.basic.cgColor
+        button.layer.borderColor = UIColor.basic.cgColor
         return button
     }
 }

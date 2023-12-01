@@ -91,7 +91,7 @@ private extension FavoriteStockListViewController {
                                               style: .plain,
                                               target: self,
                                               action: #selector(touchSearchBarButton))
-        searchBarButton.tintColor = Color.basic
+        searchBarButton.tintColor = .basic
         self.navigationItem.rightBarButtonItem = searchBarButton
     }
     

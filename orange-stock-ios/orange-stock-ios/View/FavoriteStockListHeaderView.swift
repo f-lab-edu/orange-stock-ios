@@ -23,11 +23,12 @@ final class FavoriteStockListHeaderView: UITableViewHeaderFooterView {
     }
 }
 
-// MARK: Layout
+// MARK: Enum Attributes
 
 private extension FavoriteStockListHeaderView {
     
-    private enum Metric {
+    /// Constraint
+    enum Metric {
         static let stackViewSpacing = 4.0
         static let stackViewInset = 10.0
         static let stackViewHeight = 30.0
@@ -36,14 +37,30 @@ private extension FavoriteStockListHeaderView {
         static let prevDayDiffRateSortButtonWidth = 60.0
     }
     
+    /// Attributes
+    enum Attributes {
+        static let stockNameLabelText = "종목명"
+        static let currentPriceSortButtonTitle = "현재가"
+        static let prevDayDiffSortButtonTitle = "등락"
+        static let prevDayDiffRateSortButtonTitle = "등락률"
+        
+        // button systemImage
+        static let sortButtonImage = "chevron.up.chevron.down"
+    }
+}
+
+// MARK: Layout
+
+private extension FavoriteStockListHeaderView {
+
     func layout() {
         let stackView = makeStackView()
         contentView.addSubview(stackView)
         
         let stockNameLabel = makeStockNameLabel()
-        let currentPriceSortButton = makeSortButton(title: .currentPriceSortButtonTitle)
-        let prevDayDiffSortButton = makeSortButton(title: .prevDayDiffSortButtonTitle)
-        let prevDayDiffRateSortButton = makeSortButton(title: .prevDayDiffRateSortButtonTitle)
+        let currentPriceSortButton = makeSortButton(title: Attributes.currentPriceSortButtonTitle)
+        let prevDayDiffSortButton = makeSortButton(title: Attributes.prevDayDiffSortButtonTitle)
+        let prevDayDiffRateSortButton = makeSortButton(title: Attributes.prevDayDiffRateSortButtonTitle)
         [
             stockNameLabel,
             currentPriceSortButton,
@@ -70,7 +87,7 @@ private extension FavoriteStockListHeaderView {
     
     func makeStockNameLabel() -> UILabel {
         let label = UILabel()
-        label.text = .stockNameLabelText
+        label.text = Attributes.stockNameLabelText
         label.textColor = .basic
         label.font = .titleLabel
         return label
@@ -83,7 +100,7 @@ private extension FavoriteStockListHeaderView {
         button.titleLabel?.font = .titleLabel
         button.semanticContentAttribute = .forceRightToLeft
         
-        button.setImage(UIImage(systemName:.sortButtonImage), for: .normal)
+        button.setImage(UIImage(systemName:Attributes.sortButtonImage), for: .normal)
         button.tintColor = .basic
         return button
     }
@@ -102,15 +119,4 @@ private extension FavoriteStockListHeaderView {
             $0.width.equalTo(width)
         }
     }
-}
-
-private extension String {
-    // label, button title
-    static let stockNameLabelText = "종목명"
-    static let currentPriceSortButtonTitle = "현재가"
-    static let prevDayDiffSortButtonTitle = "등락"
-    static let prevDayDiffRateSortButtonTitle = "등락률"
-    
-    // button systemImage
-    static let sortButtonImage = "chevron.up.chevron.down"
 }

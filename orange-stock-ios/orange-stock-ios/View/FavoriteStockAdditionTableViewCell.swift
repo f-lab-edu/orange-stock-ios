@@ -24,16 +24,30 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: Layout
+// MARK: Enum Attributes
 
 private extension FavoriteStockAdditionTableViewCell {
     
-    private enum Metric {
+    /// Constraint
+    enum Metric {
         static let additionButtonInset = 20.0
         static let additionButtonHeight = 44.0
         static let additionButtonCornerRadius = 8.0
         static let additionButtonBorderWidth = 1.0
     }
+    
+    /// Attributes
+    enum Attributes {
+        // button title
+        static let additionButtonTitle = "추가하기"
+        // button systemImage
+        static let additionImage = "plus"
+    }
+}
+
+// MARK: Layout
+
+private extension FavoriteStockAdditionTableViewCell {
     
     func layout() {
         let additionButton = makeAdditionButton()
@@ -45,10 +59,10 @@ private extension FavoriteStockAdditionTableViewCell {
     
     func makeAdditionButton() -> UIButton {
         let button = UIButton()
-        button.setImage(UIImage(systemName: .additionButtonImage), for: .normal)
+        button.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
         button.tintColor = .basic
         
-        button.setTitle(.additionButtonTitle, for: .normal)
+        button.setTitle(Attributes.additionButtonTitle, for: .normal)
         button.titleLabel?.font = .titleLabel
         button.setTitleColor(.basic, for: .normal)
         button.contentHorizontalAlignment = .center
@@ -67,11 +81,4 @@ private extension FavoriteStockAdditionTableViewCell {
             $0.height.equalTo(Metric.additionButtonHeight)
         }
     }
-}
-
-private extension String {
-    // button title
-    static let additionButtonTitle = "추가하기"
-    // button systemImage
-    static let additionButtonImage = "plus"
 }

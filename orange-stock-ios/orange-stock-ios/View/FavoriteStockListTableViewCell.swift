@@ -37,11 +37,12 @@ final class FavoriteStockListTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: Layout
+// MARK: Enum Attributes
 
 private extension FavoriteStockListTableViewCell {
-
-    private enum Metric {
+    
+    /// Constraint
+    enum Metric {
         static let stackViewSpacing = 4.0
         static let stackViewInset = 10.0
         static let stackViewHeight = 30.0
@@ -50,6 +51,11 @@ private extension FavoriteStockListTableViewCell {
         static let prevDayDiffPriceLabelWidth = 48.0
         static let prevDayDiffRateLabelWidth = 64.0
     }
+}
+
+// MARK: Layout
+
+private extension FavoriteStockListTableViewCell {
     
     func layout() {
         let stackView = makeStackView()

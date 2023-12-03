@@ -28,7 +28,6 @@ final class FavoriteStockListViewController: UITableViewController {
     // MARK: Actions
     
     @objc func touchSearchBarButton() {
-        
     }
 }
 

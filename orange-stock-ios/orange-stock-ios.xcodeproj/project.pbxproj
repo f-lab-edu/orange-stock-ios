@@ -9,12 +9,20 @@
 /* Begin PBXBuildFile section */
 		021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443002B09F75500CC1CCB /* AppDelegate.swift */; };
 		021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443022B09F75500CC1CCB /* SceneDelegate.swift */; };
-		021443052B09F75500CC1CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443042B09F75500CC1CCB /* ViewController.swift */; };
 		0214430A2B09F75600CC1CCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021443092B09F75600CC1CCB /* Assets.xcassets */; };
 		0214430D2B09F75600CC1CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0214430B2B09F75600CC1CCB /* LaunchScreen.storyboard */; };
 		021443182B09F75600CC1CCB /* orange_stock_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */; };
 		021443222B09F75600CC1CCB /* orange_stock_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */; };
 		021443242B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */; };
+		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
+		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
+		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
+		02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */; };
+		02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9E02B1A2969008D1EC3 /* UIFont.swift */; };
+		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
+		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
+		02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */; };
+		02FA126B2B0B870E006A546F /* FavoriteStockListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +46,6 @@
 		021442FD2B09F75500CC1CCB /* orange-stock-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "orange-stock-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		021443002B09F75500CC1CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		021443022B09F75500CC1CCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		021443042B09F75500CC1CCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		021443092B09F75600CC1CCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0214430C2B09F75600CC1CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0214430E2B09F75600CC1CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +54,14 @@
 		0214431D2B09F75600CC1CCB /* orange-stock-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "orange-stock-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITests.swift; sourceTree = "<group>"; };
 		021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
+		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
+		02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		02E9D9E02B1A2969008D1EC3 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
+		02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListTableViewCell.swift; sourceTree = "<group>"; };
+		02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FA12672B0B742D006A546F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +113,14 @@
 		021442FF2B09F75500CC1CCB /* orange-stock-ios */ = {
 			isa = PBXGroup;
 			children = (
-				021443002B09F75500CC1CCB /* AppDelegate.swift */,
-				021443022B09F75500CC1CCB /* SceneDelegate.swift */,
-				021443042B09F75500CC1CCB /* ViewController.swift */,
 				021443092B09F75600CC1CCB /* Assets.xcassets */,
 				0214430B2B09F75600CC1CCB /* LaunchScreen.storyboard */,
 				0214430E2B09F75600CC1CCB /* Info.plist */,
+				021443002B09F75500CC1CCB /* AppDelegate.swift */,
+				021443022B09F75500CC1CCB /* SceneDelegate.swift */,
+				02F0A8DD2B13196600D37083 /* Entities */,
+				02FA12642B0B73E5006A546F /* View */,
+				02C92BC72B1606540076C37C /* Extension */,
 			);
 			path = "orange-stock-ios";
 			sourceTree = "<group>";
@@ -124,6 +142,35 @@
 			path = "orange-stock-iosUITests";
 			sourceTree = "<group>";
 		};
+		02C92BC72B1606540076C37C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */,
+				02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */,
+				02E9D9E02B1A2969008D1EC3 /* UIFont.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		02F0A8DD2B13196600D37083 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				02C813862B0F7AB400CCA68B /* Stock.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		02FA12642B0B73E5006A546F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */,
+				02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */,
+				02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */,
+				02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +187,9 @@
 			dependencies = (
 			);
 			name = "orange-stock-ios";
+			packageProductDependencies = (
+				02FA12662B0B742D006A546F /* SnapKit */,
+			);
 			productName = "orange-stock-ios";
 			productReference = 021442FD2B09F75500CC1CCB /* orange-stock-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +262,9 @@
 				Base,
 			);
 			mainGroup = 021442F42B09F75500CC1CCB;
+			packageReferences = (
+				02FA12652B0B742D006A546F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 021442FE2B09F75500CC1CCB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,9 +307,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				021443052B09F75500CC1CCB /* ViewController.swift in Sources */,
+				02FA126B2B0B870E006A546F /* FavoriteStockListHeaderView.swift in Sources */,
+				02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */,
+				02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
+				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
+				02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */,
+				02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */,
+				02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */,
 				021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */,
+				02C813872B0F7AB400CCA68B /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,8 +490,8 @@
 				INFOPLIST_FILE = "orange-stock-ios/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,6 +500,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -458,8 +521,8 @@
 				INFOPLIST_FILE = "orange-stock-ios/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,6 +531,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -590,6 +656,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		02FA12652B0B742D006A546F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02FA12662B0B742D006A546F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FA12652B0B742D006A546F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 021442F52B09F75500CC1CCB /* Project object */;
 }

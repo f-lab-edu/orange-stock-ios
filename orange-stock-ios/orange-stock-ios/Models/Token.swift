@@ -9,9 +9,9 @@ import Foundation
 
 /// Model: AccessToken
 struct Token: Codable {
-    let accessToken: String
-    let expiresIn: Int
-    let tokenType: String
+    let accessToken: String // 접근토큰
+    let expiresIn: Int // 접근토큰 유효기간(초)
+    let tokenType: String // 토큰유형: Bearer
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
@@ -20,7 +20,7 @@ struct Token: Codable {
     }
 }
 
-/// Mode:  Revoke Token시 Response
+/// Model:  Revoke Token시 Response
 struct TokenRevokeResponse: Codable {
     let code: Int
     let message: String

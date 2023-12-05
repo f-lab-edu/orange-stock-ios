@@ -14,8 +14,8 @@ class OAuthAPIService {
     let provider = MoyaProvider<OAuthAPI>()
     
     // accessToken 발행
-    func accessToken(completion: @escaping (Result<Token, Error>) -> ()) {
-        request(target: .accessToken, completion: completion)
+    func issueAccessToken(completion: @escaping (Result<Token, Error>) -> ()) {
+        request(target: .issueAccessToken, completion: completion)
     }
     
     // accessToken 폐기

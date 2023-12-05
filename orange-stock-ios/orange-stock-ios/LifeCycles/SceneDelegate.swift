@@ -29,32 +29,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // 앱이 foreground에 올라오면 accessToken 발행
-        OAuthAPIService().accessToken { result in
-            switch result {
-            case .success(let token):
-                UserDefaultsManager.shared.setAccessToken(token)
-            case .failure(let error):
-                // TODO: Error 처리 어떻게 할지
-                print(error.localizedDescription)
-            }
-        }
+        
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // 백그라운드 진입 시 accessToken 폐기
-        let accessToken = UserDefaultsManager.shared.getAccessToken()
-        OAuthAPIService().revokeToken(accessToken) { result in
-            switch result {
-            case .success(let response):
-                if response.code == 200 {
-                    UserDefaultsManager.shared.clear(.accessToken)
-                }
-            case .failure(let error):
-                // TODO: Error 처리 어떻게 할지
-                print(error.localizedDescription)
-            }
-        }
     }
 }
 

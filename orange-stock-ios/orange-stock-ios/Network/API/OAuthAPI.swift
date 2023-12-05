@@ -11,7 +11,7 @@ import Moya
 /// OAuth 인증 API 설정
 enum OAuthAPI {
     // 접근토큰발급
-    case accessToken
+    case issueAccessToken
     // 접근토큰폐기
     case revokeToken(_ token: String)
 }
@@ -24,7 +24,7 @@ extension OAuthAPI: TargetType {
     
     var path: String {
         switch self {
-        case .accessToken:
+        case .issueAccessToken:
             return "/oauth2/token"
         case .revokeToken:
             return "/oauth2/revoke"
@@ -47,7 +47,7 @@ extension OAuthAPI: TargetType {
     
     var parameter: [String: Any]? {
         switch self {
-        case .accessToken:
+        case .issueAccessToken:
             return [
                 "grant_type": "client_credentials",
                 "appkey": NetworkConfig.appKey,

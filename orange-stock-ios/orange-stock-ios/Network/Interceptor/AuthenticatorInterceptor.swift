@@ -17,17 +17,12 @@ final class AuthenticatorInterceptor: RequestInterceptor {
                for session: Session,
                dueTo error: Error,
                completion: @escaping (RetryResult) -> Void) {
-        // 토큰을 갱신해야하는 상황이 아니라면 바로 리턴한다.
-        guard let data = (request as? DataRequest)?.data,
-              let rspMsg = decode(ResponseMessage(), from: data),
-              let code = rspMsg.code,
-              code.isTokenErrorCode
-        else {
+        // access token을 갱신해야하는 상황이 아니라면 바로 리턴한다.
+        guard needUpdateAccessToken(request: request) else {
             completion(.doNotRetryWithError(error))
             return
         }
-        
-        // 토큰 갱신 API 호출
+        // access token 갱신 API 호출
         requestAccessToken { success, error in
             completion(
                 success ? .retry : .doNotRetryWithError(error!)
@@ -40,7 +35,17 @@ final class AuthenticatorInterceptor: RequestInterceptor {
 
 extension AuthenticatorInterceptor {
     
-    /// 토큰 갱신 API
+    /// access token 갱신이 필요한지 확인
+    func needUpdateAccessToken(request: Request) -> Bool {
+        guard let data = (request as? DataRequest)?.data,
+              let rspMsg = decode(ResponseMessage(), from: data),
+              let code = rspMsg.code
+        else { return false }
+        
+        return code.isTokenErrorCode
+    }
+    
+    /// access token 갱신 API
     func requestAccessToken(completion: @escaping (Bool, Error?) -> Void) {
         OAuthAPIService().issueAccessToken { result in
             switch result {
@@ -55,6 +60,6 @@ extension AuthenticatorInterceptor {
     
     /// Json Decoding
     func decode<T: Codable>(_ type: T, from data: Data) -> T? {
-        return try? JSONDecoder().decode(T.self, from: data)
+        try? JSONDecoder().decode(T.self, from: data)
     }
 }

@@ -13,7 +13,7 @@ enum OAuthAPI {
     // 접근토큰발급
     case issueAccessToken
     // 접근토큰폐기
-    case revokeToken(_ token: String)
+    case revokeAccessToken(_ token: String)
 }
 
 extension OAuthAPI: TargetType {
@@ -26,7 +26,7 @@ extension OAuthAPI: TargetType {
         switch self {
         case .issueAccessToken:
             return "/oauth2/token"
-        case .revokeToken:
+        case .revokeAccessToken:
             return "/oauth2/revoke"
         }
     }
@@ -54,7 +54,7 @@ extension OAuthAPI: TargetType {
                 "appsecretkey": NetworkConfig.appSecretKey,
                 "scope": "oob"
             ]
-        case .revokeToken(let token):
+        case .revokeAccessToken(let token):
             return [
                 "appkey": NetworkConfig.appKey,
                 "appsecretkey": NetworkConfig.appSecretKey,

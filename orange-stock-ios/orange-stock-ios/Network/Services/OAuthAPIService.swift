@@ -19,14 +19,16 @@ class OAuthAPIService {
     }
     
     // accessToken 폐기
-    func revokeToken(_ token: String, completion: @escaping (Result<TokenRevokeResponse, Error>) -> ()) {
-        request(target: .revokeToken(token), completion: completion)
+    func revokeAccessToken(_ token: String,
+                           completion: @escaping (Result<TokenRevokeResponse, Error>) -> ()) {
+        request(target: .revokeAccessToken(token), completion: completion)
     }
 }
 
 private extension OAuthAPIService {
     
-    func request<T: Decodable>(target: OAuthAPI, completion: @escaping (Result<T, Error>) -> ()) {
+    func request<T: Decodable>(target: OAuthAPI,
+                               completion: @escaping (Result<T, Error>) -> ()) {
         provider.request(target) { result in
             switch result {
             case let .success(response):

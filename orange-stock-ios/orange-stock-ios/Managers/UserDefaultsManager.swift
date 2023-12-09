@@ -39,7 +39,7 @@ class UserDefaultsManager {
         UserDefaults.standard.set(token.accessToken, forKey: Key.accessToken.rawValue)
     }
     
-    /// acessToken 전달
+    /// accessToken 전달
     func getAccessToken() -> String {
         UserDefaults.standard.string(forKey: Key.accessToken.rawValue) ?? ""
     }

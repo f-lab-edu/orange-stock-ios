@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 /// OAuth 인증 API 호출
-class OAuthAPIService {
+final class OAuthAPIService {
     
     let provider = MoyaProvider<OAuthAPI>()
     

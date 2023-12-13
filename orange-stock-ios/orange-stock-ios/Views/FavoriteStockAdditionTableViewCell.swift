@@ -12,7 +12,27 @@ import SnapKit
 
 final class FavoriteStockAdditionTableViewCell: UITableViewCell {
     
-    // MARK: Init
+    // MARK: Enum
+    
+    /// Constraint
+    private enum Metric {
+        static let additionButtonInset = 20.0
+        static let additionButtonHeight = 44.0
+        static let additionButtonCornerRadius = 8.0
+        static let additionButtonBorderWidth = 1.0
+    }
+    
+    /// Attributes
+    private enum Attributes {
+        // button title
+        static let additionButtonTitle = "추가하기"
+        // button systemImage
+        static let additionImage = "plus"
+    }
+    
+    // MARK: - Init
+    
+    let additionButton = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,30 +42,10 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 
-// MARK: Enum Attributes
-
-private extension FavoriteStockAdditionTableViewCell {
-    
-    /// Constraint
-    enum Metric {
-        static let additionButtonInset = 20.0
-        static let additionButtonHeight = 44.0
-        static let additionButtonCornerRadius = 8.0
-        static let additionButtonBorderWidth = 1.0
-    }
-    
-    /// Attributes
-    enum Attributes {
-        // button title
-        static let additionButtonTitle = "추가하기"
-        // button systemImage
-        static let additionImage = "plus"
-    }
-}
-
-// MARK: Layout
+// MARK: - Layout
 
 private extension FavoriteStockAdditionTableViewCell {
     

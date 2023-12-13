@@ -8,13 +8,13 @@
 import Foundation
 
 /// UserDefaults 관리를 도와주는 Singleton Class
-class UserDefaultsManager {
+final class UserDefaultsManager {
     
     // MARK: Properties
     
     static let shared = UserDefaultsManager()
     
-    // MARK: Key - Enum
+    // MARK: Enum - Key
     
     enum Key: String, CaseIterable {
         case accessToken
@@ -33,7 +33,11 @@ class UserDefaultsManager {
     func clear(_ key: Key) {
         UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
-    
+}
+
+// MARK: - AceessToken
+
+extension UserDefaultsManager {
     /// accessToken 저장
     func setAccessToken(_ token: Token) {
         UserDefaults.standard.set(token.accessToken, forKey: Key.accessToken.rawValue)

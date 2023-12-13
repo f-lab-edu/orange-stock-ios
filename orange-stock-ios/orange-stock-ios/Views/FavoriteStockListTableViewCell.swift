@@ -16,7 +16,20 @@ final class FavoriteStockListTableViewCell: UITableViewCell {
     
     private var stockLabels: [StockLabel]!
     
-    // MARK: Init
+    // MARK: Enum - Constraint
+    
+    /// Constraint
+    private enum Metric {
+        static let stackViewSpacing = 4.0
+        static let stackViewInset = 10.0
+        static let stackViewHeight = 30.0
+        static let currentPriceLabelWidth = 100.0
+        static let prevDayDiffSignLabelWidth = 28.0
+        static let prevDayDiffPriceLabelWidth = 48.0
+        static let prevDayDiffRateLabelWidth = 64.0
+    }
+    
+    // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,7 +40,7 @@ final class FavoriteStockListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Pubilc Method
+    // MARK: - Pubilc Method
     
     func stock(_ stock: Stock?) {
         guard let stock = stock else { return }
@@ -37,23 +50,7 @@ final class FavoriteStockListTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: Enum Attributes
-
-private extension FavoriteStockListTableViewCell {
-    
-    /// Constraint
-    enum Metric {
-        static let stackViewSpacing = 4.0
-        static let stackViewInset = 10.0
-        static let stackViewHeight = 30.0
-        static let currentPriceLabelWidth = 100.0
-        static let prevDayDiffSignLabelWidth = 28.0
-        static let prevDayDiffPriceLabelWidth = 48.0
-        static let prevDayDiffRateLabelWidth = 64.0
-    }
-}
-
-// MARK: Layout
+// MARK: - Layout
 
 private extension FavoriteStockListTableViewCell {
     

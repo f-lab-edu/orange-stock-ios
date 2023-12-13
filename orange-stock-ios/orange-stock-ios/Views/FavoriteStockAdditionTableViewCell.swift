@@ -43,6 +43,11 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // 화면 설정 모드 변경 시 버튼 테두리 색상 변경
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        additionButton.layer.borderColor = UIColor.label.cgColor
+    }
 }
 
 // MARK: - Layout
@@ -50,33 +55,31 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
 private extension FavoriteStockAdditionTableViewCell {
     
     func layout() {
-        let additionButton = makeAdditionButton()
-        contentView.addSubview(additionButton)
-        addAdditionButtonContraints(additionButton)
+        attribute()
+        addAdditionButtonContraints()
     }
     
-    // MARK: UIComponets
+    // MARK: Attribute
     
-    func makeAdditionButton() -> UIButton {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
-        button.tintColor = .basic
+    func attribute() {
+        contentView.addSubview(additionButton)
+        additionButton.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
+        additionButton.tintColor = .basic
         
-        button.setTitle(Attributes.additionButtonTitle, for: .normal)
-        button.titleLabel?.font = .titleLabel
-        button.setTitleColor(.basic, for: .normal)
-        button.contentHorizontalAlignment = .center
+        additionButton.setTitle(Attributes.additionButtonTitle, for: .normal)
+        additionButton.titleLabel?.font = .titleLabel
+        additionButton.setTitleColor(.basic, for: .normal)
+        additionButton.contentHorizontalAlignment = .center
         
-        button.layer.cornerRadius = Metric.additionButtonCornerRadius
-        button.layer.borderWidth = Metric.additionButtonBorderWidth
-        button.layer.borderColor = UIColor.basic.cgColor
-        return button
+        additionButton.layer.cornerRadius = Metric.additionButtonCornerRadius
+        additionButton.layer.borderWidth = Metric.additionButtonBorderWidth
+        additionButton.layer.borderColor = UIColor.label.cgColor
     }
     
     // MARK: Constraints
     
-    func addAdditionButtonContraints(_ button: UIButton) {
-        button.snp.makeConstraints {
+    func addAdditionButtonContraints() {
+        additionButton.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Metric.additionButtonInset)
             $0.height.equalTo(Metric.additionButtonHeight)
         }

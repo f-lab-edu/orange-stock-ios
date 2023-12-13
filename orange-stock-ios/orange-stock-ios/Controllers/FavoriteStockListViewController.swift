@@ -41,10 +41,13 @@ final class FavoriteStockListViewController: UITableViewController {
         register()
     }
     
-    // MARK: Actions
     // MARK: - Actions
     
     @objc func touchSearchBarButton() {
+    }
+    
+    @objc func touchSettingBarButton() {
+        self.navigationController?.pushViewController(SettingViewController(), animated: true)
     }
 }
 

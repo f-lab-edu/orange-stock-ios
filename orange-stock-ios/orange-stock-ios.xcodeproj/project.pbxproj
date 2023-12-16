@@ -14,15 +14,25 @@
 		021443182B09F75600CC1CCB /* orange_stock_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */; };
 		021443222B09F75600CC1CCB /* orange_stock_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */; };
 		021443242B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */; };
+		02374CB72B1C1A4600EDB23D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CB62B1C1A4600EDB23D /* Token.swift */; };
+		02374CB92B1C1AA400EDB23D /* OAuthAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CB82B1C1AA400EDB23D /* OAuthAPIService.swift */; };
+		02374CC12B1C40EF00EDB23D /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CC02B1C40EF00EDB23D /* NetworkConfig.swift */; };
+		02374CC52B1C4E5900EDB23D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */; };
+		02B3AA132B1F4392003037EF /* AuthenticatorInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */; };
 		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
 		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
 		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
+		02D195D22B1E0A7600F4A060 /* OAuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D195D12B1E0A7600F4A060 /* OAuthAPI.swift */; };
+		02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D625772B1C9FE700B51949 /* ResponseMessage.swift */; };
 		02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */; };
 		02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9E02B1A2969008D1EC3 /* UIFont.swift */; };
 		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
 		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
 		02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */; };
 		02FA126B2B0B870E006A546F /* FavoriteStockListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */; };
+		30798426EB7E91258E4B05A7 /* Pods_orange_stock_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD75202A2D791DC06EEBB675 /* Pods_orange_stock_ios.framework */; };
+		82F06AEA14DFEFC355E51958 /* Pods_orange_stock_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBAA139A92C1F85B5315EBA /* Pods_orange_stock_iosTests.framework */; };
+		D89F9B91C4D6B352C2FFE8AD /* Pods_orange_stock_ios_orange_stock_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6C894602E6149AABAFC668 /* Pods_orange_stock_ios_orange_stock_iosUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +64,31 @@
 		0214431D2B09F75600CC1CCB /* orange-stock-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "orange-stock-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITests.swift; sourceTree = "<group>"; };
 		021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		02374CB62B1C1A4600EDB23D /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		02374CB82B1C1AA400EDB23D /* OAuthAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAPIService.swift; sourceTree = "<group>"; };
+		02374CBA2B1C1BA600EDB23D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		02374CC02B1C40EF00EDB23D /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorInterceptor.swift; sourceTree = "<group>"; };
 		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
 		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
+		02D195D12B1E0A7600F4A060 /* OAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAPI.swift; sourceTree = "<group>"; };
+		02D625772B1C9FE700B51949 /* ResponseMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMessage.swift; sourceTree = "<group>"; };
 		02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		02E9D9E02B1A2969008D1EC3 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
 		02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListTableViewCell.swift; sourceTree = "<group>"; };
 		02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListHeaderView.swift; sourceTree = "<group>"; };
+		12590DDF035F1CCC712EAF1D /* Pods-orange-stock-ios-orange-stock-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orange-stock-ios-orange-stock-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-orange-stock-ios-orange-stock-iosUITests/Pods-orange-stock-ios-orange-stock-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3EBAA139A92C1F85B5315EBA /* Pods_orange_stock_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_orange_stock_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E0B260897EFE72E68C0148 /* Pods-orange-stock-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orange-stock-ios.release.xcconfig"; path = "Target Support Files/Pods-orange-stock-ios/Pods-orange-stock-ios.release.xcconfig"; sourceTree = "<group>"; };
+		728728E6E12F342350A9A962 /* Pods-orange-stock-ios-orange-stock-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orange-stock-ios-orange-stock-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-orange-stock-ios-orange-stock-iosUITests/Pods-orange-stock-ios-orange-stock-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		74FB07840A70C203835051BF /* Pods-orange-stock-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orange-stock-iosTests.release.xcconfig"; path = "Target Support Files/Pods-orange-stock-iosTests/Pods-orange-stock-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		850528631D9B8315C2651EDD /* Pods-orange-stock-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orange-stock-ios.debug.xcconfig"; path = "Target Support Files/Pods-orange-stock-ios/Pods-orange-stock-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		8C6C894602E6149AABAFC668 /* Pods_orange_stock_ios_orange_stock_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_orange_stock_ios_orange_stock_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D00F96417C61B7A8EA24CB3 /* Pods-orange-stock-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orange-stock-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-orange-stock-iosTests/Pods-orange-stock-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD75202A2D791DC06EEBB675 /* Pods_orange_stock_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_orange_stock_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FA12672B0B742D006A546F /* SnapKit in Frameworks */,
+				30798426EB7E91258E4B05A7 /* Pods_orange_stock_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F06AEA14DFEFC355E51958 /* Pods_orange_stock_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89F9B91C4D6B352C2FFE8AD /* Pods_orange_stock_ios_orange_stock_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +127,8 @@
 				021443162B09F75600CC1CCB /* orange-stock-iosTests */,
 				021443202B09F75600CC1CCB /* orange-stock-iosUITests */,
 				021442FE2B09F75500CC1CCB /* Products */,
+				710A49B219CF1919B0B3FF71 /* Pods */,
+				24AC7C540D7EE7B832B44F08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,14 +145,18 @@
 		021442FF2B09F75500CC1CCB /* orange-stock-ios */ = {
 			isa = PBXGroup;
 			children = (
+				02374CB12B1C136600EDB23D /* LifeCycles */,
+				02374CBF2B1C40D600EDB23D /* Configs */,
+				02374CC62B1C4E5C00EDB23D /* Managers */,
+				02374CC22B1C496D00EDB23D /* Network */,
+				02F0A8DD2B13196600D37083 /* Models */,
+				02374CB22B1C138000EDB23D /* Controllers */,
+				02FA12642B0B73E5006A546F /* Views */,
+				02374CC32B1C4DBE00EDB23D /* ViewModels */,
+				02C92BC72B1606540076C37C /* Utilities */,
 				021443092B09F75600CC1CCB /* Assets.xcassets */,
 				0214430B2B09F75600CC1CCB /* LaunchScreen.storyboard */,
 				0214430E2B09F75600CC1CCB /* Info.plist */,
-				021443002B09F75500CC1CCB /* AppDelegate.swift */,
-				021443022B09F75500CC1CCB /* SceneDelegate.swift */,
-				02F0A8DD2B13196600D37083 /* Entities */,
-				02FA12642B0B73E5006A546F /* View */,
-				02C92BC72B1606540076C37C /* Extension */,
 			);
 			path = "orange-stock-ios";
 			sourceTree = "<group>";
@@ -142,33 +178,148 @@
 			path = "orange-stock-iosUITests";
 			sourceTree = "<group>";
 		};
-		02C92BC72B1606540076C37C /* Extension */ = {
+		02374CB12B1C136600EDB23D /* LifeCycles */ = {
+			isa = PBXGroup;
+			children = (
+				021443002B09F75500CC1CCB /* AppDelegate.swift */,
+				021443022B09F75500CC1CCB /* SceneDelegate.swift */,
+			);
+			path = LifeCycles;
+			sourceTree = "<group>";
+		};
+		02374CB22B1C138000EDB23D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		02374CB32B1C13AF00EDB23D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		02374CB42B1C13DE00EDB23D /* Extenstions */ = {
 			isa = PBXGroup;
 			children = (
 				02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */,
 				02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */,
 				02E9D9E02B1A2969008D1EC3 /* UIFont.swift */,
 			);
-			path = Extension;
+			path = Extenstions;
 			sourceTree = "<group>";
 		};
-		02F0A8DD2B13196600D37083 /* Entities */ = {
+		02374CB52B1C13F900EDB23D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				02C813862B0F7AB400CCA68B /* Stock.swift */,
+				02374CB82B1C1AA400EDB23D /* OAuthAPIService.swift */,
 			);
-			path = Entities;
+			path = Services;
 			sourceTree = "<group>";
 		};
-		02FA12642B0B73E5006A546F /* View */ = {
+		02374CBF2B1C40D600EDB23D /* Configs */ = {
 			isa = PBXGroup;
 			children = (
-				02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */,
+				02374CBA2B1C1BA600EDB23D /* Config.xcconfig */,
+				02374CC02B1C40EF00EDB23D /* NetworkConfig.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		02374CC22B1C496D00EDB23D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				02D195D02B1E0A5F00F4A060 /* API */,
+				02374CB52B1C13F900EDB23D /* Services */,
+				02BA92AE2B1F6AEF0093EECA /* Interceptor */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		02374CC32B1C4DBE00EDB23D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		02374CC62B1C4E5C00EDB23D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		02BA92AE2B1F6AEF0093EECA /* Interceptor */ = {
+			isa = PBXGroup;
+			children = (
+				02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */,
+			);
+			path = Interceptor;
+			sourceTree = "<group>";
+		};
+		02C92BC72B1606540076C37C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				02374CB32B1C13AF00EDB23D /* Utils */,
+				02374CB42B1C13DE00EDB23D /* Extenstions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		02D195D02B1E0A5F00F4A060 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				02D195D12B1E0A7600F4A060 /* OAuthAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		02F0A8DD2B13196600D37083 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02374CB62B1C1A4600EDB23D /* Token.swift */,
+				02C813862B0F7AB400CCA68B /* Stock.swift */,
+				02D625772B1C9FE700B51949 /* ResponseMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		02FA12642B0B73E5006A546F /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */,
 				02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */,
 				02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */,
 			);
-			path = View;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		24AC7C540D7EE7B832B44F08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD75202A2D791DC06EEBB675 /* Pods_orange_stock_ios.framework */,
+				8C6C894602E6149AABAFC668 /* Pods_orange_stock_ios_orange_stock_iosUITests.framework */,
+				3EBAA139A92C1F85B5315EBA /* Pods_orange_stock_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		710A49B219CF1919B0B3FF71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				850528631D9B8315C2651EDD /* Pods-orange-stock-ios.debug.xcconfig */,
+				67E0B260897EFE72E68C0148 /* Pods-orange-stock-ios.release.xcconfig */,
+				728728E6E12F342350A9A962 /* Pods-orange-stock-ios-orange-stock-iosUITests.debug.xcconfig */,
+				12590DDF035F1CCC712EAF1D /* Pods-orange-stock-ios-orange-stock-iosUITests.release.xcconfig */,
+				9D00F96417C61B7A8EA24CB3 /* Pods-orange-stock-iosTests.debug.xcconfig */,
+				74FB07840A70C203835051BF /* Pods-orange-stock-iosTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +329,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 021443272B09F75600CC1CCB /* Build configuration list for PBXNativeTarget "orange-stock-ios" */;
 			buildPhases = (
+				DFAC733BBB0CC1EC5DEB6BBA /* [CP] Check Pods Manifest.lock */,
 				021442F92B09F75500CC1CCB /* Sources */,
 				021442FA2B09F75500CC1CCB /* Frameworks */,
 				021442FB2B09F75500CC1CCB /* Resources */,
+				320558901707EBEFA9395045 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +351,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0214432A2B09F75600CC1CCB /* Build configuration list for PBXNativeTarget "orange-stock-iosTests" */;
 			buildPhases = (
+				232D7922573A166AFC8FBB7C /* [CP] Check Pods Manifest.lock */,
 				0214430F2B09F75600CC1CCB /* Sources */,
 				021443102B09F75600CC1CCB /* Frameworks */,
 				021443112B09F75600CC1CCB /* Resources */,
@@ -216,9 +370,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0214432D2B09F75600CC1CCB /* Build configuration list for PBXNativeTarget "orange-stock-iosUITests" */;
 			buildPhases = (
+				18095CCA2819A81FEDDDFB9D /* [CP] Check Pods Manifest.lock */,
 				021443192B09F75600CC1CCB /* Sources */,
 				0214431A2B09F75600CC1CCB /* Frameworks */,
 				0214431B2B09F75600CC1CCB /* Resources */,
+				1EE15C8A38A25F47E3FB7A92 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,6 +458,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18095CCA2819A81FEDDDFB9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-orange-stock-ios-orange-stock-iosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1EE15C8A38A25F47E3FB7A92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-orange-stock-ios-orange-stock-iosUITests/Pods-orange-stock-ios-orange-stock-iosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-orange-stock-ios-orange-stock-iosUITests/Pods-orange-stock-ios-orange-stock-iosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-orange-stock-ios-orange-stock-iosUITests/Pods-orange-stock-ios-orange-stock-iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		232D7922573A166AFC8FBB7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-orange-stock-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		320558901707EBEFA9395045 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-orange-stock-ios/Pods-orange-stock-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-orange-stock-ios/Pods-orange-stock-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-orange-stock-ios/Pods-orange-stock-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFAC733BBB0CC1EC5DEB6BBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-orange-stock-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		021442F92B09F75500CC1CCB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,11 +568,18 @@
 			files = (
 				02FA126B2B0B870E006A546F /* FavoriteStockListHeaderView.swift in Sources */,
 				02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */,
+				02374CC12B1C40EF00EDB23D /* NetworkConfig.swift in Sources */,
 				02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */,
+				02374CB92B1C1AA400EDB23D /* OAuthAPIService.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
 				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
+				02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */,
 				02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */,
+				02374CB72B1C1A4600EDB23D /* Token.swift in Sources */,
+				02B3AA132B1F4392003037EF /* AuthenticatorInterceptor.swift in Sources */,
 				02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */,
+				02374CC52B1C4E5900EDB23D /* UserDefaultsManager.swift in Sources */,
+				02D195D22B1E0A7600F4A060 /* OAuthAPI.swift in Sources */,
 				02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */,
 				021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */,
 				02C813872B0F7AB400CCA68B /* Stock.swift in Sources */,
@@ -366,6 +632,7 @@
 /* Begin XCBuildConfiguration section */
 		021443252B09F75600CC1CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02374CBA2B1C1BA600EDB23D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -426,6 +693,7 @@
 		};
 		021443262B09F75600CC1CCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02374CBA2B1C1BA600EDB23D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -480,6 +748,7 @@
 		};
 		021443282B09F75600CC1CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 850528631D9B8315C2651EDD /* Pods-orange-stock-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -511,6 +780,7 @@
 		};
 		021443292B09F75600CC1CCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67E0B260897EFE72E68C0148 /* Pods-orange-stock-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -542,6 +812,7 @@
 		};
 		0214432B2B09F75600CC1CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D00F96417C61B7A8EA24CB3 /* Pods-orange-stock-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -562,6 +833,7 @@
 		};
 		0214432C2B09F75600CC1CCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74FB07840A70C203835051BF /* Pods-orange-stock-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -582,6 +854,7 @@
 		};
 		0214432E2B09F75600CC1CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 728728E6E12F342350A9A962 /* Pods-orange-stock-ios-orange-stock-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -600,6 +873,7 @@
 		};
 		0214432F2B09F75600CC1CCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12590DDF035F1CCC712EAF1D /* Pods-orange-stock-ios-orange-stock-iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

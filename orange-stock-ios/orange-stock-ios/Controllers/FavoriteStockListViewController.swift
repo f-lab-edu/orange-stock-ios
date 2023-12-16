@@ -28,7 +28,6 @@ final class FavoriteStockListViewController: UITableViewController {
     // MARK: Actions
     
     @objc func touchSearchBarButton() {
-        
     }
 }
 
@@ -56,7 +55,7 @@ extension FavoriteStockListViewController {
     private func stockListTableViewCellForRowAt(_ indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: CellID.stockListTableViewCell,
                                                        for: indexPath) as? FavoriteStockListTableViewCell {
-            cell.stock(self.favoriteStockList[indexPath.row])
+            cell.stock(favoriteStockList[indexPath.row])
             return cell
         }
         else {

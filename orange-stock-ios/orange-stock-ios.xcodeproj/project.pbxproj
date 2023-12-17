@@ -31,6 +31,7 @@
 		02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D625772B1C9FE700B51949 /* ResponseMessage.swift */; };
 		02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */; };
 		02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9E02B1A2969008D1EC3 /* UIFont.swift */; };
+		02EA1F222B2F28BB00BF2509 /* TokenRevokeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */; };
 		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
 		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
 		02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */; };
@@ -87,6 +88,7 @@
 		02D625772B1C9FE700B51949 /* ResponseMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMessage.swift; sourceTree = "<group>"; };
 		02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		02E9D9E02B1A2969008D1EC3 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRevokeResponse.swift; sourceTree = "<group>"; };
 		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
 		02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListTableViewCell.swift; sourceTree = "<group>"; };
 		02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListHeaderView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				02374CB62B1C1A4600EDB23D /* Token.swift */,
 				02C813862B0F7AB400CCA68B /* Stock.swift */,
 				02D625772B1C9FE700B51949 /* ResponseMessage.swift */,
+				02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */,
 				02374CB92B1C1AA400EDB23D /* OAuthAPIService.swift in Sources */,
 				02CFFFEC2B275ECA00E7FF0B /* AppearanceSettingViewController.swift in Sources */,
+				02EA1F222B2F28BB00BF2509 /* TokenRevokeResponse.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
 				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
 				02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */,

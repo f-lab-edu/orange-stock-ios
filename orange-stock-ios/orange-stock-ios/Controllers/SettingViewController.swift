@@ -57,9 +57,7 @@ final class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
         layout()
-        register()
     }
 }
 
@@ -72,13 +70,13 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let settingRow = SettingRow(rawValue: indexPath.row)
-        else { return UITableViewCell() }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell, for: indexPath)
-        cell.selectionStyle = .none
-        cell.textLabel?.text = settingRow.title
-        cell.accessoryType = settingRow.accessory
+        if let settingRow = SettingRow(rawValue: indexPath.row) {
+            cell.selectionStyle = .none
+            cell.textLabel?.text = settingRow.title
+            cell.accessoryType = settingRow.accessory
+        }
+        
         return cell
     }
 }
@@ -95,7 +93,14 @@ extension SettingViewController: UITableViewDelegate {
 
 // MARK: - Layout
 
-private extension SettingViewController {
+extension SettingViewController: LayoutProtocol {
+    
+    func layout() {
+        setNavigation()
+        attributes()
+        constraints()
+        register()
+    }
     
     // MARK: Navigation
     
@@ -105,11 +110,6 @@ private extension SettingViewController {
     }
     
     // MARK: SubViews
-    
-    func layout() {
-        attributes()
-        constraints()
-    }
     
     /// 서브뷰의 속성 설정
     func attributes() {

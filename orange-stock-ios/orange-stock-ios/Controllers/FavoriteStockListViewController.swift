@@ -36,9 +36,7 @@ final class FavoriteStockListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
-        attributes()
-        register()
+        layout()
     }
     
     // MARK: - Actions
@@ -92,7 +90,13 @@ extension FavoriteStockListViewController {
  
 // MARK: - Layout
 
-private extension FavoriteStockListViewController {
+extension FavoriteStockListViewController: LayoutProtocol {
+    
+    func layout() {
+        setNavigation()
+        attributes()
+        register()
+    }
     
     // MARK: Navigation
     

@@ -52,16 +52,16 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
 
 // MARK: - Layout
 
-private extension FavoriteStockAdditionTableViewCell {
+extension FavoriteStockAdditionTableViewCell: LayoutProtocol{
     
     func layout() {
-        attribute()
+        attributes()
         addAdditionButtonContraints()
     }
     
     // MARK: Attribute
     
-    func attribute() {
+    func attributes() {
         contentView.addSubview(additionButton)
         additionButton.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
         additionButton.tintColor = .basic

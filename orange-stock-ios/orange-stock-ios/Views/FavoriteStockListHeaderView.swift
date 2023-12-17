@@ -48,7 +48,7 @@ final class FavoriteStockListHeaderView: UITableViewHeaderFooterView {
 
 // MARK: - Layout
 
-private extension FavoriteStockListHeaderView {
+extension FavoriteStockListHeaderView: LayoutProtocol {
 
     func layout() {
         let stackView = makeStackView()

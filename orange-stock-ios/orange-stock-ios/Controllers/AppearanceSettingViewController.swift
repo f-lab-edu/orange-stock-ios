@@ -32,9 +32,7 @@ final class AppearanceSettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
         layout()
-        register()
     }
 }
 
@@ -47,16 +45,18 @@ extension AppearanceSettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let appearanceSetting = AppearanceSetting(rawValue: indexPath.row)
-        else { return UITableViewCell() }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell, for: indexPath)
-        cell.selectionStyle = .none
-        cell.textLabel?.text = appearanceSetting.title
-        if AppearanceManager.shared.appearanceSetting == appearanceSetting {
-            cell.accessoryType = .checkmark
+        if let appearanceSetting = AppearanceSetting(rawValue: indexPath.row) {
+            cell.selectionStyle = .none
+            cell.textLabel?.text = appearanceSetting.title
+            cell.accessoryType = showCheckMark(appearanceSetting) ? .checkmark : .none
         }
         return cell
+    }
+    
+    /// 테이블뷰 셀에 checkmark를 보여줘야 하는지 판별
+    private func showCheckMark(_ appearanceSetting: AppearanceSetting) -> Bool {
+        return AppearanceManager.shared.appearanceSetting == appearanceSetting
     }
 }
 
@@ -75,11 +75,11 @@ extension AppearanceSettingViewController: UITableViewDelegate {
         AppearanceManager.shared.appearanceSetting = appearanceSetting
     }
     
+    /// 이 전 Cell의 checkmark를 없애고 사용자가 select한 Cell에 checkmark  표시
     private func moveCheckMark(from oldIndexPath:IndexPath,
                                  to selectedIndexPath: IndexPath) {
         let oldCell = tableView.cellForRow(at: oldIndexPath)
         let selectedCell = tableView.cellForRow(at: selectedIndexPath)
-        
         oldCell?.accessoryType = .none
         selectedCell?.accessoryType = .checkmark
     }
@@ -87,7 +87,14 @@ extension AppearanceSettingViewController: UITableViewDelegate {
 
 // MARK: - Layout
 
-private extension AppearanceSettingViewController {
+extension AppearanceSettingViewController: LayoutProtocol {
+    
+    func layout() {
+        setNavigation()
+        attributes()
+        constraints()
+        register()
+    }
     
     // MARK: Navigation
     
@@ -97,11 +104,6 @@ private extension AppearanceSettingViewController {
     }
     
     // MARK: SubViews
-    
-    func layout() {
-        attributes()
-        constraints()
-    }
     
     /// 서브뷰의 속성 설정
     func attributes() {

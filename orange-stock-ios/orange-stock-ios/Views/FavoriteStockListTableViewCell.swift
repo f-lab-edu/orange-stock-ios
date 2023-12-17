@@ -52,7 +52,7 @@ final class FavoriteStockListTableViewCell: UITableViewCell {
 
 // MARK: - Layout
 
-private extension FavoriteStockListTableViewCell {
+extension FavoriteStockListTableViewCell: LayoutProtocol {
     
     func layout() {
         let stackView = makeStackView()

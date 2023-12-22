@@ -19,10 +19,3 @@ struct Token: Codable {
         case tokenType = "token_type"
     }
 }
-
-/// Model:  Revoke Token시 Response
-struct TokenRevokeResponse: Codable {
-    let code: Int
-    let message: String
-}
-

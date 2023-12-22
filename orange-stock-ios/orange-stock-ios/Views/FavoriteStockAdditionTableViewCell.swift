@@ -12,7 +12,27 @@ import SnapKit
 
 final class FavoriteStockAdditionTableViewCell: UITableViewCell {
     
-    // MARK: Init
+    // MARK: Enum
+    
+    /// Constraint
+    private enum Metric {
+        static let additionButtonInset = 20.0
+        static let additionButtonHeight = 44.0
+        static let additionButtonCornerRadius = 8.0
+        static let additionButtonBorderWidth = 1.0
+    }
+    
+    /// Attributes
+    private enum Attributes {
+        // button title
+        static let additionButtonTitle = "추가하기"
+        // button systemImage
+        static let additionImage = "plus"
+    }
+    
+    // MARK: - Init
+    
+    let additionButton = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,61 +42,44 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: Enum Attributes
-
-private extension FavoriteStockAdditionTableViewCell {
     
-    /// Constraint
-    enum Metric {
-        static let additionButtonInset = 20.0
-        static let additionButtonHeight = 44.0
-        static let additionButtonCornerRadius = 8.0
-        static let additionButtonBorderWidth = 1.0
-    }
-    
-    /// Attributes
-    enum Attributes {
-        // button title
-        static let additionButtonTitle = "추가하기"
-        // button systemImage
-        static let additionImage = "plus"
+    // 화면 설정 모드 변경 시 버튼 테두리 색상 변경
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        additionButton.layer.borderColor = UIColor.label.cgColor
     }
 }
 
-// MARK: Layout
+// MARK: - Layout
 
-private extension FavoriteStockAdditionTableViewCell {
+extension FavoriteStockAdditionTableViewCell: LayoutProtocol{
     
     func layout() {
-        let additionButton = makeAdditionButton()
-        contentView.addSubview(additionButton)
-        addAdditionButtonContraints(additionButton)
+        attributes()
+        addAdditionButtonContraints()
     }
     
-    // MARK: UIComponets
+    // MARK: Attribute
     
-    func makeAdditionButton() -> UIButton {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
-        button.tintColor = .basic
+    func attributes() {
+        contentView.addSubview(additionButton)
+        additionButton.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
+        additionButton.tintColor = .basic
         
-        button.setTitle(Attributes.additionButtonTitle, for: .normal)
-        button.titleLabel?.font = .titleLabel
-        button.setTitleColor(.basic, for: .normal)
-        button.contentHorizontalAlignment = .center
+        additionButton.setTitle(Attributes.additionButtonTitle, for: .normal)
+        additionButton.titleLabel?.font = .titleLabel
+        additionButton.setTitleColor(.basic, for: .normal)
+        additionButton.contentHorizontalAlignment = .center
         
-        button.layer.cornerRadius = Metric.additionButtonCornerRadius
-        button.layer.borderWidth = Metric.additionButtonBorderWidth
-        button.layer.borderColor = UIColor.basic.cgColor
-        return button
+        additionButton.layer.cornerRadius = Metric.additionButtonCornerRadius
+        additionButton.layer.borderWidth = Metric.additionButtonBorderWidth
+        additionButton.layer.borderColor = UIColor.label.cgColor
     }
     
     // MARK: Constraints
     
-    func addAdditionButtonContraints(_ button: UIButton) {
-        button.snp.makeConstraints {
+    func addAdditionButtonContraints() {
+        additionButton.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Metric.additionButtonInset)
             $0.height.equalTo(Metric.additionButtonHeight)
         }

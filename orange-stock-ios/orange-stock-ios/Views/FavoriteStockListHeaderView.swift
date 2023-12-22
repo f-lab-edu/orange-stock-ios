@@ -11,21 +11,7 @@ import SnapKit
 /// View: 관심 주식 목록의 제목 행 (종목명, 현재가, 등락, 등락률)
 final class FavoriteStockListHeaderView: UITableViewHeaderFooterView {
     
-    // MARK: Init
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        layout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-// MARK: Enum Attributes
-
-private extension FavoriteStockListHeaderView {
+    // MARK: Enum - Attributes
     
     /// Constraint
     enum Metric {
@@ -47,11 +33,22 @@ private extension FavoriteStockListHeaderView {
         // button systemImage
         static let sortButtonImage = "chevron.up.chevron.down"
     }
+    
+    // MARK: - Init
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
-// MARK: Layout
+// MARK: - Layout
 
-private extension FavoriteStockListHeaderView {
+extension FavoriteStockListHeaderView: LayoutProtocol {
 
     func layout() {
         let stackView = makeStackView()

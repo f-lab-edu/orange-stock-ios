@@ -16,18 +16,36 @@ final class FavoriteStockListViewController: UITableViewController {
     
     private var favoriteStockList: [Stock] = []
     
-    // MARK: Life Cycle
+    // MARK: Enum
+    
+    /// navigation
+    private enum Attributes {
+        static let title = "관심 주식 목록"
+        static let searchImage = "magnifyingglass"
+        static let settingImage = "gearshape.fill"
+    }
+    
+    /// Cell Identifier
+    private enum CellID {
+        static let stockListTableViewCell = "FavoriteStockListTableViewCell"
+        static let additionTableViewCell = "FavoriteStockAdditionTableViewCell"
+        static let stockListHeaderView = "FavoriteStockListHeaderView"
+    }
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigation()
-        attributes()
-        register()
+        layout()
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @objc func touchSearchBarButton() {
+    }
+    
+    @objc func touchSettingBarButton() {
+        self.navigationController?.pushViewController(SettingViewController(), animated: true)
     }
 }
 
@@ -69,39 +87,52 @@ extension FavoriteStockListViewController {
          ?? UITableViewCell()
     }
 }
+ 
+// MARK: - Layout
 
-// MARK: Enum Attributes
-
-private extension FavoriteStockListViewController {
-    /// navigation
-    enum Attributes {
-        static let title = "관심 주식 목록"
-        static let searchImage = "magnifyingglass"
+extension FavoriteStockListViewController: LayoutProtocol {
+    
+    func layout() {
+        setNavigation()
+        attributes()
+        register()
     }
     
-    /// Cell Identifier
-    enum CellID {
-        static let stockListTableViewCell = "FavoriteStockListTableViewCell"
-        static let additionTableViewCell = "FavoriteStockAdditionTableViewCell"
-        static let stockListHeaderView = "FavoriteStockListHeaderView"
-    }
-}
- 
-// MARK: Layout
-
-private extension FavoriteStockListViewController {
-
+    // MARK: Navigation
+    
     func setNavigation() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         title = Attributes.title
-        
+        self.navigationItem.rightBarButtonItems = makeRightBarButtonItems()
+    }
+    
+    func makeRightBarButtonItems() -> [UIBarButtonItem] {
+        let searchBarButton = makeSearchBarButtonItem()
+        let settingBarButton = makeSettingBarButtonItem()
+        return [settingBarButton, searchBarButton]
+    }
+    
+    /// 돋보기 버튼 (종목검색)
+    func makeSearchBarButtonItem() -> UIBarButtonItem {
         let searchBarButton = UIBarButtonItem(image: UIImage(systemName: Attributes.searchImage),
                                               style: .plain,
                                               target: self,
                                               action: #selector(touchSearchBarButton))
         searchBarButton.tintColor = .basic
-        self.navigationItem.rightBarButtonItem = searchBarButton
+        return searchBarButton
     }
+    
+    /// 설정 버튼
+    func makeSettingBarButtonItem() -> UIBarButtonItem {
+        let settingBarButton = UIBarButtonItem(image: UIImage(systemName: Attributes.settingImage),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(touchSettingBarButton))
+        settingBarButton.tintColor = .basic
+        return settingBarButton
+    }
+    
+    // MARK: SubViews
     
     func attributes() {
         tableView.rowHeight = UITableView.automaticDimension

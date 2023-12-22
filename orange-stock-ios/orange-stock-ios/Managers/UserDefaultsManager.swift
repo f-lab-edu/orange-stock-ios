@@ -8,16 +8,17 @@
 import Foundation
 
 /// UserDefaults 관리를 도와주는 Singleton Class
-class UserDefaultsManager {
+final class UserDefaultsManager {
     
     // MARK: Properties
     
     static let shared = UserDefaultsManager()
     
-    // MARK: Key - Enum
+    // MARK: Enum - Key
     
     enum Key: String, CaseIterable {
         case accessToken
+        case appearanceSetting
     }
     
     // MARK: Public Method
@@ -33,7 +34,11 @@ class UserDefaultsManager {
     func clear(_ key: Key) {
         UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
-    
+}
+
+// MARK: - AceessToken
+
+extension UserDefaultsManager {
     /// accessToken 저장
     func setAccessToken(_ token: Token) {
         UserDefaults.standard.set(token.accessToken, forKey: Key.accessToken.rawValue)
@@ -42,5 +47,20 @@ class UserDefaultsManager {
     /// accessToken 전달
     func getAccessToken() -> String {
         UserDefaults.standard.string(forKey: Key.accessToken.rawValue) ?? ""
+    }
+}
+
+// MARK: - Apparance
+
+extension UserDefaultsManager {
+    /// 사용자가 설정한 AppearanceSetting값 저장
+    func setAppearanceSetting(_ appearance: AppearanceSetting) {
+        UserDefaults.standard.set(appearance.rawValue, forKey: Key.appearanceSetting.rawValue)
+    }
+    
+    /// AppearanceSetting값 전달
+    func getAppearanceSetting() -> AppearanceSetting {
+        let appearanceSetting = UserDefaults.standard.integer(forKey: Key.appearanceSetting.rawValue)
+        return AppearanceSetting(rawValue: appearanceSetting) ?? .system
     }
 }

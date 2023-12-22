@@ -18,14 +18,21 @@
 		02374CB92B1C1AA400EDB23D /* OAuthAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CB82B1C1AA400EDB23D /* OAuthAPIService.swift */; };
 		02374CC12B1C40EF00EDB23D /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CC02B1C40EF00EDB23D /* NetworkConfig.swift */; };
 		02374CC52B1C4E5900EDB23D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */; };
+		023DF23B2B2EBBAF001FE9F4 /* LayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */; };
+		02B391732B25A2650083CFB9 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B391722B25A2650083CFB9 /* AppearanceManager.swift */; };
 		02B3AA132B1F4392003037EF /* AuthenticatorInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */; };
 		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
 		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
 		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
+		02CFFFE42B27292B00E7FF0B /* AppearanceManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE32B27292A00E7FF0B /* AppearanceManagerTest.swift */; };
+		02CFFFE82B27514300E7FF0B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE72B27514300E7FF0B /* SettingViewController.swift */; };
+		02CFFFEA2B2753DE00E7FF0B /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE92B2753DE00E7FF0B /* UIColor+Convenience.swift */; };
+		02CFFFEC2B275ECA00E7FF0B /* AppearanceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */; };
 		02D195D22B1E0A7600F4A060 /* OAuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D195D12B1E0A7600F4A060 /* OAuthAPI.swift */; };
 		02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D625772B1C9FE700B51949 /* ResponseMessage.swift */; };
 		02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */; };
 		02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9E02B1A2969008D1EC3 /* UIFont.swift */; };
+		02EA1F222B2F28BB00BF2509 /* TokenRevokeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */; };
 		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
 		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
 		02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */; };
@@ -69,14 +76,21 @@
 		02374CBA2B1C1BA600EDB23D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		02374CC02B1C40EF00EDB23D /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProtocol.swift; sourceTree = "<group>"; };
+		02B391722B25A2650083CFB9 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorInterceptor.swift; sourceTree = "<group>"; };
 		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
 		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
+		02CFFFE32B27292A00E7FF0B /* AppearanceManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManagerTest.swift; sourceTree = "<group>"; };
+		02CFFFE72B27514300E7FF0B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		02CFFFE92B2753DE00E7FF0B /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
+		02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingViewController.swift; sourceTree = "<group>"; };
 		02D195D12B1E0A7600F4A060 /* OAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAPI.swift; sourceTree = "<group>"; };
 		02D625772B1C9FE700B51949 /* ResponseMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMessage.swift; sourceTree = "<group>"; };
 		02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		02E9D9E02B1A2969008D1EC3 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRevokeResponse.swift; sourceTree = "<group>"; };
 		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
 		02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListTableViewCell.swift; sourceTree = "<group>"; };
 		02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListHeaderView.swift; sourceTree = "<group>"; };
@@ -149,6 +163,7 @@
 				02374CBF2B1C40D600EDB23D /* Configs */,
 				02374CC62B1C4E5C00EDB23D /* Managers */,
 				02374CC22B1C496D00EDB23D /* Network */,
+				023DF2392B2EBB85001FE9F4 /* Protocols */,
 				02F0A8DD2B13196600D37083 /* Models */,
 				02374CB22B1C138000EDB23D /* Controllers */,
 				02FA12642B0B73E5006A546F /* Views */,
@@ -165,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */,
+				02CFFFE32B27292A00E7FF0B /* AppearanceManagerTest.swift */,
 			);
 			path = "orange-stock-iosTests";
 			sourceTree = "<group>";
@@ -191,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */,
+				02CFFFE72B27514300E7FF0B /* SettingViewController.swift */,
+				02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,8 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */,
-				02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */,
 				02E9D9E02B1A2969008D1EC3 /* UIFont.swift */,
+				02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */,
+				02CFFFE92B2753DE00E7FF0B /* UIColor+Convenience.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -250,8 +269,17 @@
 			isa = PBXGroup;
 			children = (
 				02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */,
+				02B391722B25A2650083CFB9 /* AppearanceManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		023DF2392B2EBB85001FE9F4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		02BA92AE2B1F6AEF0093EECA /* Interceptor */ = {
@@ -285,6 +313,7 @@
 				02374CB62B1C1A4600EDB23D /* Token.swift */,
 				02C813862B0F7AB400CCA68B /* Stock.swift */,
 				02D625772B1C9FE700B51949 /* ResponseMessage.swift */,
+				02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -567,13 +596,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FA126B2B0B870E006A546F /* FavoriteStockListHeaderView.swift in Sources */,
+				023DF23B2B2EBBAF001FE9F4 /* LayoutProtocol.swift in Sources */,
 				02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */,
 				02374CC12B1C40EF00EDB23D /* NetworkConfig.swift in Sources */,
 				02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */,
 				02374CB92B1C1AA400EDB23D /* OAuthAPIService.swift in Sources */,
+				02CFFFEC2B275ECA00E7FF0B /* AppearanceSettingViewController.swift in Sources */,
+				02EA1F222B2F28BB00BF2509 /* TokenRevokeResponse.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
 				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
 				02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */,
+				02CFFFEA2B2753DE00E7FF0B /* UIColor+Convenience.swift in Sources */,
+				02B391732B25A2650083CFB9 /* AppearanceManager.swift in Sources */,
 				02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */,
 				02374CB72B1C1A4600EDB23D /* Token.swift in Sources */,
 				02B3AA132B1F4392003037EF /* AuthenticatorInterceptor.swift in Sources */,
@@ -581,6 +615,7 @@
 				02374CC52B1C4E5900EDB23D /* UserDefaultsManager.swift in Sources */,
 				02D195D22B1E0A7600F4A060 /* OAuthAPI.swift in Sources */,
 				02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */,
+				02CFFFE82B27514300E7FF0B /* SettingViewController.swift in Sources */,
 				021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */,
 				02C813872B0F7AB400CCA68B /* Stock.swift in Sources */,
 			);
@@ -591,6 +626,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				021443182B09F75600CC1CCB /* orange_stock_iosTests.swift in Sources */,
+				02CFFFE42B27292B00E7FF0B /* AppearanceManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

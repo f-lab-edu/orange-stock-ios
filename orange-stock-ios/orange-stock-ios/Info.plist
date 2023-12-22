@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>API_APP_SECRET</key>
-	<string>$(API_APP_SECRET)</string>
 	<key>API_APP_KEY</key>
 	<string>$(API_APP_KEY)</string>
+	<key>API_APP_SECRET</key>
+	<string>$(API_APP_SECRET)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

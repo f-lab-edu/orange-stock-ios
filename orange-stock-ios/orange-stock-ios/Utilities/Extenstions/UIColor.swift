@@ -13,6 +13,8 @@ extension UIColor {
     static let background = UIColor.systemBackground
     // 기본색상
     static let basic = UIColor.label
+    // 메인 tint color
+    static let mainTint = UIColor.init(hexCode: "FF7F00")
     
     // 설정 백그라운드 색상
     static let settingBackground = systemGroupedBackground

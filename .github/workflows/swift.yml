@@ -16,7 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Start xcode build
+      run:  |
+        pod install --repo-update --clean-install --project-directory=orange-stock-ios/
+        xcodebuild clean test -project orange-stock-ios/orange-stock-ios.xcodeproj 
+        -scheme oragne-stock-ios 
+        -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest'
+        

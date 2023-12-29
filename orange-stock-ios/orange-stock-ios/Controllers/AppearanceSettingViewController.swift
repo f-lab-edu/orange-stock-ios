@@ -44,8 +44,10 @@ extension AppearanceSettingViewController: UITableViewDataSource {
         return AppearanceSetting.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell, for: indexPath)
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell,
+                                                 for: indexPath)
         if let appearanceSetting = AppearanceSetting(rawValue: indexPath.row) {
             cell.selectionStyle = .none
             cell.textLabel?.text = appearanceSetting.title
@@ -68,7 +70,8 @@ extension AppearanceSettingViewController: UITableViewDelegate {
         guard let appearanceSetting = AppearanceSetting(rawValue: indexPath.row) else { return }
         
         // 선택한 셀로 checkmark 이동
-        let oldIndexPath = IndexPath(row: AppearanceManager.shared.appearanceSetting.rawValue, section: 0)
+        let oldIndexPath = IndexPath(row: AppearanceManager.shared.appearanceSetting.rawValue,
+                                     section: 0)
         moveCheckMark(from: oldIndexPath, to: indexPath)
         
         // 화면설정 매니저에 변경된 값 전달
@@ -93,7 +96,7 @@ extension AppearanceSettingViewController: LayoutProtocol {
         setNavigation()
         attributes()
         constraints()
-        register()
+        registerTableViewCell()
     }
     
     // MARK: Navigation
@@ -107,8 +110,16 @@ extension AppearanceSettingViewController: LayoutProtocol {
     
     /// 서브뷰의 속성 설정
     func attributes() {
+        setAttribute(view: view)
+        setAttribute(tableView: tableView)
+    }
+    
+    func setAttribute(view: UIView) {
         view.backgroundColor = .settingBackground
         view.addSubview(tableView)
+    }
+    
+    func setAttribute(tableView: UITableView) {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
@@ -122,7 +133,7 @@ extension AppearanceSettingViewController: LayoutProtocol {
     }
     
     /// talbeViewCell Register
-    func register() {
+    func registerTableViewCell() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellID.settingCell)
     }
 }

@@ -11,11 +11,11 @@ struct KeychainItemManager {
     
     // MARK: Keychain Error
     
-    enum KeychainError: Error {
+    enum KeychainError: Error, Equatable {
         // 키체인에 저장 되어있지 않은 아이템
-        case itemNotFound
+        case notFound
         // 중복된 아이템
-        case duplicateItem
+        case duplicate
         // 유효하지 않은 형식
         case invalidItemFormat
         // 알 수 없는 오류
@@ -39,15 +39,11 @@ extension KeychainItemManager {
     
     // MARK: Save
     
-    static func save(account: Account,
-                     item: String,
-                     isForce: Bool = false) throws {
+    static func save(account: Account, item: String, isForce: Bool = false) throws {
         try save(account: account, item: item.data(using: .utf8)!, isForce: isForce)
     }
     
-    static func save(account: Account,
-                     item: Data,
-                     isForce: Bool = false) throws {
+    static func save(account: Account, item: Data, isForce: Bool = false) throws {
         let query: [String: AnyObject] = [
             kSecAttrService as String: service as AnyObject,
             kSecAttrAccount as String: account.rawValue as AnyObject,
@@ -56,18 +52,12 @@ extension KeychainItemManager {
         ]
         
         let status = SecItemAdd(query as CFDictionary, nil)
-        
-        if status == errSecDuplicateItem {
-            if isForce {
+        if let error = KeychainItemManager().errorWithstatus(status) {
+            if error == .duplicate && isForce {
                 try update(account: account, item: item)
-                return
             } else {
-                throw KeychainError.duplicateItem
+                throw error
             }
-        }
-        
-        guard status == errSecSuccess else {
-            throw KeychainError.unknown(status)
         }
     }
     
@@ -88,19 +78,16 @@ extension KeychainItemManager {
         
         var result: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
-        guard status != errSecItemNotFound else {
-            throw KeychainError.itemNotFound
-        }
         
-        guard status == errSecSuccess else {
-            throw KeychainError.unknown(status)
+        if let error = KeychainItemManager().errorWithstatus(status) {
+            throw error
+        } else {
+            if let password = result as? Data {
+                return password
+            } else {
+                throw KeychainError.invalidItemFormat
+            }
         }
-        
-        guard let password = result as? Data else {
-            throw KeychainError.invalidItemFormat
-        }
-        
-        return password
     }
     
     // MARK: Update
@@ -122,13 +109,8 @@ extension KeychainItemManager {
         ]
         
         let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
-        
-        guard status != errSecDuplicateItem else {
-            throw KeychainError.duplicateItem
-        }
-        
-        guard status == errSecSuccess else {
-            throw KeychainError.unknown(status)
+        if let error = KeychainItemManager().errorWithstatus(status) {
+            throw error
         }
     }
     
@@ -140,11 +122,23 @@ extension KeychainItemManager {
             kSecAttrAccount as String: account.rawValue as AnyObject,
             kSecClass as String: kSecClassGenericPassword
         ]
-        
         let status = SecItemDelete(query as CFDictionary)
-        
-        guard status == errSecSuccess else {
-            throw KeychainError.unknown(status)
+        if let error = KeychainItemManager().errorWithstatus(status) {
+            throw error
+        }
+    }
+    
+    private func errorWithstatus(_ status: OSStatus) -> KeychainError? {
+        switch status {
+        case errSecSuccess:
+            return nil
+        case errSecItemNotFound:
+            return KeychainError.notFound
+        case errSecDuplicateItem:
+            return KeychainError.duplicate
+        default:
+            return KeychainError.unknown(status)
         }
     }
 }
+

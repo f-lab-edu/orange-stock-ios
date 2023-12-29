@@ -69,8 +69,10 @@ extension SettingViewController: UITableViewDataSource {
         return SettingRow.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell, for: indexPath)
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell,
+                                                 for: indexPath)
         if let settingRow = SettingRow(rawValue: indexPath.row) {
             cell.selectionStyle = .none
             cell.textLabel?.text = settingRow.title

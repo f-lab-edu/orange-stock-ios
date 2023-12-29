@@ -21,8 +21,30 @@ final class FavoriteStockListViewController: UITableViewController {
     /// navigation
     private enum Attributes {
         static let title = "관심 주식 목록"
-        static let searchImage = "magnifyingglass"
-        static let settingImage = "gearshape.fill"
+    }
+    
+    /// Navigation UIBarButtonItemType
+    private enum BarButtonType {
+        case search
+        case setting
+        
+        var image: UIImage? {
+            switch self {
+            case .search:
+                return UIImage(systemName: "magnifyingglass")
+            case .setting:
+                return UIImage(systemName: "gearshape.fill")
+            }
+        }
+        
+        var action: Selector {
+            switch self {
+            case .search:
+                return #selector(touchSearchBarButton)
+            case .setting:
+                return #selector(touchSettingBarButton)
+            }
+        }
     }
     
     /// Cell Identifier
@@ -53,38 +75,43 @@ final class FavoriteStockListViewController: UITableViewController {
 
 extension FavoriteStockListViewController {
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         return favoriteStockList.count + 1
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = indexPath.row == favoriteStockList.count
          ? additionTableViewCellForRowAt(indexPath)
          : stockListTableViewCellForRowAt(indexPath)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CellID.stockListHeaderView)
-         as? FavoriteStockListHeaderView ?? UIView()
+    override func tableView(_ tableView: UITableView,
+                            viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: CellID.stockListHeaderView
+        ) as? FavoriteStockListHeaderView ?? UIView()
         return headerView
     }
     
     private func stockListTableViewCellForRowAt(_ indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CellID.stockListTableViewCell,
-                                                       for: indexPath) as? FavoriteStockListTableViewCell {
+        if let cell = tableView.dequeueReusableCell(
+            withIdentifier: CellID.stockListTableViewCell,
+            for: indexPath
+        ) as? FavoriteStockListTableViewCell {
             cell.stock(favoriteStockList[indexPath.row])
             return cell
         }
-        else {
-            return UITableViewCell()
-        }
+        return UITableViewCell()
     }
     
     private func additionTableViewCellForRowAt(_ indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: CellID.additionTableViewCell,
-                                             for: indexPath) as? FavoriteStockAdditionTableViewCell
-         ?? UITableViewCell()
+        tableView.dequeueReusableCell(
+            withIdentifier: CellID.additionTableViewCell,
+            for: indexPath
+        ) as? FavoriteStockAdditionTableViewCell ?? UITableViewCell()
     }
 }
  
@@ -95,7 +122,7 @@ extension FavoriteStockListViewController: LayoutProtocol {
     func layout() {
         setNavigation()
         attributes()
-        register()
+        registerTableViewCell()
     }
     
     // MARK: Navigation
@@ -107,29 +134,16 @@ extension FavoriteStockListViewController: LayoutProtocol {
     }
     
     func makeRightBarButtonItems() -> [UIBarButtonItem] {
-        let searchBarButton = makeSearchBarButtonItem()
-        let settingBarButton = makeSettingBarButtonItem()
-        return [settingBarButton, searchBarButton]
+        [makeBarButtonItem(type: .setting), makeBarButtonItem(type: .search)]
     }
     
-    /// 돋보기 버튼 (종목검색)
-    func makeSearchBarButtonItem() -> UIBarButtonItem {
-        let searchBarButton = UIBarButtonItem(image: UIImage(systemName: Attributes.searchImage),
-                                              style: .plain,
-                                              target: self,
-                                              action: #selector(touchSearchBarButton))
-        searchBarButton.tintColor = .basic
-        return searchBarButton
-    }
-    
-    /// 설정 버튼
-    func makeSettingBarButtonItem() -> UIBarButtonItem {
-        let settingBarButton = UIBarButtonItem(image: UIImage(systemName: Attributes.settingImage),
-                                             style: .plain,
-                                             target: self,
-                                             action: #selector(touchSettingBarButton))
-        settingBarButton.tintColor = .basic
-        return settingBarButton
+    private func makeBarButtonItem(type: BarButtonType) -> UIBarButtonItem {
+        let barButton = UIBarButtonItem(image: type.image,
+                                        style: .plain,
+                                        target: self,
+                                        action: type.action)
+        barButton.tintColor = .basic
+        return barButton
     }
     
     // MARK: SubViews
@@ -139,7 +153,7 @@ extension FavoriteStockListViewController: LayoutProtocol {
         tableView.separatorStyle = .none
     }
     
-    func register() {
+    func registerTableViewCell() {
         tableView.register(FavoriteStockListHeaderView.self,
                            forHeaderFooterViewReuseIdentifier: CellID.stockListHeaderView)
         tableView.register(FavoriteStockListTableViewCell.self,
@@ -148,3 +162,4 @@ extension FavoriteStockListViewController: LayoutProtocol {
                            forCellReuseIdentifier: CellID.additionTableViewCell)
     }
 }
+

@@ -43,6 +43,9 @@ final class LoginViewController: UIViewController {
         viewModel.isSucceedLogin.bind { success in
             if success {
                 DispatchQueue.main.async {
+                     // 로그인 성공 시 NavigationController의 rootViewController을
+                     // 로그인뷰 -> 관심주식뷰(FavoriteStockListViewController)로 강제 변경하여
+                     // 로그인 상태에서는 로그인 뷰를 노출하지 않도록 한다.
                     self.navigationController?.setViewControllers(
                         [FavoriteStockListViewController()],
                         animated: true
@@ -87,9 +90,7 @@ extension LoginViewController: LayoutProtocol {
                                    action: #selector(touchAppleLoginButton),
                                    for: .touchUpInside)
         
-        constraints(orangeLabel,
-                    stockLabel,
-                    appleLoginButton)
+        constraints(orangeLabel, stockLabel, appleLoginButton)
     }
     
     // MARK: Attributes
@@ -99,7 +100,6 @@ extension LoginViewController: LayoutProtocol {
         let label = UILabel()
         label.text = title
         label.textColor = textColor
-        
         label.font = .logoLabel
         label.textAlignment = .center
         return label
@@ -110,8 +110,7 @@ extension LoginViewController: LayoutProtocol {
     func constraints(_ orangeLabel: UILabel,
                      _ stockLabel: UILabel,
                      _ appleLoginButton: UIControl) {
-        [orangeLabel, stockLabel, appleLoginButton]
-            .forEach {
+        [orangeLabel, stockLabel, appleLoginButton].forEach {
             view.addSubview($0)
         }
         

@@ -83,6 +83,10 @@ final class LoginViewModel: NSObject {
     }
     /// 로그인 성공 후 애플 유저 아이디 저장
     private func saveAppleUserID(_ userID: String) -> Bool {
+        guard userID.count > 0 else {
+            didCompleteWith(error: LoginError.invalidCredentials)
+            return false
+        }
         do {
             try KeychainItemManager.save(account: .appleUserID, item: userID)
             return true

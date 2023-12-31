@@ -48,7 +48,7 @@ extension KeychainItemManager {
             kSecAttrService as String: service as AnyObject,
             kSecAttrAccount as String: account.rawValue as AnyObject,
             kSecClass as String: kSecClassGenericPassword,
-            kSecValueData as String: item as AnyObject,
+            kSecValueData as String: item as AnyObject
         ]
         
         let status = SecItemAdd(query as CFDictionary, nil)
@@ -73,7 +73,7 @@ extension KeychainItemManager {
             kSecAttrAccount as String: account.rawValue as AnyObject,
             kSecClass as String: kSecClassGenericPassword,
             kSecMatchLimit as String: kSecMatchLimitOne,
-            kSecReturnData as String: kCFBooleanTrue,
+            kSecReturnData as String: kCFBooleanTrue
         ]
         
         var result: AnyObject?
@@ -93,7 +93,7 @@ extension KeychainItemManager {
     // MARK: Update
     
     static func update(account: Account, item: String) throws {
-        try update(account: account, item:item.data(using: .utf8)!)
+        try update(account: account, item: item.data(using: .utf8)!)
     }
     
     static func update(account: Account, item: Data) throws {
@@ -101,7 +101,7 @@ extension KeychainItemManager {
             kSecAttrService as String: service as AnyObject,
             kSecAttrAccount as String: account.rawValue as AnyObject,
             kSecClass as String: kSecClassGenericPassword,
-            kSecValueData as String: item as AnyObject,
+            kSecValueData as String: item as AnyObject
         ]
         
         let attributes: [String: AnyObject] = [
@@ -141,4 +141,3 @@ extension KeychainItemManager {
         }
     }
 }
-

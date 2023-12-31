@@ -34,7 +34,7 @@ extension UIColor {
         
         self.init(r: CGFloat((rgbValue & 0xFF0000) >> 16),
                   g: CGFloat((rgbValue & 0x00FF00) >> 8),
-                  b:CGFloat(rgbValue & 0x0000FF),
+                  b: CGFloat(rgbValue & 0x0000FF),
                   alpha: alpha)
     }
 }

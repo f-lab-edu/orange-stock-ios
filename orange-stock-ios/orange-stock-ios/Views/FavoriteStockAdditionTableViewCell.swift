@@ -52,7 +52,7 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
 
 // MARK: - Layout
 
-extension FavoriteStockAdditionTableViewCell: LayoutProtocol{
+extension FavoriteStockAdditionTableViewCell: LayoutProtocol {
     
     func layout() {
         attributes()

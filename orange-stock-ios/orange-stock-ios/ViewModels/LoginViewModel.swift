@@ -83,7 +83,7 @@ final class LoginViewModel: NSObject {
     }
     /// 로그인 성공 후 애플 유저 아이디 저장
     private func saveAppleUserID(_ userID: String) -> Bool {
-        guard userID.count > 0 else {
+        guard !userID.isEmpty else {
             didCompleteWith(error: LoginError.invalidCredentials)
             return false
         }
@@ -118,13 +118,16 @@ extension LoginViewModel: LoginViewModelOutput {
 
     func isNeedAppleLogin(completion: @escaping (Bool) -> Void) {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: getAppleUserID()) { (credentialState, error) in
+        appleIDProvider.getCredentialState(forUserID: getAppleUserID()) { (credentialState, _) in
             completion(credentialState == .revoked || credentialState == .notFound)
         }
     }
     
     func makeAppleLoginButton() -> UIControl {
-        let appleLoginButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: appleLoginButtonStyle())
+        let appleLoginButton = ASAuthorizationAppleIDButton(
+            authorizationButtonType: .signIn,
+            authorizationButtonStyle: appleLoginButtonStyle()
+        )
         return appleLoginButton
     }
     

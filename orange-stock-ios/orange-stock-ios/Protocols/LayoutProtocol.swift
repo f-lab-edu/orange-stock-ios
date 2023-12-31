@@ -29,4 +29,3 @@ extension LayoutProtocol {
     func constraints() {}
     func registerTableViewCell() {}
 }
-

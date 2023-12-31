@@ -29,6 +29,7 @@
 		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
 		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
 		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
+		02CEE6712B4163B80009C811 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02CEE6702B4163B80009C811 /* .swiftlint.yml */; };
 		02CFFFE82B27514300E7FF0B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE72B27514300E7FF0B /* SettingViewController.swift */; };
 		02CFFFEA2B2753DE00E7FF0B /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE92B2753DE00E7FF0B /* UIColor+Convenience.swift */; };
 		02CFFFEC2B275ECA00E7FF0B /* AppearanceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */; };
@@ -92,6 +93,7 @@
 		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
 		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
+		02CEE6702B4163B80009C811 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		02CFFFE72B27514300E7FF0B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		02CFFFE92B2753DE00E7FF0B /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
 		02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		021442F42B09F75500CC1CCB = {
 			isa = PBXGroup;
 			children = (
+				02CEE6702B4163B80009C811 /* .swiftlint.yml */,
 				021442FF2B09F75500CC1CCB /* orange-stock-ios */,
 				021443162B09F75600CC1CCB /* orange-stock-iosTests */,
 				021443202B09F75600CC1CCB /* orange-stock-iosUITests */,
@@ -384,6 +387,7 @@
 			buildConfigurationList = 021443272B09F75600CC1CCB /* Build configuration list for PBXNativeTarget "orange-stock-ios" */;
 			buildPhases = (
 				DFAC733BBB0CC1EC5DEB6BBA /* [CP] Check Pods Manifest.lock */,
+				02CEE66F2B41634D0009C811 /* SwiftLint Script */,
 				021442F92B09F75500CC1CCB /* Sources */,
 				021442FA2B09F75500CC1CCB /* Frameworks */,
 				021442FB2B09F75500CC1CCB /* Resources */,
@@ -491,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CEE6712B4163B80009C811 /* .swiftlint.yml in Resources */,
 				0214430D2B09F75600CC1CCB /* LaunchScreen.storyboard in Resources */,
 				0214430A2B09F75600CC1CCB /* Assets.xcassets in Resources */,
 			);
@@ -513,6 +518,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02CEE66F2B41634D0009C811 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n    swiftlint\nelse \n    echo \"[warning] SwiftLint not installed, download using `brew install swiftlint`\"\nfi\n";
+		};
 		18095CCA2819A81FEDDDFB9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

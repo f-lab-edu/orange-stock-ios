@@ -62,7 +62,7 @@ final class AppearanceManager {
     
     /// 윈도우의 화면 설정값을 사용자가 선택한 값으로 변경
     private func setUserInterfaceStyle() {
-        let window = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
+        let window = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
         window?.overrideUserInterfaceStyle = appearanceSetting.userInterfaceStyle
     }
 }

@@ -14,4 +14,3 @@ extension UIFont {
     /// 제목
     static let titleLabel = UIFont.systemFont(ofSize: 14.0)
 }
-

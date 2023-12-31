@@ -16,7 +16,7 @@ class MockASAuthorizationController: ASAuthorizationController {
     /// 프로세스 실행 호출 횟수
     var performRequestsCallCount = 0
     /// 로그인 성공 테스트를 위한 delegate
-    weak open var mockDelegate:  MockASAuthorizationControllerDelegate?
+    weak open var mockDelegate: MockASAuthorizationControllerDelegate?
     
     // MARK: Init
     
@@ -78,6 +78,6 @@ protocol Authorization {
     var credential: ASAuthorizationCredential { get }
 }
 
-struct Credential: AppleIDCredential {
+struct MockingCredential: AppleIDCredential {
     let user: String
 }

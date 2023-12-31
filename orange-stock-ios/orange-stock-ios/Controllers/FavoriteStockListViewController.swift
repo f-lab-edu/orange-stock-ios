@@ -162,4 +162,3 @@ extension FavoriteStockListViewController: LayoutProtocol {
                            forCellReuseIdentifier: CellID.additionTableViewCell)
     }
 }
-

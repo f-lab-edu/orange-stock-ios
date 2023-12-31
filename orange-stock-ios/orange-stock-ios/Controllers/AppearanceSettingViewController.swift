@@ -79,8 +79,8 @@ extension AppearanceSettingViewController: UITableViewDelegate {
     }
     
     /// 이 전 Cell의 checkmark를 없애고 사용자가 select한 Cell에 checkmark  표시
-    private func moveCheckMark(from oldIndexPath:IndexPath,
-                                 to selectedIndexPath: IndexPath) {
+    private func moveCheckMark(from oldIndexPath: IndexPath,
+                               to selectedIndexPath: IndexPath) {
         let oldCell = tableView.cellForRow(at: oldIndexPath)
         let selectedCell = tableView.cellForRow(at: selectedIndexPath)
         oldCell?.accessoryType = .none

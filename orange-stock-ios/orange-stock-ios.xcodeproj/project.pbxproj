@@ -26,6 +26,7 @@
 		02B391732B25A2650083CFB9 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B391722B25A2650083CFB9 /* AppearanceManager.swift */; };
 		02B3AA132B1F4392003037EF /* AuthenticatorInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */; };
 		02BB92E42B35375500353603 /* AlertsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BB92E32B35375500353603 /* AlertsUtils.swift */; };
+		02C682F42B4A7F8D00EDDA5C /* LintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C682F32B4A7F8D00EDDA5C /* LintTests.swift */; };
 		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
 		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
 		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
@@ -90,6 +91,7 @@
 		02B391722B25A2650083CFB9 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorInterceptor.swift; sourceTree = "<group>"; };
 		02BB92E32B35375500353603 /* AlertsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsUtils.swift; sourceTree = "<group>"; };
+		02C682F32B4A7F8D00EDDA5C /* LintTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LintTests.swift; sourceTree = "<group>"; };
 		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
 		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				0257A6C12B33370C00A119FF /* Mocks */,
 				0259EB892B333A230067A9D6 /* LoginViewModelTests.swift */,
+				02C682F32B4A7F8D00EDDA5C /* LintTests.swift */,
 			);
 			path = "orange-stock-iosTests";
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C682F42B4A7F8D00EDDA5C /* LintTests.swift in Sources */,
 				0259EB8A2B333A230067A9D6 /* LoginViewModelTests.swift in Sources */,
 				0259EB8C2B333AEB0067A9D6 /* MockASAuthorizationController.swift in Sources */,
 			);

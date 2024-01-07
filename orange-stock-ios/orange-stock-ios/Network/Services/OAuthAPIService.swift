@@ -14,13 +14,13 @@ final class OAuthAPIService {
     let provider = MoyaProvider<OAuthAPI>()
     
     // accessToken 발행
-    func issueAccessToken(completion: @escaping (Result<Token, Error>) -> ()) {
+    func issueAccessToken(completion: @escaping (Result<Token, Error>) -> Void) {
         request(target: .issueAccessToken, completion: completion)
     }
     
     // accessToken 폐기
     func revokeAccessToken(_ token: String,
-                           completion: @escaping (Result<TokenRevokeResponse, Error>) -> ()) {
+                           completion: @escaping (Result<TokenRevokeResponse, Error>) -> Void) {
         request(target: .revokeAccessToken(token), completion: completion)
     }
 }
@@ -28,7 +28,7 @@ final class OAuthAPIService {
 private extension OAuthAPIService {
     
     func request<T: Decodable>(target: OAuthAPI,
-                               completion: @escaping (Result<T, Error>) -> ()) {
+                               completion: @escaping (Result<T, Error>) -> Void) {
         provider.request(target) { result in
             switch result {
             case let .success(response):

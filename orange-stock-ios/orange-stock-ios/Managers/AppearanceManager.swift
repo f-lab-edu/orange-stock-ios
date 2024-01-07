@@ -13,6 +13,9 @@ enum AppearanceSetting: Int, CaseIterable {
     case system = 0
     case light = 1
     case dark = 2
+}
+
+extension AppearanceSetting {
     
     var title: String {
         switch self {
@@ -59,7 +62,7 @@ final class AppearanceManager {
     
     /// 윈도우의 화면 설정값을 사용자가 선택한 값으로 변경
     private func setUserInterfaceStyle() {
-        let window = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
+        let window = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
         window?.overrideUserInterfaceStyle = appearanceSetting.userInterfaceStyle
     }
 }

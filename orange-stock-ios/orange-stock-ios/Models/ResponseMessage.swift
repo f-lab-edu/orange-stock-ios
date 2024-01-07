@@ -13,7 +13,7 @@ struct ResponseMessage: Codable {
     var message: String? // 응답 메세지
     var code: ResponseCode? // 응답 코드
     
-    enum CodingKeys: String,CodingKey {
+    enum CodingKeys: String, CodingKey {
         case message = "rsp_msg"
         case code = "rsp_cd"
     }

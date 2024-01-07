@@ -20,12 +20,12 @@ protocol LayoutProtocol {
     func attributes()
     func constraints()
     /// tableViewCell register
-    func register()
+    func registerTableViewCell()
 }
 
 extension LayoutProtocol {
     func setNavigation() {}
     func attributes() {}
     func constraints() {}
-    func register() {}
+    func registerTableViewCell() {}
 }

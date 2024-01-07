@@ -41,7 +41,7 @@ extension OAuthAPI: TargetType {
                                   encoding: URLEncoding.httpBody)
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         return ["Content-type": "application/x-www-form-urlencoded"]
     }
     

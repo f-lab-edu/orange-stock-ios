@@ -11,7 +11,6 @@
 		021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443022B09F75500CC1CCB /* SceneDelegate.swift */; };
 		0214430A2B09F75600CC1CCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 021443092B09F75600CC1CCB /* Assets.xcassets */; };
 		0214430D2B09F75600CC1CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0214430B2B09F75600CC1CCB /* LaunchScreen.storyboard */; };
-		021443182B09F75600CC1CCB /* orange_stock_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */; };
 		021443222B09F75600CC1CCB /* orange_stock_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */; };
 		021443242B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */; };
 		02374CB72B1C1A4600EDB23D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CB62B1C1A4600EDB23D /* Token.swift */; };
@@ -19,12 +18,18 @@
 		02374CC12B1C40EF00EDB23D /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CC02B1C40EF00EDB23D /* NetworkConfig.swift */; };
 		02374CC52B1C4E5900EDB23D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */; };
 		023DF23B2B2EBBAF001FE9F4 /* LayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */; };
+		024CAA0A2B31A1CF00AE6C0E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CAA092B31A1CF00AE6C0E /* LoginViewModel.swift */; };
+		024CAA0C2B31AE3400AE6C0E /* KeychainItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CAA0B2B31AE3400AE6C0E /* KeychainItemManager.swift */; };
+		0257A6BE2B3334E400A119FF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257A6BD2B3334E400A119FF /* Observable.swift */; };
+		0259EB8A2B333A230067A9D6 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259EB892B333A230067A9D6 /* LoginViewModelTests.swift */; };
+		0259EB8C2B333AEB0067A9D6 /* MockASAuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259EB8B2B333AEB0067A9D6 /* MockASAuthorizationController.swift */; };
 		02B391732B25A2650083CFB9 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B391722B25A2650083CFB9 /* AppearanceManager.swift */; };
 		02B3AA132B1F4392003037EF /* AuthenticatorInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */; };
+		02BB92E42B35375500353603 /* AlertsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BB92E32B35375500353603 /* AlertsUtils.swift */; };
 		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
 		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
 		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
-		02CFFFE42B27292B00E7FF0B /* AppearanceManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE32B27292A00E7FF0B /* AppearanceManagerTest.swift */; };
+		02CEE6712B4163B80009C811 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02CEE6702B4163B80009C811 /* .swiftlint.yml */; };
 		02CFFFE82B27514300E7FF0B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE72B27514300E7FF0B /* SettingViewController.swift */; };
 		02CFFFEA2B2753DE00E7FF0B /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFE92B2753DE00E7FF0B /* UIColor+Convenience.swift */; };
 		02CFFFEC2B275ECA00E7FF0B /* AppearanceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */; };
@@ -33,6 +38,7 @@
 		02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */; };
 		02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9E02B1A2969008D1EC3 /* UIFont.swift */; };
 		02EA1F222B2F28BB00BF2509 /* TokenRevokeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */; };
+		02EA1F242B2F2E2C00BF2509 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA1F232B2F2E2C00BF2509 /* LoginViewController.swift */; };
 		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
 		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
 		02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */; };
@@ -67,7 +73,6 @@
 		0214430C2B09F75600CC1CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0214430E2B09F75600CC1CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		021443132B09F75600CC1CCB /* orange-stock-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "orange-stock-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosTests.swift; sourceTree = "<group>"; };
 		0214431D2B09F75600CC1CCB /* orange-stock-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "orange-stock-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		021443212B09F75600CC1CCB /* orange_stock_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITests.swift; sourceTree = "<group>"; };
 		021443232B09F75600CC1CCB /* orange_stock_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orange_stock_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -77,12 +82,18 @@
 		02374CC02B1C40EF00EDB23D /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProtocol.swift; sourceTree = "<group>"; };
+		024CAA092B31A1CF00AE6C0E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		024CAA0B2B31AE3400AE6C0E /* KeychainItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemManager.swift; sourceTree = "<group>"; };
+		0257A6BD2B3334E400A119FF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		0259EB892B333A230067A9D6 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		0259EB8B2B333AEB0067A9D6 /* MockASAuthorizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockASAuthorizationController.swift; sourceTree = "<group>"; };
 		02B391722B25A2650083CFB9 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorInterceptor.swift; sourceTree = "<group>"; };
+		02BB92E32B35375500353603 /* AlertsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsUtils.swift; sourceTree = "<group>"; };
 		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
 		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
-		02CFFFE32B27292A00E7FF0B /* AppearanceManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManagerTest.swift; sourceTree = "<group>"; };
+		02CEE6702B4163B80009C811 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		02CFFFE72B27514300E7FF0B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		02CFFFE92B2753DE00E7FF0B /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
 		02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +102,8 @@
 		02E9D9DE2B1A2912008D1EC3 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		02E9D9E02B1A2969008D1EC3 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRevokeResponse.swift; sourceTree = "<group>"; };
+		02EA1F232B2F2E2C00BF2509 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		02EA1F252B2F307300BF2509 /* orange-stock-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "orange-stock-ios.entitlements"; sourceTree = "<group>"; };
 		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
 		02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListTableViewCell.swift; sourceTree = "<group>"; };
 		02FA126A2B0B870E006A546F /* FavoriteStockListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListHeaderView.swift; sourceTree = "<group>"; };
@@ -137,6 +150,7 @@
 		021442F42B09F75500CC1CCB = {
 			isa = PBXGroup;
 			children = (
+				02CEE6702B4163B80009C811 /* .swiftlint.yml */,
 				021442FF2B09F75500CC1CCB /* orange-stock-ios */,
 				021443162B09F75600CC1CCB /* orange-stock-iosTests */,
 				021443202B09F75600CC1CCB /* orange-stock-iosUITests */,
@@ -159,6 +173,7 @@
 		021442FF2B09F75500CC1CCB /* orange-stock-ios */ = {
 			isa = PBXGroup;
 			children = (
+				02EA1F252B2F307300BF2509 /* orange-stock-ios.entitlements */,
 				02374CB12B1C136600EDB23D /* LifeCycles */,
 				02374CBF2B1C40D600EDB23D /* Configs */,
 				02374CC62B1C4E5C00EDB23D /* Managers */,
@@ -179,8 +194,8 @@
 		021443162B09F75600CC1CCB /* orange-stock-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				021443172B09F75600CC1CCB /* orange_stock_iosTests.swift */,
-				02CFFFE32B27292A00E7FF0B /* AppearanceManagerTest.swift */,
+				0257A6C12B33370C00A119FF /* Mocks */,
+				0259EB892B333A230067A9D6 /* LoginViewModelTests.swift */,
 			);
 			path = "orange-stock-iosTests";
 			sourceTree = "<group>";
@@ -206,6 +221,7 @@
 		02374CB22B1C138000EDB23D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				02EA1F232B2F2E2C00BF2509 /* LoginViewController.swift */,
 				02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */,
 				02CFFFE72B27514300E7FF0B /* SettingViewController.swift */,
 				02CFFFEB2B275ECA00E7FF0B /* AppearanceSettingViewController.swift */,
@@ -216,6 +232,8 @@
 		02374CB32B1C13AF00EDB23D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0257A6BD2B3334E400A119FF /* Observable.swift */,
+				02BB92E32B35375500353603 /* AlertsUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -261,6 +279,7 @@
 		02374CC32B1C4DBE00EDB23D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				024CAA092B31A1CF00AE6C0E /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -270,6 +289,7 @@
 			children = (
 				02374CC42B1C4E5900EDB23D /* UserDefaultsManager.swift */,
 				02B391722B25A2650083CFB9 /* AppearanceManager.swift */,
+				024CAA0B2B31AE3400AE6C0E /* KeychainItemManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -280,6 +300,14 @@
 				023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0257A6C12B33370C00A119FF /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0259EB8B2B333AEB0067A9D6 /* MockASAuthorizationController.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		02BA92AE2B1F6AEF0093EECA /* Interceptor */ = {
@@ -359,6 +387,7 @@
 			buildConfigurationList = 021443272B09F75600CC1CCB /* Build configuration list for PBXNativeTarget "orange-stock-ios" */;
 			buildPhases = (
 				DFAC733BBB0CC1EC5DEB6BBA /* [CP] Check Pods Manifest.lock */,
+				02CEE66F2B41634D0009C811 /* SwiftLint Script */,
 				021442F92B09F75500CC1CCB /* Sources */,
 				021442FA2B09F75500CC1CCB /* Frameworks */,
 				021442FB2B09F75500CC1CCB /* Resources */,
@@ -466,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CEE6712B4163B80009C811 /* .swiftlint.yml in Resources */,
 				0214430D2B09F75600CC1CCB /* LaunchScreen.storyboard in Resources */,
 				0214430A2B09F75600CC1CCB /* Assets.xcassets in Resources */,
 			);
@@ -488,6 +518,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02CEE66F2B41634D0009C811 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n    swiftlint\nelse \n    echo \"[warning] SwiftLint not installed, download using `brew install swiftlint`\"\nfi\n";
+		};
 		18095CCA2819A81FEDDDFB9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -603,10 +652,14 @@
 				02374CB92B1C1AA400EDB23D /* OAuthAPIService.swift in Sources */,
 				02CFFFEC2B275ECA00E7FF0B /* AppearanceSettingViewController.swift in Sources */,
 				02EA1F222B2F28BB00BF2509 /* TokenRevokeResponse.swift in Sources */,
+				02BB92E42B35375500353603 /* AlertsUtils.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
 				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
 				02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */,
 				02CFFFEA2B2753DE00E7FF0B /* UIColor+Convenience.swift in Sources */,
+				02EA1F242B2F2E2C00BF2509 /* LoginViewController.swift in Sources */,
+				0257A6BE2B3334E400A119FF /* Observable.swift in Sources */,
+				024CAA0A2B31A1CF00AE6C0E /* LoginViewModel.swift in Sources */,
 				02B391732B25A2650083CFB9 /* AppearanceManager.swift in Sources */,
 				02E9D9DF2B1A2912008D1EC3 /* UIColor.swift in Sources */,
 				02374CB72B1C1A4600EDB23D /* Token.swift in Sources */,
@@ -617,6 +670,7 @@
 				02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */,
 				02CFFFE82B27514300E7FF0B /* SettingViewController.swift in Sources */,
 				021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */,
+				024CAA0C2B31AE3400AE6C0E /* KeychainItemManager.swift in Sources */,
 				02C813872B0F7AB400CCA68B /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,8 +679,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				021443182B09F75600CC1CCB /* orange_stock_iosTests.swift in Sources */,
-				02CFFFE42B27292B00E7FF0B /* AppearanceManagerTest.swift in Sources */,
+				0259EB8A2B333A230067A9D6 /* LoginViewModelTests.swift in Sources */,
+				0259EB8C2B333AEB0067A9D6 /* MockASAuthorizationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,6 +842,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "orange-stock-ios/orange-stock-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9U3GTR786Y;
@@ -803,7 +858,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hogang.orange-stock-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -820,6 +875,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "orange-stock-ios/orange-stock-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9U3GTR786Y;
@@ -835,7 +891,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hogang.orange-stock-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -856,9 +912,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9U3GTR786Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-iosTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hogang.orange-stock-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -877,9 +933,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9U3GTR786Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-iosTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hogang.orange-stock-iosTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -898,7 +954,7 @@
 				DEVELOPMENT_TEAM = 9U3GTR786Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-iosUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hogang.orange-stock-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -917,7 +973,7 @@
 				DEVELOPMENT_TEAM = 9U3GTR786Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.f-lab.hogang.orange-stock-iosUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hogang.orange-stock-iosUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

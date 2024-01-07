@@ -97,7 +97,7 @@ extension FavoriteStockListHeaderView: LayoutProtocol {
         button.titleLabel?.font = .titleLabel
         button.semanticContentAttribute = .forceRightToLeft
         
-        button.setImage(UIImage(systemName:Attributes.sortButtonImage), for: .normal)
+        button.setImage(UIImage(systemName: Attributes.sortButtonImage), for: .normal)
         button.tintColor = .basic
         return button
     }

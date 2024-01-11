@@ -54,20 +54,36 @@ final class FavoriteStockListViewController: UITableViewController {
         static let stockListHeaderView = "FavoriteStockListHeaderView"
     }
     
-    // MARK: - Life Cycle
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        verifyLoginStatus()
         layout()
     }
     
-    // MARK: - Actions
+    // MARK: Actions
     
     @objc func touchSearchBarButton() {
     }
     
     @objc func touchSettingBarButton() {
         self.navigationController?.pushViewController(SettingViewController(), animated: true)
+    }
+}
+
+// MARK: Private Methods
+
+extension FavoriteStockListViewController {
+    
+    private func verifyLoginStatus() {
+        let userID: String? = try? KeychainItemManager.read(account: .appleUserID)
+        Task {
+            let needLogin = try await AppleLoginHelper.verifyAppleLoginStatus(userID: userID)
+            if needLogin {
+                self.navigationController?.setViewControllers([LoginViewController()], animated: false)
+            }
+        }
     }
 }
 

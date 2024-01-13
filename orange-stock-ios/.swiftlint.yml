@@ -18,6 +18,8 @@ opt_in_rules: # 기본적으로는 비활성화 되어있지만, 내가 활성�
     - empty_string
 included:
   - orange-stock-ios
+  - orange-stock-iosTests
+  - orange-stock-iosUITests
 excluded: # 린트 과정에서 무시할 파일 경로. `included`보다 우선순위 높음
     - Carthage
     - Pods

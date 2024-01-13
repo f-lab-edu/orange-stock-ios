@@ -28,7 +28,7 @@ final class LoginViewModelTests: XCTestCase {
     }
     
     // 애플 로그인 버튼 터치
-    func test_didTouchAppleLoginButton() {
+    func testDidTouchAppleLoginButton() {
         vm.didTouchAppleLoginButton()
         if let factory = factory as? MockingAppleIDAuthorization {
             XCTAssertEqual(factory.spy?.callCount, 1, "로그인 프로세스 실행")
@@ -38,14 +38,14 @@ final class LoginViewModelTests: XCTestCase {
     }
     
     // 애플 로그인 성공 시
-    func test_didAppleLoginSuccess() {
+    func testDidAppleLoginSuccess() {
         let credential = MockingCredential(user: "apple ID")
         helper.delegate?.didCompleteWith(credential: credential)
         XCTAssertTrue(vm.isSucceedLogin.value)
     }
     
     // 애플 로그인 실패
-    func test_didAppleLoginCompleteWithError() {
+    func testDidAppleLoginCompleteWithError() {
         helper.delegate?.didCompleteWith(error: LoginError.failLogin)
         XCTAssertEqual(LoginError.failLogin.localizedDescription, vm.errorMessage.value)
     }
@@ -54,4 +54,3 @@ final class LoginViewModelTests: XCTestCase {
 struct MockingCredential: AppleIDCredential {
     let user: String
 }
-

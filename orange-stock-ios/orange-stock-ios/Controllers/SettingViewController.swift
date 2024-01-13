@@ -7,41 +7,14 @@
 
 import UIKit
 
-/// View: 앱 내 설정
+/// View: 설정
 final class SettingViewController: UIViewController {
     
     // MARK: Properties
     
     private let tableView = UITableView(frame: .zero,
                                         style: .insetGrouped)
-    
-    // MARK: Enum
-    
-    /// tableView Row
-    private enum SettingRow: Int, CaseIterable {
-        case appearance = 0
-        
-        var title: String {
-            switch self {
-            case .appearance:
-                return "화면 설정"
-            }
-        }
-        
-        var accessory: UITableViewCell.AccessoryType {
-            switch self {
-            case .appearance:
-                return .disclosureIndicator
-            }
-        }
-        
-        var pushViewController: UIViewController {
-            switch self {
-            case .appearance:
-                return AppearanceSettingViewController()
-            }
-        }
-    }
+    private let viewModel = SettingViewModel()
     
     /// navigation
     private enum Attributes {
@@ -53,11 +26,49 @@ final class SettingViewController: UIViewController {
         static let settingCell = "SettingTableViewCell"
     }
 
-    // MARK: - Life Cycle
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        bindViewModel()
+    }
+}
+
+// MARK: - Bind
+
+extension SettingViewController {
+    private func bindViewModel() {
+        bindPushViewController()
+        bindShowLogoutAlert()
+    }
+    
+    private func bindPushViewController() {
+        viewModel.pushViewController.bind { [weak self] type in
+            guard let controller = self?.getPushViewController(type) else { return }
+            DispatchQueue.main.async {
+                self?.pushViewController(controller)
+            }
+        }
+    }
+    
+    private func bindShowLogoutAlert() {
+        viewModel.showLogoutAlert.bind { [weak self] isShow in
+            if isShow {
+                DispatchQueue.main.async {
+                    self?.showLogoutAlert()
+                }
+            }
+        }
+    }
+    
+    private func getPushViewController(_ type: PushViewControllerType?) -> UIViewController? {
+        switch type {
+        case .AppearanceSettingViewController:
+            return AppearanceSettingViewController()
+        case .none:
+            return nil
+        }
     }
 }
 
@@ -65,21 +76,39 @@ final class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.numberOfSections()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingRow.allCases.count
+        viewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell,
-                                                 for: indexPath)
-        if let settingRow = SettingRow(rawValue: indexPath.row) {
-            cell.selectionStyle = .none
-            cell.textLabel?.text = settingRow.title
-            cell.accessoryType = settingRow.accessory
-        }
-        
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: CellID.settingCell,
+            for: indexPath
+        )
+        tableViewCell(cell, rowType: viewModel.rowType(at: indexPath))
         return cell
+    }
+    
+    private func tableViewCell(_ cell: UITableViewCell,
+                               rowType: TableViewCellRowProtocol?) {
+        cell.selectionStyle = .none
+        cell.textLabel?.text = rowType?.title
+        cell.accessoryType = getTableViewAccessory(rowType?.accessory ?? .none)
+    }
+    private func getTableViewAccessory(_ type: TableViewCellAccessoryType) -> UITableViewCell.AccessoryType {
+        switch type {
+        case .none:
+            return .none
+        case .disclosureIndicator:
+            return .disclosureIndicator
+        case .checkmark:
+            return .checkmark
+        }
     }
 }
 
@@ -88,8 +117,39 @@ extension SettingViewController: UITableViewDataSource {
 extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let settingRow = SettingRow(rawValue: indexPath.row) else { return }
-        self.navigationController?.pushViewController(settingRow.pushViewController, animated: true)
+        viewModel.didSelectRow(at: indexPath)
+    }
+    
+    private func showLogoutAlert() {
+        let confirmAction = UIAlertAction(title: "로그아웃", style: .destructive) { [weak self] _ in
+            self?.viewModel.didTouchLogout()
+            // 로그인 화면으로 이동
+            self?.showLoginViewController()
+        }
+        showAlert(title: "로그아웃 하시겠습니까?",
+                  message: nil,
+                  actions: [.cancel, confirmAction])
+    }
+}
+
+// MARK: - Private Method
+
+extension SettingViewController {
+    
+    private func pushViewController(_ pushViewController: UIViewController?) {
+        guard let pushViewController = pushViewController
+            else { return }
+        self.navigationController?.pushViewController(pushViewController, animated: true)
+    }
+    
+    /// 로그인 화면으로 이동
+    private func showLoginViewController() {
+        DispatchQueue.main.async {
+            self.navigationController?.setViewControllers(
+                [LoginViewController()],
+                animated: true
+            )
+        }
     }
 }
 
@@ -101,7 +161,7 @@ extension SettingViewController: LayoutProtocol {
         setNavigation()
         attributes()
         constraints()
-        register()
+        registerTableViewCell()
     }
     
     // MARK: Navigation
@@ -117,6 +177,7 @@ extension SettingViewController: LayoutProtocol {
     func attributes() {
         view.backgroundColor = .settingBackground
         view.addSubview(tableView)
+        
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
@@ -129,7 +190,7 @@ extension SettingViewController: LayoutProtocol {
         }
     }
     
-    func register() {
+    func registerTableViewCell() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellID.settingCell)
     }
 }

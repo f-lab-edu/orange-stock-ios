@@ -45,8 +45,8 @@ extension UserDefaultsManager {
     }
     
     /// accessToken 전달
-    func getAccessToken() -> String {
-        UserDefaults.standard.string(forKey: Key.accessToken.rawValue) ?? ""
+    func getAccessToken() -> String? {
+        UserDefaults.standard.string(forKey: Key.accessToken.rawValue)
     }
 }
 

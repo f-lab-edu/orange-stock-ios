@@ -26,3 +26,14 @@ jobs:
         uses: norio-nomura/action-swiftlint@3.2.1
         env:
           WORKING_DIRECTORY: Source
+          
+      - name: send slack message
+        uses: 8398a7/action-slack@v3
+        with:
+          mention: 'Lint error'
+          if_mention: failure
+          status: ${{ job.status }}
+          fields: workflow,job,commit,message,ref,author,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

@@ -76,12 +76,19 @@ final class FavoriteStockListViewController: UITableViewController {
 
 extension FavoriteStockListViewController {
     
+    // 로그인 유효성 검사
     private func verifyLoginStatus() {
-        let userID: String? = try? KeychainItemManager.read(account: .appleUserID)
-        Task {
-            let needLogin = try await AppleLoginHelper.verifyAppleLoginStatus(userID: userID)
+        let loginVaildator = LoginValidator(helper: AppleLoginHelper(), completion: moveToLoginViewController())
+        loginVaildator.verifyLoginStatus()
+    }
+    
+    // 로그인 되어있지 않다면 로그인 뷰 컨트롤러로 이동
+    private func moveToLoginViewController() -> (Bool) -> Void {
+        return { [weak self] needLogin in
             if needLogin {
-                self.navigationController?.setViewControllers([LoginViewController()], animated: false)
+                DispatchQueue.main.async {
+                    self?.navigationController?.setViewControllers([LoginViewController()], animated: true)
+                }
             }
         }
     }

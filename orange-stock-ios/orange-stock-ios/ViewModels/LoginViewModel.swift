@@ -60,7 +60,9 @@ extension LoginViewModel: AppleLoginHelperDelegate {
     func didCompleteWith(credential: AppleIDCredential) {
         // 키체인에 userID 저장
         do {
-            try KeychainItemManager.save(account: .appleUserID, item: credential.user, isForce: true)
+            try KeychainItemManager.save(account: .appleUserID,
+                                         item: credential.user,
+                                         isForce: true)
             isSucceedLogin.value = true
         } catch {
             didCompleteWith(error: error)

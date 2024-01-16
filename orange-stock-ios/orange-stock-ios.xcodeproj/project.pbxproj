@@ -26,6 +26,7 @@
 		02B391732B25A2650083CFB9 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B391722B25A2650083CFB9 /* AppearanceManager.swift */; };
 		02B3AA132B1F4392003037EF /* AuthenticatorInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */; };
 		02B6A89F2B520EEA0014F957 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6A89E2B520EEA0014F957 /* SettingViewModel.swift */; };
+		02B6A8A12B52962E0014F957 /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6A8A02B52962E0014F957 /* LoginValidator.swift */; };
 		02B71B0D2B50359B00BCEB78 /* AppleLoginHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B71B0C2B50359B00BCEB78 /* AppleLoginHelperTests.swift */; };
 		02BB92E42B35375500353603 /* AlertsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BB92E32B35375500353603 /* AlertsUtils.swift */; };
 		02C6BEFA2B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */; };
@@ -92,6 +93,7 @@
 		02B391722B25A2650083CFB9 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		02B3AA122B1F4392003037EF /* AuthenticatorInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorInterceptor.swift; sourceTree = "<group>"; };
 		02B6A89E2B520EEA0014F957 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		02B6A8A02B52962E0014F957 /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
 		02B71B0C2B50359B00BCEB78 /* AppleLoginHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelperTests.swift; sourceTree = "<group>"; };
 		02BB92E32B35375500353603 /* AlertsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsUtils.swift; sourceTree = "<group>"; };
 		02C6BEF92B0CC99B00832BC7 /* FavoriteStockAdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockAdditionTableViewCell.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				02AD5B462B4C132D00815827 /* AppleLoginHelper.swift */,
+				02B6A8A02B52962E0014F957 /* LoginValidator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				02AD5B472B4C132D00815827 /* AppleLoginHelper.swift in Sources */,
 				02BB92E42B35375500353603 /* AlertsUtils.swift in Sources */,
 				021443012B09F75500CC1CCB /* AppDelegate.swift in Sources */,
+				02B6A8A12B52962E0014F957 /* LoginValidator.swift in Sources */,
 				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
 				02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */,
 				02CFFFEA2B2753DE00E7FF0B /* UIColor+Convenience.swift in Sources */,

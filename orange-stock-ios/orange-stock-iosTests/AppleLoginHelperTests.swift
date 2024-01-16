@@ -38,33 +38,23 @@ final class AppleLoginHelperTests: XCTestCase {
     // 애플 로그인 필요 여부 확인 - verifyAppleLoginStatus
     // 이미 로그인 되어있는 경우
     func testLoginStatus() {
-        Task {
-            let needLogin = try await AppleLoginHelper.verifyAppleLoginStatus(
-                factory: MockingAppleIDAuthorization(),
-                userID: "apple ID"
-            )
+        let data = "apple ID".data(using: .utf8)!
+        helper.verifyLoginStatus(data: data) { needLogin in
             XCTAssertFalse(needLogin)
         }
     }
     
     // 로그인 정보는 있으나 폐기된 정보일 경우
-    func test_loginIDRevokedStatus() {
-        Task {
-            let needLogin = try await AppleLoginHelper.verifyAppleLoginStatus(
-                factory: MockingAppleIDAuthorization(),
-                userID: "oldAppleID"
-            )
+    func testLoginIDRevokedStatus() {
+        let data = "oldAppleID".data(using: .utf8)!
+        helper.verifyLoginStatus(data: data) { needLogin in
             XCTAssertTrue(needLogin)
         }
     }
     
     // 로그인 정보가 없다.
-    func test_loginIDNotFoundStatus() {
-        Task {
-            let needLogin = try await AppleLoginHelper.verifyAppleLoginStatus(
-                factory: MockingAppleIDAuthorization(),
-                userID: nil
-            )
+    func testLoginIDNotFoundStatus() {
+        helper.verifyLoginStatus(data: nil) { needLogin in
             XCTAssertTrue(needLogin)
         }
     }

@@ -8,7 +8,20 @@
 import Foundation
 import AuthenticationServices
 
-// MARK: Delegate
+// MARK: - Protocols
+/// Login Helper Protocol
+protocol LoginHelper {
+    /// 로그인 실행
+    func doLogin()
+    /// 키체인에 저장된 로그인 관련 데이터
+    func getLoginUserData() -> Data?
+    /// 로그인 유효성 검사
+    func verifyLoginStatus(data: Data?, completion: @escaping (Bool) -> Void)
+    /// 로그아웃
+    func doLogout()
+}
+
+// MARK: - Delegate
 
 protocol AppleLoginHelperDelegate: AnyObject {
     func didCompleteWith(credential: AppleIDCredential)
@@ -21,7 +34,7 @@ final class AppleLoginHelper: NSObject {
     
     // MARK: Properties
     
-    let factory: AppleIDAuthorizationFactory
+    private let factory: AppleIDAuthorizationFactory
     weak var delegate: AppleLoginHelperDelegate?
     
     // MARK: Init
@@ -29,8 +42,11 @@ final class AppleLoginHelper: NSObject {
     init(factory: AppleIDAuthorizationFactory = AppleIDAuthorization()) {
         self.factory = factory
     }
-    
-    // MARK: Public Methods
+}
+
+// MARK: - LoginHelper
+
+extension AppleLoginHelper: LoginHelper {
     /// 로그인 프로세스 실행
     func doLogin() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -39,22 +55,32 @@ final class AppleLoginHelper: NSObject {
         controller.delegate = self
         controller.performRequests()
     }
+    
+    /// 키체인에 저장된 로그인 관련 데이터
+    func getLoginUserData() -> Data? {
+        return try? KeychainItemManager.read(account: .appleUserID)
+    }
+    
+    /// 로그인 유효성 확인
+    func verifyLoginStatus(data: Data?, completion: @escaping (Bool) -> Void) {
+        guard let userData = data else {
+            completion(true)
+            return
+        }
+        let userID = String(decoding: userData, as: UTF8.self)
+        factory.createAppleIDProvider().getCredentialState(forUserID: userID) { credentialState, _ in
+            completion(credentialState == .revoked || credentialState == .notFound)
+        }
+    }
+    
+    /// 로그아웃
+    func doLogout() {
+    }
 }
 
 // MARK: - Static Methods
 
 extension AppleLoginHelper {
-    /// 애플 로그인 필요 여부 확인
-    static func verifyAppleLoginStatus(
-        factory: AppleIDAuthorizationFactory = AppleIDAuthorization(),
-        userID: String?
-    ) async throws -> Bool {
-        guard let userID = userID else { return true }
-        let appleIDProvider = factory.createAppleIDProvider()
-        let credentialState = try await appleIDProvider.credentialState(forUserID: userID)
-        return credentialState == .revoked || credentialState == .notFound
-    }
-    
     /// 애플 로그인 버튼 생성
     static func makeAppleLoginButton() -> UIControl {
         let appleLoginButton = ASAuthorizationAppleIDButton(
@@ -95,7 +121,7 @@ protocol AppleIDCredential {
     var user: String { get }
 }
 
-extension ASAuthorizationAppleIDCredential: AppleIDCredential {}
+extension ASAuthorizationAppleIDCredential: AppleIDCredential { }
 
 
 // MARK: - AuthorizationControllerFactory

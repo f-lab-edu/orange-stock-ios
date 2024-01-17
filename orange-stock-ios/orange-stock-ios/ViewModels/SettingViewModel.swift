@@ -121,10 +121,8 @@ extension SettingViewModel: SettingViewModelInput {
     }
     
     func didTouchLogout() {
-        // 키체인에서 애플아이디 삭제
-        deleteAppleID()
-        // 액세스 토큰 폐기
-        revokeAccessToken()
+        let loginVaildator = LoginValidator(helper: AppleLoginHelper())
+        loginVaildator.doLogout()
     }
 }
 
@@ -155,37 +153,6 @@ extension SettingViewModel: SettingViewModelOutput {
             return UserInfoRow(rawValue: indexPath.row)
         case .none:
             return nil
-        }
-    }
-}
-
-// MARK: Private Methods
-
-extension SettingViewModel {
-    
-    // MARK: Logout
-    /// 키체인에서 애플 아이디 삭제
-    private func deleteAppleID() {
-        do {
-            try KeychainItemManager.delete(account: .appleUserID)
-        } catch {
-            print("keychain delete appleID error: \(error.localizedDescription)")
-        }
-    }
-    /// access token 폐기
-    private func revokeAccessToken() {
-        guard let accessToken = UserDefaultsManager.shared.getAccessToken() else { return }
-        OAuthAPIService().revokeAccessToken(accessToken) { result in
-            switch result {
-            case .success(let response):
-                if response.code == 200 {
-                    print("success")
-                } else {
-                    print("revokeAccessToken fail with message: \(response.message)")
-                }
-            case .failure(let error):
-                print("revokeAccessToken error: \(error.localizedDescription)")
-            }
         }
     }
 }

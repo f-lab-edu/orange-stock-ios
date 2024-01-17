@@ -75,6 +75,7 @@ extension AppleLoginHelper: LoginHelper {
     
     /// 로그아웃
     func doLogout() {
+        try? KeychainItemManager.delete(account: .appleUserID)
     }
 }
 

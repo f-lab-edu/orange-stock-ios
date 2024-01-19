@@ -89,12 +89,13 @@ class MockingASAuthorizationAppleIDProvider: ASAuthorizationAppleIDProvider {
         forUserID userID: String,
         completion: @escaping (ASAuthorizationAppleIDProvider.CredentialState, Error?) -> Void
     ) {
-        if userID.isEmpty {
-            completion(.notFound, nil)
-        } else if userID == "oldAppleID" {
-            completion(.revoked, nil)
-        } else {
+        switch userID {
+        case "apple ID":
             completion(.authorized, nil)
+        case "oldAppleID":
+            completion(.revoked, nil)
+        default:
+            completion(.notFound, nil)
         }
     }
 }

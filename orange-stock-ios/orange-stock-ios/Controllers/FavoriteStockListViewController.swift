@@ -85,10 +85,9 @@ extension FavoriteStockListViewController {
     // 로그인 되어있지 않다면 로그인 뷰 컨트롤러로 이동
     private func moveToLoginViewController() -> (Bool) -> Void {
         return { [weak self] needLogin in
-            if needLogin {
-                DispatchQueue.main.async {
-                    self?.navigationController?.setViewControllers([LoginViewController()], animated: true)
-                }
+            guard needLogin else { return }
+            DispatchQueue.main.async {
+                self?.navigationController?.setViewControllers([LoginViewController()], animated: true)
             }
         }
     }

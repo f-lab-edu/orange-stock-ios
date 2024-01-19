@@ -54,10 +54,9 @@ extension SettingViewController {
     
     private func bindShowLogoutAlert() {
         viewModel.showLogoutAlert.bind { [weak self] isShow in
-            if isShow {
-                DispatchQueue.main.async {
+            guard isShow else { return }
+            DispatchQueue.main.async {
                     self?.showLogoutAlert()
-                }
             }
         }
     }
@@ -119,17 +118,6 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRow(at: indexPath)
     }
-    
-    private func showLogoutAlert() {
-        let confirmAction = UIAlertAction(title: "로그아웃", style: .destructive) { [weak self] _ in
-            self?.viewModel.didTouchLogout()
-            // 로그인 화면으로 이동
-            self?.showLoginViewController()
-        }
-        showAlert(title: "로그아웃 하시겠습니까?",
-                  message: nil,
-                  actions: [.cancel, confirmAction])
-    }
 }
 
 // MARK: - Private Method
@@ -150,6 +138,18 @@ extension SettingViewController {
                 animated: true
             )
         }
+    }
+    
+    /// 로그아웃 Alert 보여주기
+    private func showLogoutAlert() {
+        let confirmAction = UIAlertAction(title: "로그아웃", style: .destructive) { [weak self] _ in
+            self?.viewModel.didTouchLogout()
+            // 로그인 화면으로 이동
+            self?.showLoginViewController()
+        }
+        showAlert(title: "로그아웃 하시겠습니까?",
+                  message: nil,
+                  actions: [.cancel, confirmAction])
     }
 }
 

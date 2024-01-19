@@ -85,7 +85,7 @@ extension LoginViewController: LayoutProtocol {
                                         textColor: .mainTint)
         let stockLabel = makeLogoLabel(title: "STOCK🍊",
                                        textColor: .basic)
-        let appleLoginButton = viewModel.makeAppleLoginButton()
+        let appleLoginButton = AppleLoginHelper.makeAppleLoginButton()
         appleLoginButton.addTarget(self,
                                    action: #selector(touchAppleLoginButton),
                                    for: .touchUpInside)

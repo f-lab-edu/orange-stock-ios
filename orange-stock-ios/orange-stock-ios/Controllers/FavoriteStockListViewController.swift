@@ -54,20 +54,42 @@ final class FavoriteStockListViewController: UITableViewController {
         static let stockListHeaderView = "FavoriteStockListHeaderView"
     }
     
-    // MARK: - Life Cycle
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        verifyLoginStatus()
         layout()
     }
     
-    // MARK: - Actions
+    // MARK: Actions
     
     @objc func touchSearchBarButton() {
     }
     
     @objc func touchSettingBarButton() {
         self.navigationController?.pushViewController(SettingViewController(), animated: true)
+    }
+}
+
+// MARK: Private Methods
+
+extension FavoriteStockListViewController {
+    
+    // 로그인 유효성 검사
+    private func verifyLoginStatus() {
+        let loginVaildator = LoginValidator(helper: AppleLoginHelper(), completion: moveToLoginViewController())
+        loginVaildator.verifyLoginStatus()
+    }
+    
+    // 로그인 되어있지 않다면 로그인 뷰 컨트롤러로 이동
+    private func moveToLoginViewController() -> (Bool) -> Void {
+        return { [weak self] needLogin in
+            guard needLogin else { return }
+            DispatchQueue.main.async {
+                self?.navigationController?.setViewControllers([LoginViewController()], animated: true)
+            }
+        }
     }
 }
 

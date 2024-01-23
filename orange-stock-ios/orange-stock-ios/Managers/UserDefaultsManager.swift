@@ -18,7 +18,7 @@ final class UserDefaultsManager {
     
     enum Key: String, CaseIterable {
         case accessToken
-        case appearanceSetting
+        case appearance
     }
     
     // MARK: Public Method
@@ -55,12 +55,13 @@ extension UserDefaultsManager {
 extension UserDefaultsManager {
     /// 사용자가 설정한 AppearanceSetting값 저장
     func setAppearanceSetting(_ appearance: AppearanceSetting) {
-        UserDefaults.standard.set(appearance.rawValue, forKey: Key.appearanceSetting.rawValue)
+        UserDefaults.standard.set(appearance.appearanceType.rawValue, 
+                                  forKey: Key.appearance.rawValue)
     }
     
     /// AppearanceSetting값 전달
     func getAppearanceSetting() -> AppearanceSetting {
-        let appearanceSetting = UserDefaults.standard.integer(forKey: Key.appearanceSetting.rawValue)
-        return AppearanceSetting(rawValue: appearanceSetting) ?? .system
+        let appearanceType = UserDefaults.standard.integer(forKey: Key.appearance.rawValue)
+        return AppearanceType(rawValue: appearanceType)?.appearanceSetting ?? SystemAppearanceSetting()
     }
 }

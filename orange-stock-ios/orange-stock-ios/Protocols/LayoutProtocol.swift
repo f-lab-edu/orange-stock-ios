@@ -7,6 +7,18 @@
 
 import Foundation
 
+/// ViewController Layout 구성
+protocol ViewControllerLayout {
+    
+    // MARK: required
+    
+    func layout()
+    func navigation()
+    func attributes()
+    func constraints()
+}
+
+@available(*, deprecated, message: "viewController use ViewControllerLayout instead")
 /// Protocol: 레이아웃 구성
 protocol LayoutProtocol {
     

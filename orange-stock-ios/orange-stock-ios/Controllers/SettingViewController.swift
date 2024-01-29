@@ -48,28 +48,36 @@ final class SettingViewController: UIViewController {
 
 // MARK: - Layout
 
-extension SettingViewController {
+extension SettingViewController: ViewControllerLayout {
     
-    private func layout() {
-        setNavigation()
-        setBackgroundColor()
-        constraintTableView()
+    func layout() {
+        navigation()
+        attributes()
+        constraints()
     }
     
     // MARK: Navigation
     
-    private func setNavigation() {
+    func navigation() {
         navigationItem.largeTitleDisplayMode = .never
         title = Attributes.title
     }
     
     // MARK: Attribute
     
+    func attributes() {
+        setBackgroundColor()
+    }
+    
     private func setBackgroundColor() {
         view.backgroundColor = .settingBackground
     }
     
     // MARK: Constraints
+    
+    func constraints() {
+        constraintTableView()
+    }
     
     private func constraintTableView() {
         view.addSubview(tableView)

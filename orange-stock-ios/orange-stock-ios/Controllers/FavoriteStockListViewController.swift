@@ -144,7 +144,6 @@ extension FavoriteStockListViewController: LayoutProtocol {
     func layout() {
         setNavigation()
         attributes()
-        registerTableViewCell()
     }
     
     // MARK: Navigation
@@ -173,9 +172,7 @@ extension FavoriteStockListViewController: LayoutProtocol {
     func attributes() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
-    }
-    
-    func registerTableViewCell() {
+        
         tableView.register(FavoriteStockListHeaderView.self,
                            forHeaderFooterViewReuseIdentifier: CellID.stockListHeaderView)
         tableView.register(FavoriteStockListTableViewCell.self,

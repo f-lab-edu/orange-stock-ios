@@ -25,14 +25,7 @@ final class AppearanceSettingViewController: UIViewController {
     
     // MARK: UIComponents
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellID.settingCell)
-        return tableView
-    }()
+    private var tableView: UITableView!
     
     // MARK: Properties
     
@@ -48,30 +41,43 @@ final class AppearanceSettingViewController: UIViewController {
 
 // MARK: - Layout
 
-extension AppearanceSettingViewController {
+extension AppearanceSettingViewController: LayoutProtocol {
     
-    private func layout() {
+    func layout() {
         setNavigation()
-        setBackgroundColor()
-        constraintTableView()
+        attributes()
+        constraints()
     }
     
     // MARK: Navigation
     
-    private func setNavigation() {
+    func setNavigation() {
         navigationItem.largeTitleDisplayMode = .never
         title = Attributes.title
     }
     
     // MARK: Attribute
     
+    func attributes() {
+        setBackgroundColor()
+        setTableView()
+    }
+    
     private func setBackgroundColor() {
         view.backgroundColor = .settingBackground
     }
     
+    private func setTableView() {
+        tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellID.settingCell)
+    }
+    
     // MARK: Constraints
     
-    private func constraintTableView() {
+    func constraints() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()

@@ -56,13 +56,12 @@ extension FavoriteStockAdditionTableViewCell: LayoutProtocol {
     
     func layout() {
         attributes()
-        addAdditionButtonContraints()
+        constraints()
     }
     
     // MARK: Attribute
     
     func attributes() {
-        contentView.addSubview(additionButton)
         additionButton.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
         additionButton.tintColor = .basic
         
@@ -78,7 +77,9 @@ extension FavoriteStockAdditionTableViewCell: LayoutProtocol {
     
     // MARK: Constraints
     
-    func addAdditionButtonContraints() {
+    func constraints() {
+        contentView.addSubview(additionButton)
+        
         additionButton.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Metric.additionButtonInset)
             $0.height.equalTo(Metric.additionButtonHeight)

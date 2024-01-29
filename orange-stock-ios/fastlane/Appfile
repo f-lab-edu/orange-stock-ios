@@ -1,0 +1,8 @@
+app_identifier("com.hogang.orange-stock-ios") # The bundle identifier of your app
+apple_id("hyogangster1@gmail.com") # Your Apple Developer Portal username
+
+itc_team_id("126795476") # App Store Connect Team ID
+team_id("9U3GTR786Y") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

@@ -12,11 +12,6 @@ final class SettingViewController: UIViewController {
     
     // MARK: Enum
     
-    /// navigation
-    private enum Attributes {
-        static let title = "설정"
-    }
-    
     /// Cell Identifier
     private enum CellID {
         static let settingCell = "SettingTableViewCell"
@@ -48,19 +43,20 @@ final class SettingViewController: UIViewController {
 
 // MARK: - Layout
 
-extension SettingViewController: ViewControllerLayout {
+extension SettingViewController: LayoutProtocol {
     
     func layout() {
-        navigation()
+        navigation(item: NaivationViewItems(title: "설정"))
         attributes()
         constraints()
     }
     
     // MARK: Navigation
     
-    func navigation() {
+    func navigation(item: NaivationViewItems) {
         navigationItem.largeTitleDisplayMode = .never
-        title = Attributes.title
+        
+        title = item.title
     }
     
     // MARK: Attribute

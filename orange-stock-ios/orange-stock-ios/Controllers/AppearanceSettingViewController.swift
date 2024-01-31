@@ -8,15 +8,10 @@
 import UIKit
 import SnapKit
 
-/// View: 앱 내 화면 설정
+/// ViewController: 앱 내 화면 설정
 final class AppearanceSettingViewController: UIViewController {
     
     // MARK: Enum
-    
-    /// navigation
-    private enum Attributes {
-        static let title = "화면 설정"
-    }
     
     /// Cell Identifier
     private enum CellID {
@@ -48,19 +43,20 @@ final class AppearanceSettingViewController: UIViewController {
 
 // MARK: - Layout
 
-extension AppearanceSettingViewController: ViewControllerLayout {
+extension AppearanceSettingViewController: LayoutProtocol {
     
     func layout() {
-        navigation()
+        navigation(item: NaivationViewItems(title: "화면 설정"))
         attributes()
         constraints()
     }
     
     // MARK: Navigation
     
-    func navigation() {
+    func navigation(item: NaivationViewItems) {
         navigationItem.largeTitleDisplayMode = .never
-        title = Attributes.title
+        
+        title = item.title
     }
     
     // MARK: Attribute

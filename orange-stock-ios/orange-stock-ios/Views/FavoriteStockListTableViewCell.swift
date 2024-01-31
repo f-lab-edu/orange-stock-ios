@@ -9,12 +9,11 @@ import UIKit
 import SnapKit
 
 /// View: 관심 주식 목록의 종목 Cell
-
 final class FavoriteStockListTableViewCell: UITableViewCell {
     
-    // MARK: Properties
+    // MARK: Identifier
     
-    private var stockLabels: [StockLabel]!
+    static let identifier = "FavoriteStockListTableViewCell"
     
     // MARK: Enum - Constraint
     
@@ -29,6 +28,26 @@ final class FavoriteStockListTableViewCell: UITableViewCell {
         static let prevDayDiffRateLabelWidth = 64.0
     }
     
+    // MARK: UIComponents
+    
+    private struct FavoriteStockLabelUIComponents: UIComponetsProtocol {
+        let stockNameLabel = StockLabel()
+        let currentPriceLabel = StockLabel()
+        let prevDayDiffSignLabel = StockLabel()
+        let prevDayDiffPriceLabel = StockLabel()
+        let prevDayDiffRateLabel = StockLabel()
+        
+        func convertToArray() -> [UIView] {
+            return [stockNameLabel, 
+                    currentPriceLabel,
+                    prevDayDiffSignLabel,
+                    prevDayDiffPriceLabel, 
+                    prevDayDiffRateLabel]
+        }
+    }
+    
+    private let labels = FavoriteStockLabelUIComponents()
+    
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -39,141 +58,109 @@ final class FavoriteStockListTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Pubilc Method
-    
-    func stock(_ stock: Stock?) {
-        guard let stock = stock else { return }
-        self.stockLabels.forEach {
-            $0.stock(stock)
-        }
-    }
 }
 
 // MARK: - Layout
 
 extension FavoriteStockListTableViewCell: LayoutProtocol {
     
+    private typealias SubViews = (stackView: UIStackView, labels: FavoriteStockLabelUIComponents)
+    
     func layout() {
-        let stackView = makeStackView()
-        contentView.addSubview(stackView)
-        
-        self.stockLabels = makeStockLabels()
-        self.stockLabels.forEach {
-            stackView.addArrangedSubview($0)
-        }
-        
-        addStackViewContraints(stackView)
-        addStockLabelsConstraint(self.stockLabels)
+        let subViews: SubViews = (UIStackView(), labels)
+        attributes(subViews)
+        addSubViews(subViews)
+        constraints(subViews)
     }
     
-    // MARK: UIComponets
+    // MARK: Attributes
     
-    func makeStackView() -> UIStackView {
-        let stackView = UIStackView()
+    private func attributes(_ views: SubViews) {
+        setCellAttributes()
+        
+        setStackViewAttributes(for: views.stackView)
+        
+        views.labels.stockNameLabel.setAttributes(attr: FavoriteStockNameLabelAttributes())
+        views.labels.currentPriceLabel.setAttributes(attr: FavoriteStockPriceLabelAttributes())
+        views.labels.prevDayDiffRateLabel.setAttributes(attr: FavoriteStockRateLabelAttributes())
+        views.labels.prevDayDiffSignLabel.setAttributes(attr: FavoriteStockPriceLabelAttributes())
+        views.labels.prevDayDiffPriceLabel.setAttributes(attr: FavoriteStockPriceLabelAttributes())
+    }
+    
+    private func setCellAttributes() {
+        selectionStyle = .none
+    }
+    
+    private func setStackViewAttributes(for stackView: UIStackView) {
         stackView.axis = .horizontal
         stackView.spacing = Metric.stackViewSpacing
-        return stackView
     }
     
-    func makeStockLabels() -> [StockLabel] {
-        let stockNameLabel = StockLabel(type: .stockName)
-        let currentPriceLabel = StockLabel(type: .currentPrice)
-        let prevDayDiffSignLabel = StockLabel(type: .prevDayDiffSign)
-        let prevDayDiffPriceLabel = StockLabel(type: .prevDayDiffPrice)
-        let prevDayDiffRateLabel = StockLabel(type: .prevDayDiffRate)
-        return [stockNameLabel, currentPriceLabel, prevDayDiffSignLabel, prevDayDiffPriceLabel, prevDayDiffRateLabel]
+    // MARK: Add Subviews
+    
+    private func addSubViews(_ subViews: SubViews) {
+        contentView.addSubview(subViews.stackView)
+        subViews.labels.convertToArray().forEach {
+            subViews.stackView.addArrangedSubview($0)
+        }
     }
     
-    // MARK: Contraints
+    // MARK: Constraints
     
-    func addStackViewContraints(_ stackView: UIStackView) {
+    private func constraints(_ views: SubViews) {
+        setStackViewContraints(for: views.stackView)
+        setFavoriteStockLabelConstraint(for: views.labels)
+    }
+    
+    private func setStackViewContraints(for stackView: UIStackView) {
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Metric.stackViewInset)
             $0.height.equalTo(Metric.stackViewHeight)
         }
     }
     
-    func addStockLabelsConstraint(_ views: [StockLabel]) {
-        addStockLabel(views[4], constraint: Metric.prevDayDiffRateLabelWidth)
-        addStockLabel(views[3], constraint: Metric.prevDayDiffPriceLabelWidth)
-        addStockLabel(views[2], constraint: Metric.prevDayDiffSignLabelWidth)
-        addStockLabel(views[1], constraint: Metric.currentPriceLabelWidth)
+    private func setFavoriteStockLabelConstraint(for labels: FavoriteStockLabelUIComponents) {
+        setLabelConstraint(for: labels.currentPriceLabel, 
+                           constraint: Metric.currentPriceLabelWidth)
+        setLabelConstraint(for: labels.prevDayDiffRateLabel, 
+                           constraint: Metric.prevDayDiffRateLabelWidth)
+        setLabelConstraint(for: labels.prevDayDiffSignLabel, 
+                           constraint: Metric.prevDayDiffSignLabelWidth)
+        setLabelConstraint(for: labels.prevDayDiffPriceLabel, 
+                           constraint: Metric.prevDayDiffPriceLabelWidth)
     }
     
-    func addStockLabel(_ view: StockLabel, constraint width: CGFloat) {
-        view.snp.makeConstraints {
+    private func setLabelConstraint(for label: UILabel, constraint width: CGFloat) {
+        label.snp.makeConstraints {
             $0.width.equalTo(width)
         }
     }
 }
 
-/// Label: 주식 정보 표기
-class StockLabel: UILabel {
+// MARK: Public Methods
+
+extension FavoriteStockListTableViewCell {
+
+    func stock(_ stock: Stock?) {
+        guard let stock = stock else { return }
+        updateStockLabelsText(with: stock)
+    }
+}
+
+// MARK: Private Methods
+
+extension FavoriteStockListTableViewCell {
     
-    /// 표기할 정보 타입
-    enum StockInfoType {
-        case stockName
-        case currentPrice
-        case prevDayDiffSign
-        case prevDayDiffPrice
-        case prevDayDiffRate
+    private func updateStockLabelsText(with stock: Stock) {
+        labels.stockNameLabel.updateStockData(with: stock.stockName)
+        labels.currentPriceLabel.updateStockData(with: stock.currentPrice)
+        labels.prevDayDiffPriceLabel.updateStockData(with: stock.prevDayDiffPrice)
+        labels.prevDayDiffRateLabel.updateStockData(with: stock.prevDayDiffRate)
+        labels.prevDayDiffSignLabel.updateStockData(with: stock.prevDayDiffSign.mark())
         
-        func textAlignment() -> NSTextAlignment {
-            return self == .stockName ? .left : .right
-        }
-    }
-    
-    // MARK: Properties
-    
-    private var type: StockInfoType
-    
-    // MARK: Init
-    
-    override init(frame: CGRect) {
-        self.type = .stockName
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    convenience init(type: StockInfoType) {
-        self.init(frame: .zero)
-        
-        self.type = type
-        
-        self.textAlignment = type.textAlignment()
-        self.textColor = .basic
-        self.font = .titleLabel
-    }
-    
-    // MARK: Public Methods
-    
-    func stock(_ stock: Stock) {
-        self.text = text(stock)
-        self.textColor = textColor(stock.prevDayDiffSign)
-    }
-    
-    // MARK: Private Methods
-    
-    private func textColor(_ diffSign: Stock.DiffSign) -> UIColor {
-        return type == .stockName ? .basic : diffSign.color()
-    }
-    
-    private func text(_ stock: Stock) -> String {
-        switch type {
-        case .stockName:
-            return stock.stockName
-        case .currentPrice:
-            return stock.currentPrice.makeDecimal()
-        case .prevDayDiffSign:
-            return stock.prevDayDiffSign.mark()
-        case .prevDayDiffPrice:
-            return stock.prevDayDiffPrice.makeDecimal()
-        case .prevDayDiffRate:
-            return "\(stock.prevDayDiffRate)%"
+        labels.convertToArray().forEach { label in
+            guard let stockLabel = label as? StockLabel else { return }
+            stockLabel.updateTextColor(with: stock.prevDayDiffSign)
         }
     }
 }

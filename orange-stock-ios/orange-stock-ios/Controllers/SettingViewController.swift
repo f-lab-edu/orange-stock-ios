@@ -10,28 +10,10 @@ import UIKit
 /// ViewController: 설정 화면
 final class SettingViewController: UIViewController {
     
-    // MARK: Enum
-    
-    /// Cell Identifier
-    private enum CellID {
-        static let settingCell = "SettingTableViewCell"
-    }
-    
     // MARK: Properties
     
     private let viewModel = SettingViewModel()
     
-    // MARK: UIComponents
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellID.settingCell)
-        return tableView
-    }()
-
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -41,45 +23,21 @@ final class SettingViewController: UIViewController {
     }
 }
 
-// MARK: - Layout
+// MARK: - SettingBaseTableViewProtocol
 
-extension SettingViewController: LayoutProtocol {
+extension SettingViewController: SettingBaseTableViewProtocol {
     
-    func layout() {
-        navigation(item: NaivationViewItems(title: "설정"))
-        attributes()
-        constraints()
+    var tableView: UITableView {
+        let tableView = UITableView(frame: view.frame, style: .insetGrouped)
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        return tableView
     }
     
-    // MARK: Navigation
-    
-    func navigation(item: NaivationViewItems) {
-        navigationItem.largeTitleDisplayMode = .never
-        
-        title = item.title
-    }
-    
-    // MARK: Attribute
-    
-    func attributes() {
-        setBackgroundColor()
-    }
-    
-    private func setBackgroundColor() {
-        view.backgroundColor = .settingBackground
-    }
-    
-    // MARK: Constraints
-    
-    func constraints() {
-        constraintTableView()
-    }
-    
-    private func constraintTableView() {
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    func setNavigationItem() -> NaivationViewItems {
+        return NaivationViewItems(title: "설정")
     }
 }
 
@@ -170,7 +128,7 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: CellID.settingCell,
+            withIdentifier: cellIdentifier,
             for: indexPath
         )
         let rowInfo: SettingTableViewRow = viewModel.cellForRowAt(indexPath)

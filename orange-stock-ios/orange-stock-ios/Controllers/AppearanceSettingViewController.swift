@@ -8,82 +8,34 @@
 import UIKit
 import SnapKit
 
-/// View: 앱 내 화면 설정
+/// ViewController: 앱 내 화면 설정
 final class AppearanceSettingViewController: UIViewController {
-    
-    // MARK: Enum
-    
-    /// navigation
-    private enum Attributes {
-        static let title = "화면 설정"
-    }
-    
-    /// Cell Identifier
-    private enum CellID {
-        static let settingCell = "AppearanceSettingTableViewCell"
-    }
-    
-    // MARK: UIComponents
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellID.settingCell)
-        return tableView
-    }()
     
     // MARK: Properties
     
     private let manager = AppearanceManager()
+    private lazy var tableViewLayout: SettingBaseTableViewLayoutProtocol = {
+        return AppearanceSettingTableViewLayout(
+            tableView: self.setTableView(
+                cellIdentifier: AppearanceSettingTableViewLayout.cellIdentifier
+            )
+        )
+    }()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout()
+        layout(with: tableViewLayout)
     }
 }
 
-// MARK: - Layout
+// MARK: - SettingViewControllerLayoutProtocol
 
-extension AppearanceSettingViewController: ViewControllerLayout {
+extension AppearanceSettingViewController: SettingBaseViewControllerLayoutProtocol {
     
-    func layout() {
-        navigation()
-        attributes()
-        constraints()
-    }
-    
-    // MARK: Navigation
-    
-    func navigation() {
-        navigationItem.largeTitleDisplayMode = .never
-        title = Attributes.title
-    }
-    
-    // MARK: Attribute
-    
-    func attributes() {
-        setBackgroundColor()
-    }
-    
-    private func setBackgroundColor() {
-        view.backgroundColor = .settingBackground
-    }
-    
-    // MARK: Constraints
-    
-    func constraints() {
-        constraintTableView()
-    }
-    
-    private func constraintTableView() {
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    func layout(with tableViewLayout: SettingBaseTableViewLayoutProtocol) {
+        tableViewLayout.layout(with: self)
     }
 }
 
@@ -105,7 +57,7 @@ extension AppearanceSettingViewController {
     
     private func indexPath(_ indexPath: IndexPath,
                            accessory accessoryType: UITableViewCell.AccessoryType) {
-        let cell = tableView.cellForRow(at: indexPath)
+        let cell = tableViewLayout.tableView.cellForRow(at: indexPath)
         cell?.accessoryType = accessoryType
     }
     
@@ -118,7 +70,6 @@ extension AppearanceSettingViewController {
     }
 }
 
-
 // MARK: - UITableViewDataSource
 
 extension AppearanceSettingViewController: UITableViewDataSource {
@@ -129,8 +80,10 @@ extension AppearanceSettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.settingCell,
-                                                 for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: AppearanceSettingTableViewLayout.cellIdentifier,
+            for: indexPath
+        )
         if let appearanceType = AppearanceType(rawValue: indexPath.row) {
             configTableViewCell(cell, appearanceType: appearanceType)
         }

@@ -5,39 +5,45 @@
 //  Created by hogang on 2023/12/17.
 //
 
-import Foundation
+import UIKit
 
-/// ViewController Layout 구성
-protocol ViewControllerLayout {
-    
-    // MARK: required
-    
-    func layout()
-    func navigation()
-    func attributes()
-    func constraints()
-}
-
-@available(*, deprecated, message: "viewController use ViewControllerLayout instead")
-/// Protocol: 레이아웃 구성
+// MARK: - Protocol
+/// Layout 구성
 protocol LayoutProtocol {
     
-    // MARK: required
-    
+    // required
     func layout()
     
-    // MARK: - optional
-    
-    func setNavigation()
+    // optional
+    func navigation(item: NavigationViewItems)
     func attributes()
     func constraints()
-    /// tableViewCell register
-    func registerTableViewCell()
 }
 
+// MARK: Optional
+
 extension LayoutProtocol {
-    func setNavigation() {}
+    func navigation(item: NavigationViewItems) {}
     func attributes() {}
     func constraints() {}
-    func registerTableViewCell() {}
+}
+
+/// SubViews UIComponents
+protocol UIComponetsProtocol {
+    func convertToArray() -> [UIView]
+}
+
+/// Navigtaion
+protocol NavigationBarButtonItemProtocol {
+    var image: UIImage? { get }
+    var title: String? { get }
+    var action: Selector? { get }
+}
+
+// MARK: - Struct
+/// NavigationItem
+struct NavigationViewItems {
+    var title: String?
+    var leftBarButtonItems: [NavigationBarButtonItemProtocol]?
+    var rightBarButtonItems: [NavigationBarButtonItemProtocol]?
 }

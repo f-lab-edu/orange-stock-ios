@@ -1,5 +1,5 @@
 //
-//  FavoriteStockAdditionTableViewCell.swift
+//  AdditionTableViewCell.swift
 //  orange-stock-ios
 //
 //  Created by hogang on 2023/11/21.
@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 
-/// View: 관심 주식 목록 하단의 관심 주식 추가하기 Cell
+/// View:  추가하기 Cell
 
-final class FavoriteStockAdditionTableViewCell: UITableViewCell {
+final class AdditionTableViewCell: UITableViewCell {
+    
+    static let identifier = "AdditionTableViewCell"
     
     // MARK: Enum
     
@@ -30,7 +32,7 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
         static let additionImage = "plus"
     }
     
-    // MARK: - Init
+    // MARK: Init
     
     let additionButton = UIButton()
     
@@ -42,27 +44,22 @@ final class FavoriteStockAdditionTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // 화면 설정 모드 변경 시 버튼 테두리 색상 변경
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        additionButton.layer.borderColor = UIColor.label.cgColor
-    }
 }
 
 // MARK: - Layout
 
-extension FavoriteStockAdditionTableViewCell: LayoutProtocol {
+extension AdditionTableViewCell: LayoutProtocol {
     
     func layout() {
         attributes()
-        addAdditionButtonContraints()
+        constraints()
     }
     
     // MARK: Attribute
     
     func attributes() {
         contentView.addSubview(additionButton)
+        
         additionButton.setImage(UIImage(systemName: Attributes.additionImage), for: .normal)
         additionButton.tintColor = .basic
         
@@ -76,9 +73,15 @@ extension FavoriteStockAdditionTableViewCell: LayoutProtocol {
         additionButton.layer.borderColor = UIColor.label.cgColor
     }
     
+    // 화면 설정 모드 변경 시 버튼 테두리 색상 변경
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        additionButton.layer.borderColor = UIColor.basic.cgColor
+    }
+    
     // MARK: Constraints
     
-    func addAdditionButtonContraints() {
+    func constraints() {
         additionButton.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(Metric.additionButtonInset)
             $0.height.equalTo(Metric.additionButtonHeight)

@@ -10,80 +10,25 @@ import UIKit
 /// ViewController: 설정 화면
 final class SettingViewController: UIViewController {
     
-    // MARK: Enum
-    
-    /// navigation
-    private enum Attributes {
-        static let title = "설정"
-    }
-    
-    /// Cell Identifier
-    private enum CellID {
-        static let settingCell = "SettingTableViewCell"
-    }
-    
     // MARK: Properties
     
     private let viewModel = SettingViewModel()
     
-    // MARK: UIComponents
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellID.settingCell)
-        return tableView
-    }()
-
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout()
+        layout(with: getSettingTableViewLayout())
         bindViewModel()
     }
 }
 
-// MARK: - Layout
+// MARK: - LayoutProtocol
 
-extension SettingViewController: ViewControllerLayout {
+extension SettingViewController: SettingBaseViewControllerLayoutProtocol {
     
-    func layout() {
-        navigation()
-        attributes()
-        constraints()
-    }
-    
-    // MARK: Navigation
-    
-    func navigation() {
-        navigationItem.largeTitleDisplayMode = .never
-        title = Attributes.title
-    }
-    
-    // MARK: Attribute
-    
-    func attributes() {
-        setBackgroundColor()
-    }
-    
-    private func setBackgroundColor() {
-        view.backgroundColor = .settingBackground
-    }
-    
-    // MARK: Constraints
-    
-    func constraints() {
-        constraintTableView()
-    }
-    
-    private func constraintTableView() {
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+    func layout(with tableView: SettingBaseTableViewLayoutProtocol) {
+        tableView.layout(with: self)
     }
 }
 
@@ -117,6 +62,12 @@ extension SettingViewController {
 // MARK: - Private Method
 
 extension SettingViewController {
+    
+    func getSettingTableViewLayout() -> SettingBaseTableViewLayoutProtocol {
+        return SettingTableViewLayout(
+            tableView: setTableView(cellIdentifier: SettingTableViewLayout.cellIdentifier)
+        )
+    }
     
     private func pushViewController(_ pushViewController: UIViewController?) {
         guard let controller = pushViewController else { return }
@@ -174,7 +125,7 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: CellID.settingCell,
+            withIdentifier: SettingTableViewLayout.cellIdentifier,
             for: indexPath
         )
         let rowInfo: SettingTableViewRow = viewModel.cellForRowAt(indexPath)
@@ -188,7 +139,7 @@ extension SettingViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension SettingViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRow(at: indexPath)
     }

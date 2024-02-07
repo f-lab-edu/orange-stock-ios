@@ -5,30 +5,62 @@
 //  Created by johyokyeong on 2023/12/26.
 //
 
-import Foundation
+import UIKit
 
-// MARK: - Enum
+// MARK: - SettingTableView
 
-enum TableViewCellAccessoryType {
-    case none
-    case disclosureIndicator
-    case checkmark
+enum SettingTableViewType {
+    // 화면
+    case Appearance // 화면 설정
+    
+    // 유저
+    case Logout // 로그아웃
 }
 
-enum PushViewControllerType {
-    case AppearanceSettingViewController
+protocol SettingTableViewSection {
+    var rows: [SettingTableViewRow] { get }
 }
 
-// MARK: - Protocols
-
-protocol TableViewCellRowProtocol {
+protocol SettingTableViewRow {
+    var type: SettingTableViewType { get }
     var title: String { get }
-    var accessory: TableViewCellAccessoryType { get }
+    var accessory: UITableViewCell.AccessoryType { get }
+    func didSelected(with viewModel: SettingViewModel)
 }
+
+// MARK: Section
+
+private struct SettingAppearanceSection: SettingTableViewSection {
+    var rows: [SettingTableViewRow] = [SettingAppearanceRow()]
+}
+
+private struct SettingUserInfoSection: SettingTableViewSection {
+    var rows: [SettingTableViewRow] = [SettingLogoutRow()]
+}
+
+// MARK: Row
+
+private struct SettingAppearanceRow: SettingTableViewRow {
+    var type: SettingTableViewType = .Appearance
+    var title: String = "화면설정"
+    var accessory: UITableViewCell.AccessoryType = .disclosureIndicator
+    func didSelected(with viewModel: SettingViewModel) {
+        viewModel.pushViewController.value = AppearanceSettingViewController()
+    }
+}
+
+private struct SettingLogoutRow: SettingTableViewRow {
+    var type: SettingTableViewType = .Logout
+    var title: String = "로그아웃"
+    var accessory: UITableViewCell.AccessoryType = .none
+    func didSelected(with viewModel: SettingViewModel) {
+        viewModel.showLogoutAlert.value = true
+    }
+}
+
+// MARK: - SettingViewModel
 
 protocol SettingViewModelInput {
-    /// didSelectRowAt
-    func didSelectRow(at indexPath: IndexPath)
     /// 로그아웃 버튼 터치
     func didTouchLogout()
 }
@@ -41,84 +73,27 @@ protocol SettingViewModelOutput {
     /// numberOfRowsInSection
     func numberOfRowsInSection(_ section: Int) -> Int
     /// cellForRowAt
-    func rowType(at indexPath: IndexPath) -> TableViewCellRowProtocol?
+    func cellForRowAt(_ indexPath: IndexPath) -> SettingTableViewRow
+    /// didSelectRowAt
+    func didSelectRow(at indexPath: IndexPath)
 }
-
-// MARK: - Class
 
 final class SettingViewModel {
     
     // MARK: Properties
     
+    private let sections: [SettingTableViewSection] = [
+        SettingAppearanceSection(),
+        SettingUserInfoSection()
+    ]
     var showLogoutAlert: Observable<Bool> = Observable(false)
-    var pushViewController: Observable<PushViewControllerType?> = Observable(.none)
+    var pushViewController: Observable<UIViewController?> = Observable(nil)
     
-    // MARK: Enum
-
-    /// Section
-    enum Section: Int, CaseIterable {
-        case appearnce
-        case userinfo
-    }
-
-    /// tableView Row
-    enum AppearnceRow: Int, CaseIterable, TableViewCellRowProtocol {
-        case appearance
-        
-        var title: String {
-            switch self {
-            case .appearance:
-                return "화면 설정"
-            }
-        }
-        
-        var accessory: TableViewCellAccessoryType {
-            switch self {
-            case .appearance:
-                return .disclosureIndicator
-            }
-        }
-        
-        var pushViewController: PushViewControllerType {
-            switch self {
-            case .appearance:
-                return .AppearanceSettingViewController
-            }
-        }
-    }
-
-    enum UserInfoRow: Int, CaseIterable, TableViewCellRowProtocol {
-        case logout
-        
-        var title: String {
-            switch self {
-            case .logout:
-                return "로그아웃"
-            }
-        }
-        
-        var accessory: TableViewCellAccessoryType {
-            switch self {
-            case .logout:
-                return .none
-            }
-        }
-    }
 }
 
 // MARK: SettingViewModelInput
 
 extension SettingViewModel: SettingViewModelInput {
-    func didSelectRow(at indexPath: IndexPath) {
-        switch Section(rawValue: indexPath.section) {
-        case .appearnce:
-            pushViewController.value = AppearnceRow(rawValue: indexPath.row)?.pushViewController
-        case .userinfo:
-            showLogoutAlert.value = true
-        case .none:
-            break
-        }
-    }
     
     func didTouchLogout() {
         // 키체인에서 애플아이디 삭제
@@ -131,31 +106,22 @@ extension SettingViewModel: SettingViewModelInput {
 // MARK: SettingViewModelOutput
 
 extension SettingViewModel: SettingViewModelOutput {
-    /// numberOfSections
+    
     func numberOfSections() -> Int {
-        Section.allCases.count
+        return sections.count
     }
-    /// numberOfRowsInSection
+    
     func numberOfRowsInSection(_ section: Int) -> Int {
-        switch Section(rawValue: section) {
-        case .appearnce:
-            return AppearnceRow.allCases.count
-        case .userinfo:
-            return UserInfoRow.allCases.count
-        case .none:
-            return 0
-        }
+        return sections[section].rows.count
     }
-    ///
-    func rowType(at indexPath: IndexPath) -> TableViewCellRowProtocol? {
-        switch Section(rawValue: indexPath.section) {
-        case .appearnce:
-            return AppearnceRow(rawValue: indexPath.row)
-        case .userinfo:
-            return UserInfoRow(rawValue: indexPath.row)
-        case .none:
-            return nil
-        }
+    
+    func cellForRowAt(_ indexPath: IndexPath) -> SettingTableViewRow {
+        return sections[indexPath.section].rows[indexPath.row]
+    }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        let rowInfo = sections[indexPath.section].rows[indexPath.row]
+        rowInfo.didSelected(with: self)
     }
 }
 

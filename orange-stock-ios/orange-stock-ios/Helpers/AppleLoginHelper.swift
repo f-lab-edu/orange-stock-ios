@@ -85,7 +85,7 @@ extension AppleLoginHelper {
     static func makeAppleLoginButton() -> UIControl {
         let appleLoginButton = ASAuthorizationAppleIDButton(
             authorizationButtonType: .signIn,
-            authorizationButtonStyle: AppearanceManager.shared.appearanceSetting.userInterfaceStyle == .dark
+            authorizationButtonStyle: AppearanceManager().userInterfaceStyle() == .dark
              ? .white
              : .black
         )

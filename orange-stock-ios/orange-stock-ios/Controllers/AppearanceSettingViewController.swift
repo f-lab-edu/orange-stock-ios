@@ -9,27 +9,33 @@ import UIKit
 import SnapKit
 
 /// ViewController: 앱 내 화면 설정
-final class AppearanceSettingViewController: SettingBaseViewController {
+final class AppearanceSettingViewController: UIViewController {
     
     // MARK: Properties
     
     private let manager = AppearanceManager()
+    private lazy var tableViewLayout: SettingBaseTableViewLayoutProtocol = {
+        return AppearanceSettingTableViewLayout(
+            tableView: self.setTableView(
+                cellIdentifier: AppearanceSettingTableViewLayout.cellIdentifier
+            )
+        )
+    }()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTableViewAttributes()
-        layout()
+        layout(with: tableViewLayout)
     }
+}
+
+// MARK: - SettingViewControllerLayoutProtocol
+
+extension AppearanceSettingViewController: SettingBaseViewControllerLayoutProtocol {
     
-    override func setNaivationViewItems() -> NaivationViewItems {
-        NaivationViewItems(title: "화면 설정")
-    }
-    
-    func setTableViewAttributes() {
-        tableView.delegate = self
-        tableView.dataSource = self
+    func layout(with tableViewLayout: SettingBaseTableViewLayoutProtocol) {
+        tableViewLayout.layout(with: self)
     }
 }
 
@@ -51,7 +57,7 @@ extension AppearanceSettingViewController {
     
     private func indexPath(_ indexPath: IndexPath,
                            accessory accessoryType: UITableViewCell.AccessoryType) {
-        let cell = tableView.cellForRow(at: indexPath)
+        let cell = tableViewLayout.tableView.cellForRow(at: indexPath)
         cell?.accessoryType = accessoryType
     }
     
@@ -74,8 +80,10 @@ extension AppearanceSettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier,
-                                                 for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: AppearanceSettingTableViewLayout.cellIdentifier,
+            for: indexPath
+        )
         if let appearanceType = AppearanceType(rawValue: indexPath.row) {
             configTableViewCell(cell, appearanceType: appearanceType)
         }

@@ -52,7 +52,7 @@ final class FavoriteStockListViewController: UITableViewController {
 extension FavoriteStockListViewController: LayoutProtocol {
     
     func layout() {
-        let naviItem = NaivationViewItems(
+        let naviItem = NavigationViewItems(
             title: "관심 주식 목록",
             rightBarButtonItems: [SettingBarButtonItem(), SearchBarButtonItem()]
         )
@@ -62,7 +62,7 @@ extension FavoriteStockListViewController: LayoutProtocol {
     
     // MARK: Navigation
     
-    func navigation(item: NaivationViewItems) {
+    func navigation(item: NavigationViewItems) {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
         

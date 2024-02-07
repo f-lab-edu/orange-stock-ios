@@ -18,26 +18,17 @@ final class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout()
+        layout(with: getSettingTableViewLayout())
         bindViewModel()
     }
 }
 
-// MARK: - SettingBaseTableViewProtocol
+// MARK: - LayoutProtocol
 
-extension SettingViewController: SettingBaseTableViewProtocol {
+extension SettingViewController: SettingBaseViewControllerLayoutProtocol {
     
-    var tableView: UITableView {
-        let tableView = UITableView(frame: view.frame, style: .insetGrouped)
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        return tableView
-    }
-    
-    func setNavigationItem() -> NaivationViewItems {
-        return NaivationViewItems(title: "설정")
+    func layout(with tableView: SettingBaseTableViewLayoutProtocol) {
+        tableView.layout(with: self)
     }
 }
 
@@ -71,6 +62,12 @@ extension SettingViewController {
 // MARK: - Private Method
 
 extension SettingViewController {
+    
+    func getSettingTableViewLayout() -> SettingBaseTableViewLayoutProtocol {
+        return SettingTableViewLayout(
+            tableView: setTableView(cellIdentifier: SettingTableViewLayout.cellIdentifier)
+        )
+    }
     
     private func pushViewController(_ pushViewController: UIViewController?) {
         guard let controller = pushViewController else { return }
@@ -128,7 +125,7 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellIdentifier,
+            withIdentifier: SettingTableViewLayout.cellIdentifier,
             for: indexPath
         )
         let rowInfo: SettingTableViewRow = viewModel.cellForRowAt(indexPath)
@@ -142,7 +139,7 @@ extension SettingViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension SettingViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRow(at: indexPath)
     }

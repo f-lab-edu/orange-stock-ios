@@ -25,7 +25,7 @@ protocol SettingTableViewRow {
     var type: SettingTableViewType { get }
     var title: String { get }
     var accessory: UITableViewCell.AccessoryType { get }
-    var pushViewController: UIViewController? { get }
+    func didSelected(with viewModel: SettingViewModel)
 }
 
 // MARK: Section
@@ -44,14 +44,18 @@ private struct SettingAppearanceRow: SettingTableViewRow {
     var type: SettingTableViewType = .Appearance
     var title: String = "화면설정"
     var accessory: UITableViewCell.AccessoryType = .disclosureIndicator
-    var pushViewController: UIViewController? = AppearanceSettingViewController()
+    func didSelected(with viewModel: SettingViewModel) {
+        viewModel.pushViewController.value = AppearanceSettingViewController()
+    }
 }
 
 private struct SettingLogoutRow: SettingTableViewRow {
     var type: SettingTableViewType = .Logout
     var title: String = "로그아웃"
     var accessory: UITableViewCell.AccessoryType = .none
-    var pushViewController: UIViewController?
+    func didSelected(with viewModel: SettingViewModel) {
+        viewModel.showLogoutAlert.value = true
+    }
 }
 
 // MARK: - SettingViewModel
@@ -117,12 +121,7 @@ extension SettingViewModel: SettingViewModelOutput {
     
     func didSelectRow(at indexPath: IndexPath) {
         let rowInfo = sections[indexPath.section].rows[indexPath.row]
-        
-        if rowInfo.type == .Logout {
-            showLogoutAlert.value = true
-        } else {
-            pushViewController.value = rowInfo.pushViewController
-        }
+        rowInfo.didSelected(with: self)
     }
 }
 

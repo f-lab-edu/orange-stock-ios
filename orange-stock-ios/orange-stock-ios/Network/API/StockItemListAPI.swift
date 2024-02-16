@@ -28,8 +28,7 @@ extension StockItemListAPI: TargetType {
     }
     
     var task: Moya.Task {
-        let parameter: [String: Any] = self.parameter ?? [:]
-        return .requestParameters(parameters: parameter,
+        return .requestParameters(parameters: parameter ?? [:],
                                   encoding: JSONEncoding.default)
     }
     

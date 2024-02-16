@@ -45,7 +45,7 @@ extension APIServiceProviderProtocol {
         _ isStub: Bool,
         _ sampleStatusCode: Int,
         _ customEndpointClosure: ((T) -> Endpoint)?) -> MoyaProvider<T> {
-            if isStub == false {
+            if !isStub {
                 return MoyaProvider<T>(
                     session: Session(interceptor: AuthenticatorInterceptor())
                 )

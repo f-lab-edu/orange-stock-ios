@@ -99,7 +99,7 @@ extension SettingViewModel: SettingViewModelInput {
         // 키체인에서 애플아이디 삭제
         deleteAppleID()
         // 액세스 토큰 폐기
-        revokeAccessToken()
+        revokeAccessToken(UserDefaultsManager.shared.getAccessToken())
     }
 }
 
@@ -139,8 +139,8 @@ extension SettingViewModel {
         }
     }
     /// access token 폐기
-    private func revokeAccessToken() {
-        guard let accessToken = UserDefaultsManager.shared.getAccessToken() else { return }
+    private func revokeAccessToken(_ token: String?) {
+        guard let accessToken = token else { return }
         OAuthAPIService().revokeAccessToken(accessToken) { result in
             switch result {
             case .success(let response):

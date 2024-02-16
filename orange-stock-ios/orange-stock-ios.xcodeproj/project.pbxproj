@@ -29,6 +29,8 @@
 		02B6A8A12B52962E0014F957 /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6A8A02B52962E0014F957 /* LoginValidator.swift */; };
 		02B71B0D2B50359B00BCEB78 /* AppleLoginHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B71B0C2B50359B00BCEB78 /* AppleLoginHelperTests.swift */; };
 		02BB92E42B35375500353603 /* AlertsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BB92E32B35375500353603 /* AlertsUtils.swift */; };
+		02BD07E32B7F6A05004FF395 /* StockItemListAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD07E22B7F6A05004FF395 /* StockItemListAPIServiceTests.swift */; };
+		02BD07E82B7F76B0004FF395 /* ResponseMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BD07E72B7F76B0004FF395 /* ResponseMessageProtocol.swift */; };
 		02C6BEFA2B0CC99B00832BC7 /* AdditionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C6BEF92B0CC99B00832BC7 /* AdditionTableViewCell.swift */; };
 		02C813872B0F7AB400CCA68B /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C813862B0F7AB400CCA68B /* Stock.swift */; };
 		02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */; };
@@ -43,6 +45,10 @@
 		02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E9D9E02B1A2969008D1EC3 /* UIFont.swift */; };
 		02EA1F222B2F28BB00BF2509 /* TokenRevokeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */; };
 		02EA1F242B2F2E2C00BF2509 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA1F232B2F2E2C00BF2509 /* LoginViewController.swift */; };
+		02F3AE3A2B7CE10A00608216 /* StockItemListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F3AE392B7CE10A00608216 /* StockItemListAPI.swift */; };
+		02F3AE3C2B7CE5CD00608216 /* StockItemListAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F3AE3B2B7CE5CD00608216 /* StockItemListAPIService.swift */; };
+		02F3AE3E2B7CED4300608216 /* APIServiceProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F3AE3D2B7CED4300608216 /* APIServiceProviderProtocol.swift */; };
+		02F3AE402B7CEFCA00608216 /* StockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F3AE3F2B7CEFCA00608216 /* StockItem.swift */; };
 		02F6DA392B6CFD4300BEE0DD /* SettingBaseTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F6DA382B6CFD4300BEE0DD /* SettingBaseTableViewProtocol.swift */; };
 		02FA12632B0B73A4006A546F /* FavoriteStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */; };
 		02FA12672B0B742D006A546F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA12662B0B742D006A546F /* SnapKit */; };
@@ -98,6 +104,8 @@
 		02B6A8A02B52962E0014F957 /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
 		02B71B0C2B50359B00BCEB78 /* AppleLoginHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelperTests.swift; sourceTree = "<group>"; };
 		02BB92E32B35375500353603 /* AlertsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsUtils.swift; sourceTree = "<group>"; };
+		02BD07E22B7F6A05004FF395 /* StockItemListAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemListAPIServiceTests.swift; sourceTree = "<group>"; };
+		02BD07E72B7F76B0004FF395 /* ResponseMessageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMessageProtocol.swift; sourceTree = "<group>"; };
 		02C6BEF92B0CC99B00832BC7 /* AdditionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionTableViewCell.swift; sourceTree = "<group>"; };
 		02C813862B0F7AB400CCA68B /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		02C92BC82B16068C0076C37C /* String+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NumberFormatter.swift"; sourceTree = "<group>"; };
@@ -113,6 +121,10 @@
 		02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRevokeResponse.swift; sourceTree = "<group>"; };
 		02EA1F232B2F2E2C00BF2509 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02EA1F252B2F307300BF2509 /* orange-stock-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "orange-stock-ios.entitlements"; sourceTree = "<group>"; };
+		02F3AE392B7CE10A00608216 /* StockItemListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemListAPI.swift; sourceTree = "<group>"; };
+		02F3AE3B2B7CE5CD00608216 /* StockItemListAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemListAPIService.swift; sourceTree = "<group>"; };
+		02F3AE3D2B7CED4300608216 /* APIServiceProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProviderProtocol.swift; sourceTree = "<group>"; };
+		02F3AE3F2B7CEFCA00608216 /* StockItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItem.swift; sourceTree = "<group>"; };
 		02F6DA382B6CFD4300BEE0DD /* SettingBaseTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseTableViewProtocol.swift; sourceTree = "<group>"; };
 		02FA12622B0B73A4006A546F /* FavoriteStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListViewController.swift; sourceTree = "<group>"; };
 		02FA12682B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStockListTableViewCell.swift; sourceTree = "<group>"; };
@@ -186,10 +198,10 @@
 				02EA1F252B2F307300BF2509 /* orange-stock-ios.entitlements */,
 				02374CB12B1C136600EDB23D /* LifeCycles */,
 				02374CBF2B1C40D600EDB23D /* Configs */,
+				023DF2392B2EBB85001FE9F4 /* Protocols */,
 				02AD5B482B4C15BE00815827 /* Helpers */,
 				02374CC62B1C4E5C00EDB23D /* Managers */,
 				02374CC22B1C496D00EDB23D /* Network */,
-				023DF2392B2EBB85001FE9F4 /* Protocols */,
 				02F0A8DD2B13196600D37083 /* Models */,
 				02374CC32B1C4DBE00EDB23D /* ViewModels */,
 				02374CB22B1C138000EDB23D /* Controllers */,
@@ -205,8 +217,9 @@
 		021443162B09F75600CC1CCB /* orange-stock-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				0259EB892B333A230067A9D6 /* LoginViewModelTests.swift */,
-				02B71B0C2B50359B00BCEB78 /* AppleLoginHelperTests.swift */,
+				02BD07E12B7F69EF004FF395 /* Networking */,
+				02BD07E02B7F69E6004FF395 /* Helpers */,
+				02BD07DF2B7F69D7004FF395 /* ViewModels */,
 			);
 			path = "orange-stock-iosTests";
 			sourceTree = "<group>";
@@ -264,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				02374CB82B1C1AA400EDB23D /* OAuthAPIService.swift */,
+				02F3AE3B2B7CE5CD00608216 /* StockItemListAPIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,8 +323,8 @@
 		023DF2392B2EBB85001FE9F4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */,
-				02F6DA382B6CFD4300BEE0DD /* SettingBaseTableViewProtocol.swift */,
+				02BD07E52B7F7685004FF395 /* Networking */,
+				02BD07E42B7F767B004FF395 /* Layout */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -332,6 +346,48 @@
 			path = Interceptor;
 			sourceTree = "<group>";
 		};
+		02BD07DF2B7F69D7004FF395 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0259EB892B333A230067A9D6 /* LoginViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		02BD07E02B7F69E6004FF395 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				02B71B0C2B50359B00BCEB78 /* AppleLoginHelperTests.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		02BD07E12B7F69EF004FF395 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				02BD07E22B7F6A05004FF395 /* StockItemListAPIServiceTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		02BD07E42B7F767B004FF395 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				023DF23A2B2EBBAF001FE9F4 /* LayoutProtocol.swift */,
+				02F6DA382B6CFD4300BEE0DD /* SettingBaseTableViewProtocol.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		02BD07E52B7F7685004FF395 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				02F3AE3D2B7CED4300608216 /* APIServiceProviderProtocol.swift */,
+				02BD07E72B7F76B0004FF395 /* ResponseMessageProtocol.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		02C92BC72B1606540076C37C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				02D195D12B1E0A7600F4A060 /* OAuthAPI.swift */,
+				02F3AE392B7CE10A00608216 /* StockItemListAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -356,6 +413,7 @@
 				02C813862B0F7AB400CCA68B /* Stock.swift */,
 				02D625772B1C9FE700B51949 /* ResponseMessage.swift */,
 				02EA1F212B2F28BB00BF2509 /* TokenRevokeResponse.swift */,
+				02F3AE3F2B7CEFCA00608216 /* StockItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -659,6 +717,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F3AE3E2B7CED4300608216 /* APIServiceProviderProtocol.swift in Sources */,
 				02FA126B2B0B870E006A546F /* FavoriteStockListHeaderView.swift in Sources */,
 				023DF23B2B2EBBAF001FE9F4 /* LayoutProtocol.swift in Sources */,
 				02C6BEFA2B0CC99B00832BC7 /* AdditionTableViewCell.swift in Sources */,
@@ -674,6 +733,7 @@
 				02B6A8A12B52962E0014F957 /* LoginValidator.swift in Sources */,
 				02C92BC92B16068C0076C37C /* String+NumberFormatter.swift in Sources */,
 				02D625782B1C9FE700B51949 /* ResponseMessage.swift in Sources */,
+				02F3AE402B7CEFCA00608216 /* StockItem.swift in Sources */,
 				02CFFFEA2B2753DE00E7FF0B /* UIColor+Convenience.swift in Sources */,
 				02DE2F482B69155A00CFB053 /* StockLabel.swift in Sources */,
 				02EA1F242B2F2E2C00BF2509 /* LoginViewController.swift in Sources */,
@@ -686,8 +746,11 @@
 				02E9D9E12B1A2969008D1EC3 /* UIFont.swift in Sources */,
 				02374CC52B1C4E5900EDB23D /* UserDefaultsManager.swift in Sources */,
 				02D195D22B1E0A7600F4A060 /* OAuthAPI.swift in Sources */,
+				02F3AE3C2B7CE5CD00608216 /* StockItemListAPIService.swift in Sources */,
+				02BD07E82B7F76B0004FF395 /* ResponseMessageProtocol.swift in Sources */,
 				02FA12692B0B7EBB006A546F /* FavoriteStockListTableViewCell.swift in Sources */,
 				02B6A89F2B520EEA0014F957 /* SettingViewModel.swift in Sources */,
+				02F3AE3A2B7CE10A00608216 /* StockItemListAPI.swift in Sources */,
 				02CFFFE82B27514300E7FF0B /* SettingViewController.swift in Sources */,
 				021443032B09F75500CC1CCB /* SceneDelegate.swift in Sources */,
 				024CAA0C2B31AE3400AE6C0E /* KeychainItemManager.swift in Sources */,
@@ -699,6 +762,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02BD07E32B7F6A05004FF395 /* StockItemListAPIServiceTests.swift in Sources */,
 				02B71B0D2B50359B00BCEB78 /* AppleLoginHelperTests.swift in Sources */,
 				0259EB8A2B333A230067A9D6 /* LoginViewModelTests.swift in Sources */,
 			);

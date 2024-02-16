@@ -9,7 +9,6 @@ import Foundation
 
 /// Model: OAuth를 제외한 Open API의 Response Message
 struct ResponseMessage: Codable {
-    
     var message: String? // 응답 메세지
     var code: ResponseCode? // 응답 코드
     
@@ -24,7 +23,7 @@ struct ResponseMessage: Codable {
 extension ResponseMessage {
     
     enum ResponseCode: String, Codable {
-        case success = "0000" // 정상적으로 조회가 완료되었습니다.
+        case success = "00000" // 정상적으로 조회가 완료되었습니다.
         case insufficientTRCont = "IGW40010" // 연속구분(Cont)은 필수입니다.
         case insufficientTRCode = "IGW00214" // TR CD는 필수입니다.
         case invaildContentType = "IGW00133" // Content-Type이 유효하지 않습니다.
@@ -32,6 +31,7 @@ extension ResponseMessage {
         case invaildTRCode = "IGW00215" // 유효하지 않은 TR CD 입니다.
         case invaildToken = "IGW00121" // 유효하지 않은 token입니다.
         case unissuedToken = "IGW00205" // credentials_type이 유효하지 않습니다.(Bearer)
+        case requestParameterError = "IGW40012" // 요청데이터(json) 형식 오류 입니다.
         
         /// 토큰 에러 코드인지 확인
         var isTokenErrorCode: Bool {

@@ -8,25 +8,55 @@
 import Foundation
 import Alamofire
 
-final class AuthenticatorInterceptor: RequestInterceptor {
+final class AuthenticatorInterceptor {
     
-    /// adapter 역할은 Moya의 AccessTokenPlugin이 담당
+    // MARK: Properties
+    
+    static let shared = AuthenticatorInterceptor()
+    
+    // MARK: Enum
+    
+    private enum AccessTokenStatus {
+        case vaild
+        case invaild
+        case networkError
+    }
+}
+
+// MARK: - RequestInterceptor
+
+extension AuthenticatorInterceptor: RequestInterceptor {
+
+    /// adapter - AccessToken 삽입
+    func adapt(_ urlRequest: URLRequest,
+               for session: Session,
+               completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        guard let accessToken = UserDefaultsManager.shared.getAccessToken()
+        else {
+            completion(.success(urlRequest))
+            return
+        }
+        
+        var urlRequest = urlRequest
+        urlRequest.headers.add(.authorization(bearerToken: accessToken))
+        completion(.success(urlRequest))
+    }
 
     /// access token이 유효하지 않다면 access token 갱신한다.
     func retry(_ request: Request,
                for session: Session,
                dueTo error: Error,
                completion: @escaping (RetryResult) -> Void) {
-        // access token을 갱신해야하는 상황이 아니라면 바로 리턴한다.
-        guard needUpdateAccessToken(request: request) else {
+        switch accessTokenStatus(request: request) {
+        case .vaild:
+            completion(.doNotRetry)
+        case .networkError:
             completion(.doNotRetryWithError(error))
-            return
-        }
-        // access token 갱신 API 호출
-        requestAccessToken { success, error in
-            completion(
-                success ? .retry : .doNotRetryWithError(error!)
-            )
+        case .invaild:
+            // access token 갱신 API 호출
+            requestAccessToken { success, error in
+                completion(success ? .retry : .doNotRetryWithError(error!))
+            }
         }
     }
 }
@@ -36,13 +66,13 @@ final class AuthenticatorInterceptor: RequestInterceptor {
 extension AuthenticatorInterceptor {
     
     /// access token 갱신이 필요한지 확인
-    func needUpdateAccessToken(request: Request) -> Bool {
+    private func accessTokenStatus(request: Request) -> AccessTokenStatus {
         guard let data = (request as? DataRequest)?.data,
-              let rspMsg = decode(ResponseMessage(), from: data),
-              let code = rspMsg.code
-        else { return false }
-        
-        return code.isTokenErrorCode
+              let rspMsg = decode(ResponseMessage(), from: data)
+        else { return .networkError }
+
+        let isInvaildToken = rspMsg.code?.isTokenErrorCode ?? false
+        return isInvaildToken ? .invaild : .vaild
     }
     
     /// access token 갱신 API

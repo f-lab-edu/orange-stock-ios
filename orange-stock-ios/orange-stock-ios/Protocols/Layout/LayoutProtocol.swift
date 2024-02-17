@@ -24,8 +24,10 @@ protocol LayoutProtocol {
 
 extension LayoutProtocol {
     func navigation(item: NavigationViewItems) {}
-    func attributes() {}
-    func constraints() {}
+    func attributes() { // Noncompliant - method is empty
+    }
+    func constraints() { // Noncompliant - method is empty
+    }
 }
 
 /// SubViews UIComponents

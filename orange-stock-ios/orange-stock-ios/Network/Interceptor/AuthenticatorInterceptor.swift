@@ -37,9 +37,9 @@ extension AuthenticatorInterceptor: RequestInterceptor {
             return
         }
         
-        var urlRequest = urlRequest
-        urlRequest.headers.add(.authorization(bearerToken: accessToken))
-        completion(.success(urlRequest))
+        var newUrlRequest = urlRequest
+        newUrlRequest.headers.add(.authorization(bearerToken: accessToken))
+        completion(.success(newUrlRequest))
     }
 
     /// access token이 유효하지 않다면 access token 갱신한다.

@@ -22,8 +22,14 @@ final class StockItemListAPIService: APIServiceProviderProtocol {
     }
     
     // 주식 종목 조회 API
-    func retrieveStockItemList(completion: @escaping (Result<StockItemList, Error>) -> Void) {
-        request(provider: provider, target: .retrieveStockItemList, completion: completion)
+    func retrieveStockItemList() async throws -> StockItemList {
+        do {
+            return try await asyncRequest(
+                provider: provider,
+                target: .retrieveStockItemList
+            )
+        } catch {
+            throw error
+        }
     }
-    
 }

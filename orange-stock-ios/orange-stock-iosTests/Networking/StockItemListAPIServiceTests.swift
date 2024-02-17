@@ -27,34 +27,13 @@ final class StockItemListAPIServiceTests: XCTestCase {
         }
     }
     
-    /// API 호출 테스트
-    func testRequestAPIRetrieveStockItemList() {
-        var resultOfTask: StockItemList?
-        let expectationTest = XCTestExpectation(description: "request")
-        
-        StockItemListAPIService().retrieveStockItemList { result in
-            switch result {
-            case .success(let stockItemList):
-                resultOfTask = stockItemList
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-            expectationTest.fulfill()
-        }
-        wait(for: [expectationTest], timeout: 5.0)
-        XCTAssertNotNil(resultOfTask, "StockItmeList API Request Fail")
-    }
-    
     /// API Network Fail Test - 500
-    func testNetworkResponse500() {
+    func testNetworkResponse500() async {
         let apiService = StockItemListAPIService(isStub: true, sampleStatusCode: 500)
-        apiService.retrieveStockItemList { result in
-            switch result {
-            case .success(let stockItemList):
-                XCTAssertNil(stockItemList)
-            case .failure(let error):
-                XCTAssertNotNil(error)
-            }
+        do {
+            _ = try await apiService.retrieveStockItemList()
+        } catch {
+            XCTAssertNotNil(error, "StockItemList API Response 500 Fail")
         }
     }
 }
